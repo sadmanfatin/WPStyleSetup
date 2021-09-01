@@ -1,0 +1,15 @@
+SELECT DISTINCT  POCL.SYSTEM_ID, POCH.LC_UNIT, POCH.BUYER_ID, POCH.SEASON, POCH.STYLE ,   POCL.COLOR, POCL.WASH_NAME , POCH.ORDER_QTY 
+
+(
+
+)   
+FROM XX_OM_POC_H_T POCH,
+XX_OM_POC_L_T POCL ,
+WP_STYLE_WISE_PROCESS_SAM_V 
+
+
+WHERE POCH.POC_ID = POCL.POC_ID
+AND POCH.GM_APPROVAL = 'Y'
+and not exists (select  sts.system_id from wp_style_setup sts where sts.system_id =   )
+
+

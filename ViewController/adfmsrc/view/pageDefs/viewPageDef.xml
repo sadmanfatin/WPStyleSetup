@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="viewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="WpStyleSetupVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="WpStyleSetupVO1Iterator"/>
+    <searchRegion Binds="WpStyleSetupVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpStyleSetupVO1Query"/>
+    <iterator Binds="WpStyleWiseProcessSamVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="WpStyleWiseProcessSamVO1Iterator"/>
+    <searchRegion Binds="WpStyleWiseProcessSamVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpStyleWiseProcessSamVO1Query"/>
+    <invokeAction Binds="setSessionValues" id="setSessionValue"
+                  Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="WpStyleSetupVO1Iterator" id="WpStyleSetupVO1">
+      <nodeDefinition DefName="model.view.WpStyleSetupVO"
+                      Name="WpStyleSetupVO10">
+        <AttrNames>
+          <Item Value="StyleSetupId"/>
+          <Item Value="SystemId"/>
+          <Item Value="OrderQty"/>
+          <Item Value="ProductionUnit"/>
+          <Item Value="LcUnit"/>
+          <Item Value="Version"/>
+          <Item Value="PbFlag"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="WpStyleWiseProcessSamVO1Iterator"
+          id="WpStyleWiseProcessSamVO1">
+      <nodeDefinition DefName="model.view.WpStyleWiseProcessSamVO"
+                      Name="WpStyleWiseProcessSamVO10">
+        <AttrNames>
+          <Item Value="SamId"/>
+          <Item Value="StyleSetupId"/>
+          <Item Value="WpProcessId"/>
+          <Item Value="ProcessSeq"/>
+          <Item Value="PlanDay"/>
+          <Item Value="BatchQty"/>
+          <Item Value="BatchTime"/>
+          <Item Value="Sam"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="WpStyleSetupVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="WpStyleSetupVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="WpStyleWiseProcessSamVO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="WpStyleWiseProcessSamVO1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.setSessionValues_AppModuleDataControl_dataProvider_setSessionValues_result">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respApplId" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
