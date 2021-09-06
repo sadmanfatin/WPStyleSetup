@@ -6,7 +6,22 @@
   Name="WpStyleWiseProcessSamVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
-  SelectList="WpStyleWiseProcessSamEO.SAM_ID, 
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.view.WpStyleWiseProcessSamVORowImpl"
+  ComponentClass="model.view.WpStyleWiseProcessSamVOImpl"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="100"
+  RangeSize="100">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery>
+    <![CDATA[SELECT WpStyleWiseProcessSamEO.SAM_ID, 
        WpStyleWiseProcessSamEO.STYLE_SETUP_ID, 
        WpStyleWiseProcessSamEO.WP_PROCESS_ID, 
        WpStyleWiseProcessSamEO.PROCESS_SEQ, 
@@ -17,15 +32,11 @@
        WpStyleWiseProcessSamEO.CREATION_DATE, 
        WpStyleWiseProcessSamEO.CREATED_BY, 
        WpStyleWiseProcessSamEO.LAST_UPDATED_BY, 
-       WpStyleWiseProcessSamEO.LAST_UPDATED_DATE"
-  FromList="WP_STYLE_WISE_PROCESS_SAM WpStyleWiseProcessSamEO"
-  BindingStyle="OracleName"
-  CustomQuery="false"
-  PageIterMode="Full"
-  UseGlueCode="false">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
-  </DesignTime>
+       WpStyleWiseProcessSamEO.LAST_UPDATED_DATE,
+       WpStyleWiseProcessSamEO.SAM_VERSION,
+       (select wp.process_name from wp_process_info wp where wp.WP_PROCESS_ID = WpStyleWiseProcessSamEO.WP_PROCESS_ID ) PROCESS_NAME
+FROM WP_STYLE_WISE_PROCESS_SAM WpStyleWiseProcessSamEO]]>
+  </SQLQuery>
   <EntityUsage
     Name="WpStyleWiseProcessSamEO"
     Entity="model.entity.WpStyleWiseProcessSamEO"/>
@@ -102,4 +113,24 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="WpStyleWiseProcessSamEO"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="SamVersion"
+    PrecisionRule="true"
+    EntityAttrName="SamVersion"
+    EntityUsage="WpStyleWiseProcessSamEO"
+    AliasName="SAM_VERSION"/>
+  <ViewAttribute
+    Name="ProcessName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROCESS_NAME"
+    Expression="PROCESS_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

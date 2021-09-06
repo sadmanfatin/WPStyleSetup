@@ -1,0 +1,48 @@
+CREATE OR REPLACE PROCEDURE APPS.UPDATE_WP_STYLE_SETUP_VERSION(P_STYLE_SETUP_ID IN NUMBER , P_USER_ID IN NUMBER )
+AS
+
+ORG_ID NUMBER ;
+
+
+CURSOR C1 IS SELECT SV.SYSTEM_ID, SV.UNIT_PROCESS_ID, WPI.WP_PROCESS_ID,  SV.SEQ_NO PROCESS_SEQ , SV.BATCH_TIME, SV.BATCH_QTY, SV.SAM  , SV.SAM_VERSION
+             FROM WP_STYLE_WISE_PROCESS_SAM_V SV  ,  WP_PROCESS_INFO WPI
+             WHERE 1=1
+             AND SV.UNIT_PROCESS_ID = WPI.UNIT_PROCESS_ID 
+             AND SV.SYSTEM_ID = (SELECT SYSTEM_ID 
+                                        FROM WP_STYLE_SETUP S 
+                                        WHERE S.STYLE_SETUP_ID  = P_STYLE_SETUP_ID 
+                                        AND S.ORG_ID = SV.ORG_ID
+                                         );
+ 
+
+UPDATED_SAM_VERSION NUMBER;                                        
+                                         
+                                         
+BEGIN 
+  
+
+   FOR CC1 IN C1 LOOP 
+   
+     INSERT INTO WP_STYLE_WISE_PROCESS_SAM ( SAM_ID,  STYLE_SETUP_ID, WP_PROCESS_ID , PROCESS_SEQ , BATCH_QTY, BATCH_TIME, SAM ,SAM_VERSION , CREATED_BY, CREATION_DATE )
+     VALUES ( WP_STYLE_WISE_PROCESS_SAM_SEQ.NEXTVAL ,
+                 P_STYLE_SETUP_ID,
+                 CC1.WP_PROCESS_ID,
+                 CC1.PROCESS_SEQ,
+                 CC1.BATCH_QTY,
+                 CC1.BATCH_TIME,
+                 CC1.SAM,
+                 CC1.SAM_VERSION,
+                  P_USER_ID,
+                  SYSDATE 
+     
+             ) ;
+             
+        UPDATED_SAM_VERSION := CC1.SAM_VERSION;     
+     
+     
+             
+    END LOOP;
+
+    UPDATE WP_STYLE_SETUP SET SAM_VERSION = UPDATED_SAM_VERSION WHERE  STYLE_SETUP_ID  = P_STYLE_SETUP_ID;
+
+END UPDATE_WP_STYLE_SETUP_VERSION;

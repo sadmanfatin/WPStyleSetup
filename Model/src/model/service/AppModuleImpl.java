@@ -7,6 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import model.service.common.AppModule;
 
+import model.view.PocStylesVOImpl;
+import model.view.WpStyleSetupVOImpl;
+
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
@@ -30,7 +33,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         System.out.println("====================  set session values    ================================");
         
         
-       orgId = "344";
+       orgId = "343";
        userId = "5219";
     //
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
@@ -85,9 +88,37 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getWpStyleWiseProcessSamR01Link1() {
         return (ViewLinkImpl)findViewLink("WpStyleWiseProcessSamR01Link1");
     }
-    
-    
-    
-    
-    
+
+
+    /**
+     * Container's getter for OrgVO1.
+     * @return OrgVO1
+     */
+    public ViewObjectImpl getOrgVO1() {
+        return (ViewObjectImpl)findViewObject("OrgVO1");
+    }
+
+    /**
+     * Container's getter for SamVO1.
+     * @return SamVO1
+     */
+    public ViewObjectImpl getSamVO1() {
+        return (ViewObjectImpl)findViewObject("SamVO1");
+    }
+
+    /**
+     * Container's getter for OrgVO_vs_SamVO_VL1.
+     * @return OrgVO_vs_SamVO_VL1
+     */
+    public ViewLinkImpl getOrgVO_vs_SamVO_VL1() {
+        return (ViewLinkImpl)findViewLink("OrgVO_vs_SamVO_VL1");
+    }
+
+    /**
+     * Container's getter for PocStylesVO1.
+     * @return PocStylesVO1
+     */
+    public PocStylesVOImpl getPocStylesVO1() {
+        return (PocStylesVOImpl)findViewObject("PocStylesVO1");
+    }
 }

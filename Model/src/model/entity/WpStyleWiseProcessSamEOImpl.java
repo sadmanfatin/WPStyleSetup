@@ -147,6 +147,16 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
             }
         }
         ,
+        SamVersion {
+            public Object get(WpStyleWiseProcessSamEOImpl obj) {
+                return obj.getSamVersion();
+            }
+
+            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
+                obj.setSamVersion((Number)value);
+            }
+        }
+        ,
         WpStyleSetupEO {
             public Object get(WpStyleWiseProcessSamEOImpl obj) {
                 return obj.getWpStyleSetupEO();
@@ -184,6 +194,7 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int SAMID = AttributesEnum.SamId.index();
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int WPPROCESSID = AttributesEnum.WpProcessId.index();
@@ -196,12 +207,23 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int WPSTYLESETUPEO = AttributesEnum.WpStyleSetupEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public WpStyleWiseProcessSamEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        if (mDefinitionObject == null) {
+            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpStyleWiseProcessSamEO");
+        }
+        return mDefinitionObject;
     }
 
     /**
@@ -397,6 +419,22 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for SamVersion, using the alias name SamVersion.
+     * @return the SamVersion
+     */
+    public Number getSamVersion() {
+        return (Number)getAttributeInternal(SAMVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SamVersion.
+     * @param value value to set the SamVersion
+     */
+    public void setSamVersion(Number value) {
+        setAttributeInternal(SAMVERSION, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -443,6 +481,7 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
         setAttributeInternal(WPSTYLESETUPEO, value);
     }
 
+
     /**
      * @param samId key constituent
 
@@ -450,16 +489,6 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Number samId) {
         return new Key(new Object[]{samId});
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        if (mDefinitionObject == null) {
-            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpStyleWiseProcessSamEO");
-        }
-        return mDefinitionObject;
     }
 
     /**

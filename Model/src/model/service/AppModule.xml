@@ -22,11 +22,26 @@
   <ViewUsage
     Name="WpStyleWiseProcessSamVO1"
     ViewObjectName="model.view.WpStyleWiseProcessSamVO"/>
+  <ViewUsage
+    Name="OrgVO1"
+    ViewObjectName="model.view.OrgVO"/>
+  <ViewUsage
+    Name="SamVO1"
+    ViewObjectName="model.view.SamVO"/>
+  <ViewUsage
+    Name="PocStylesVO1"
+    ViewObjectName="model.view.PocStylesVO"/>
   <ViewLinkUsage
     Name="WpStyleWiseProcessSamR01Link1"
     ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"
     SrcViewUsageName="model.service.AppModule.WpStyleSetupVO1"
     DstViewUsageName="model.service.AppModule.WpStyleWiseProcessSamVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgVO_vs_SamVO_VL1"
+    ViewLinkObjectName="model.view.OrgVO_vs_SamVO_VL"
+    SrcViewUsageName="model.service.AppModule.OrgVO1"
+    DstViewUsageName="model.service.AppModule.SamVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

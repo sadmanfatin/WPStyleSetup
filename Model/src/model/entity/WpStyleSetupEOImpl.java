@@ -48,16 +48,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             }
         }
         ,
-        OrderQty {
-            public Object get(WpStyleSetupEOImpl obj) {
-                return obj.getOrderQty();
-            }
-
-            public void put(WpStyleSetupEOImpl obj, Object value) {
-                obj.setOrderQty((Number)value);
-            }
-        }
-        ,
         ProductionUnit {
             public Object get(WpStyleSetupEOImpl obj) {
                 return obj.getProductionUnit();
@@ -65,36 +55,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
 
             public void put(WpStyleSetupEOImpl obj, Object value) {
                 obj.setProductionUnit((Number)value);
-            }
-        }
-        ,
-        LcUnit {
-            public Object get(WpStyleSetupEOImpl obj) {
-                return obj.getLcUnit();
-            }
-
-            public void put(WpStyleSetupEOImpl obj, Object value) {
-                obj.setLcUnit((Number)value);
-            }
-        }
-        ,
-        Version {
-            public Object get(WpStyleSetupEOImpl obj) {
-                return obj.getVersion();
-            }
-
-            public void put(WpStyleSetupEOImpl obj, Object value) {
-                obj.setVersion((Number)value);
-            }
-        }
-        ,
-        PbFlag {
-            public Object get(WpStyleSetupEOImpl obj) {
-                return obj.getPbFlag();
-            }
-
-            public void put(WpStyleSetupEOImpl obj, Object value) {
-                obj.setPbFlag((String)value);
             }
         }
         ,
@@ -138,6 +98,36 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        SamVersion {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getSamVersion();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setSamVersion((Number)value);
+            }
+        }
+        ,
+        OrgId {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getOrgId();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setOrgId((Number)value);
+            }
+        }
+        ,
+        PbFlag {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getPbFlag();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setPbFlag((String)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamEO {
             public Object get(WpStyleSetupEOImpl obj) {
                 return obj.getWpStyleWiseProcessSamEO();
@@ -174,23 +164,35 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
-    public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
-    public static final int LCUNIT = AttributesEnum.LcUnit.index();
-    public static final int VERSION = AttributesEnum.Version.index();
-    public static final int PBFLAG = AttributesEnum.PbFlag.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int SAMVERSION = AttributesEnum.SamVersion.index();
+    public static final int ORGID = AttributesEnum.OrgId.index();
+    public static final int PBFLAG = AttributesEnum.PbFlag.index();
     public static final int WPSTYLEWISEPROCESSSAMEO = AttributesEnum.WpStyleWiseProcessSamEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public WpStyleSetupEOImpl() {
+    }
+
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        if (mDefinitionObject == null) {
+            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpStyleSetupEO");
+        }
+        return mDefinitionObject;
     }
 
     /**
@@ -225,21 +227,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
         setAttributeInternal(SYSTEMID, value);
     }
 
-    /**
-     * Gets the attribute value for OrderQty, using the alias name OrderQty.
-     * @return the OrderQty
-     */
-    public Number getOrderQty() {
-        return (Number)getAttributeInternal(ORDERQTY);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for OrderQty.
-     * @param value value to set the OrderQty
-     */
-    public void setOrderQty(Number value) {
-        setAttributeInternal(ORDERQTY, value);
-    }
 
     /**
      * Gets the attribute value for ProductionUnit, using the alias name ProductionUnit.
@@ -257,53 +244,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
         setAttributeInternal(PRODUCTIONUNIT, value);
     }
 
-    /**
-     * Gets the attribute value for LcUnit, using the alias name LcUnit.
-     * @return the LcUnit
-     */
-    public Number getLcUnit() {
-        return (Number)getAttributeInternal(LCUNIT);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for LcUnit.
-     * @param value value to set the LcUnit
-     */
-    public void setLcUnit(Number value) {
-        setAttributeInternal(LCUNIT, value);
-    }
-
-    /**
-     * Gets the attribute value for Version, using the alias name Version.
-     * @return the Version
-     */
-    public Number getVersion() {
-        return (Number)getAttributeInternal(VERSION);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for Version.
-     * @param value value to set the Version
-     */
-    public void setVersion(Number value) {
-        setAttributeInternal(VERSION, value);
-    }
-
-    /**
-     * Gets the attribute value for PbFlag, using the alias name PbFlag.
-     * @return the PbFlag
-     */
-    public String getPbFlag() {
-        return (String)getAttributeInternal(PBFLAG);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for PbFlag.
-     * @param value value to set the PbFlag
-     */
-    public void setPbFlag(String value) {
-        setAttributeInternal(PBFLAG, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -370,6 +310,54 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for SamVersion, using the alias name SamVersion.
+     * @return the SamVersion
+     */
+    public Number getSamVersion() {
+        return (Number)getAttributeInternal(SAMVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SamVersion.
+     * @param value value to set the SamVersion
+     */
+    public void setSamVersion(Number value) {
+        setAttributeInternal(SAMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for OrgId, using the alias name OrgId.
+     * @return the OrgId
+     */
+    public Number getOrgId() {
+        return (Number)getAttributeInternal(ORGID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OrgId.
+     * @param value value to set the OrgId
+     */
+    public void setOrgId(Number value) {
+        setAttributeInternal(ORGID, value);
+    }
+
+    /**
+     * Gets the attribute value for PbFlag, using the alias name PbFlag.
+     * @return the PbFlag
+     */
+    public String getPbFlag() {
+        return (String)getAttributeInternal(PBFLAG);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PbFlag.
+     * @param value value to set the PbFlag
+     */
+    public void setPbFlag(String value) {
+        setAttributeInternal(PBFLAG, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -409,6 +397,7 @@ public class WpStyleSetupEOImpl extends EntityImpl {
         return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMEO);
     }
 
+
     /**
      * @param styleSetupId key constituent
 
@@ -416,16 +405,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Number styleSetupId) {
         return new Key(new Object[]{styleSetupId});
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        if (mDefinitionObject == null) {
-            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpStyleSetupEO");
-        }
-        return mDefinitionObject;
     }
 
     /**
@@ -443,10 +422,14 @@ public class WpStyleSetupEOImpl extends EntityImpl {
              new oracle.jbo.server.SequenceImpl("WP_STYLE_SETUP_SEQ",  getDBTransaction());
             oracle.jbo.domain.Number sVal = s.getSequenceNumber();
              this.setStyleSetupId(sVal);
-               
-          
 
-     }
+
+        try {
+            this.setOrgId( new Number(orgId)  );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
      /**
       * Add locking logic here.

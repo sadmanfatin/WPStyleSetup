@@ -6,25 +6,86 @@
   Name="WpStyleSetupVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
-  SelectList="WpStyleSetupEO.STYLE_SETUP_ID, 
-       WpStyleSetupEO.SYSTEM_ID, 
-       WpStyleSetupEO.ORDER_QTY, 
-       WpStyleSetupEO.PRODUCTION_UNIT, 
-       WpStyleSetupEO.LC_UNIT, 
-       WpStyleSetupEO.VERSION, 
-       WpStyleSetupEO.PB_FLAG, 
-       WpStyleSetupEO.CREATED_BY, 
-       WpStyleSetupEO.CREATION_DATE, 
-       WpStyleSetupEO.LAST_UPDATED_BY, 
-       WpStyleSetupEO.LAST_UPDATED_DATE"
-  FromList="WP_STYLE_SETUP WpStyleSetupEO"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  RowClass="model.view.WpStyleSetupVORowImpl"
+  ComponentClass="model.view.WpStyleSetupVOImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="OrgLOV1"
+    ViewObjectName="model.lov.OrgLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProductionUnitName"
+    ListVOName="OrgLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductionUnitName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ProductionUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgName"/>
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT WPSTYLESETUPEO.STYLE_SETUP_ID, 
+       WPSTYLESETUPEO.SYSTEM_ID,
+       POC.LC_UNIT,  
+         APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) LC_UNIT_NAME,       
+        POC.BUYER_ID, 
+        APPS.XX_OM_BUYER_NAME_FOR_ID(POC.BUYER_ID) BUYER_NAME ,
+        POC.SEASON, 
+        POC.STYLE ,   
+        POC.COLOR, 
+        POC.WASH_NAME , 
+       POC.ORDER_QTY ,       
+       WPSTYLESETUPEO.PRODUCTION_UNIT, 
+       APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) PRODUCTION_UNIT_NAME,   
+       WPSTYLESETUPEO.PB_FLAG, 
+       WPSTYLESETUPEO.CREATED_BY, 
+       WPSTYLESETUPEO.CREATION_DATE, 
+       WPSTYLESETUPEO.LAST_UPDATED_BY, 
+       WPSTYLESETUPEO.LAST_UPDATED_DATE, 
+       WPSTYLESETUPEO.SAM_VERSION, 
+       WPSTYLESETUPEO.ORG_ID,
+     (
+        SELECT  nvl(  MAX(SV.SAM_VERSION),0) FROM  WP_STYLE_WISE_PROCESS_SAM_V SV  WHERE  SV.SYSTEM_ID = WPSTYLESETUPEO.SYSTEM_ID
+        AND  SV.ORG_ID =  WPSTYLESETUPEO.ORG_ID
+               
+      )  AVAILABLE_SAM_VERSION            
+       
+    FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
+    (  SELECT  POCL.SYSTEM_ID, 
+        POCH.LC_UNIT, 
+        POCH.BUYER_ID, 
+        POCH.SEASON, 
+        POCH.STYLE ,   
+        POCL.COLOR, 
+        POCL.WASH_NAME , 
+        POCH.ORDER_QTY 
+        FROM XX_OM_POC_H_T POCH,
+       XX_OM_POC_L_T POCL 
+      WHERE POCH.POC_ID = POCL.POC_ID
+       AND POCH.GM_APPROVAL = 'Y'  
+      ) POC  
+     WHERE WPSTYLESETUPEO.SYSTEM_ID = POC.SYSTEM_ID]]>
+  </SQLQuery>
   <EntityUsage
     Name="WpStyleSetupEO"
     Entity="model.entity.WpStyleSetupEO"/>
@@ -42,11 +103,129 @@
     EntityUsage="WpStyleSetupEO"
     AliasName="SYSTEM_ID"/>
   <ViewAttribute
-    Name="OrderQty"
+    Name="LcUnit"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="OrderQty"
-    EntityUsage="WpStyleSetupEO"
-    AliasName="ORDER_QTY"/>
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="LC_UNIT"
+    Expression="LC_UNIT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LcUnitName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LC_UNIT_NAME"
+    Expression="LC_UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_NAME"
+    Expression="WASH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORDER_QTY"
+    Expression="ORDER_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductionUnit"
     PrecisionRule="true"
@@ -54,17 +233,26 @@
     EntityUsage="WpStyleSetupEO"
     AliasName="PRODUCTION_UNIT"/>
   <ViewAttribute
-    Name="LcUnit"
+    Name="ProductionUnitName"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="LcUnit"
-    EntityUsage="WpStyleSetupEO"
-    AliasName="LC_UNIT"/>
-  <ViewAttribute
-    Name="Version"
-    PrecisionRule="true"
-    EntityAttrName="Version"
-    EntityUsage="WpStyleSetupEO"
-    AliasName="VERSION"/>
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRODUCTION_UNIT_NAME"
+    Expression="PRODUCTION_UNIT_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_ProductionUnitName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PbFlag"
     PrecisionRule="true"
@@ -95,6 +283,42 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="WpStyleSetupEO"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="SamVersion"
+    PrecisionRule="true"
+    EntityAttrName="SamVersion"
+    EntityUsage="WpStyleSetupEO"
+    AliasName="SAM_VERSION"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="WpStyleSetupEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="AvailableSamVersion"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="AVAILABLE_SAM_VERSION"
+    Expression="AVAILABLE_SAM_VERSION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UpdatedVersionAvailavle"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <TransientExpression><![CDATA[AvailableSamVersion>SamVersion]]></TransientExpression>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="WpStyleWiseProcessSamVO"
     ViewLink="model.view.WpStyleWiseProcessSamR01Link"

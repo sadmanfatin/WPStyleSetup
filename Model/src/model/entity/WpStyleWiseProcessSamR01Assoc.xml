@@ -17,12 +17,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="WpStyleSetupEO"/>
-      <Attr Name="_foreignKey"
-        Value="model.entity.WpStyleSetupEO.WpStyleSetupPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entity.WpStyleSetupEO.StyleSetupId"/>
+      <Item Value="model.entity.WpStyleSetupEO.SamVersion"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -32,12 +31,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="WpStyleWiseProcessSamEO"/>
-      <Attr Name="_foreignKey"
-        Value="model.entity.WpStyleWiseProcessSamEO.WpStyleWiseProcessSamR01"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entity.WpStyleWiseProcessSamEO.StyleSetupId"/>
+      <Item Value="model.entity.WpStyleWiseProcessSamEO.SamVersion"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

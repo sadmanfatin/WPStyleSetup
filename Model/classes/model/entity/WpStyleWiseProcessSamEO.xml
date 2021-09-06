@@ -151,6 +151,17 @@
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="SamVersion"
+    ColumnName="SAM_VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_WISE_PROCESS_SAM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="WpStyleSetupEO"
     Association="model.entity.WpStyleWiseProcessSamR01Assoc"

@@ -6,9 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="WpStyleSetupVO1" RangeSize="25"
               DataControl="AppModuleDataControl" id="WpStyleSetupVO1Iterator"/>
-    <searchRegion Binds="WpStyleSetupVO1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="WpStyleSetupVO1Query"/>
     <iterator Binds="WpStyleWiseProcessSamVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="WpStyleWiseProcessSamVO1Iterator"/>
@@ -17,26 +14,16 @@
                   id="WpStyleWiseProcessSamVO1Query"/>
     <invokeAction Binds="setSessionValues" id="setSessionValue"
                   Refresh="always"/>
+    <iterator Binds="PocStylesVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="PocStylesVO1Iterator"/>
+    <searchRegion Binds="PocStylesVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PocStylesVO1Query"/>
+    <searchRegion Binds="WpStyleSetupVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpStyleSetupVO1Query"/>
   </executables>
   <bindings>
-    <tree IterBinding="WpStyleSetupVO1Iterator" id="WpStyleSetupVO1">
-      <nodeDefinition DefName="model.view.WpStyleSetupVO"
-                      Name="WpStyleSetupVO10">
-        <AttrNames>
-          <Item Value="StyleSetupId"/>
-          <Item Value="SystemId"/>
-          <Item Value="OrderQty"/>
-          <Item Value="ProductionUnit"/>
-          <Item Value="LcUnit"/>
-          <Item Value="Version"/>
-          <Item Value="PbFlag"/>
-          <Item Value="CreatedBy"/>
-          <Item Value="CreationDate"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="LastUpdatedDate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="WpStyleWiseProcessSamVO1Iterator"
           id="WpStyleWiseProcessSamVO1">
       <nodeDefinition DefName="model.view.WpStyleWiseProcessSamVO"
@@ -54,6 +41,7 @@
           <Item Value="CreatedBy"/>
           <Item Value="LastUpdatedBy"/>
           <Item Value="LastUpdatedDate"/>
+          <Item Value="ProcessName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -82,5 +70,64 @@
       <NamedData NDName="respApplId" NDValue="#{viewScope.RespApplId}"
                  NDType="java.lang.String"/>
     </methodAction>
+    <tree IterBinding="PocStylesVO1Iterator" id="PocStylesVO1">
+      <nodeDefinition DefName="model.view.PocStylesVO" Name="PocStylesVO10">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="LcUnit"/>
+          <Item Value="LcUnitName"/>
+          <Item Value="ProductionUnit"/>
+          <Item Value="ProductionUnitName"/>
+          <Item Value="BuyerId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="OrderQty"/>
+          <Item Value="SamVersion"/>
+          <Item Value="CheckBox" Binds="CheckBox"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="PocStylesVO1Iterator" id="CheckBox"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="CheckBox"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="WpStyleSetupVO1Iterator" id="WpStyleSetupVO1">
+      <nodeDefinition DefName="model.view.WpStyleSetupVO"
+                      Name="WpStyleSetupVO10">
+        <AttrNames>
+          <Item Value="StyleSetupId"/>
+          <Item Value="SystemId"/>
+          <Item Value="LcUnit"/>
+          <Item Value="LcUnitName"/>
+          <Item Value="BuyerId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="OrderQty"/>
+          <Item Value="ProductionUnit"/>
+          <Item Value="ProductionUnitName"/>
+          <Item Value="PbFlag"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="SamVersion"/>
+          <Item Value="OrgId"/>
+          <Item Value="AvailableSamVersion"/>
+          <Item Value="UpdatedVersionAvailavle"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

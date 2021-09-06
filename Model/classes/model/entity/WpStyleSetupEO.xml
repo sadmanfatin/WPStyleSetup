@@ -42,17 +42,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="OrderQty"
-    ColumnName="ORDER_QTY"
-    SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    TableName="WP_STYLE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="ProductionUnit"
     ColumnName="PRODUCTION_UNIT"
     SQLType="NUMERIC"
@@ -61,40 +50,6 @@
     TableName="WP_STYLE_SETUP">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="LcUnit"
-    ColumnName="LC_UNIT"
-    SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    TableName="WP_STYLE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="Version"
-    ColumnName="VERSION"
-    SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    TableName="WP_STYLE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="PbFlag"
-    Precision="10"
-    ColumnName="PB_FLAG"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="WP_STYLE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
@@ -139,6 +94,40 @@
     TableName="WP_STYLE_SETUP">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SamVersion"
+    ColumnName="SAM_VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgId"
+    ColumnName="ORG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PbFlag"
+    Precision="10"
+    ColumnName="PB_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WP_STYLE_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <AccessorAttribute
