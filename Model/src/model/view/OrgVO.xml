@@ -63,6 +63,16 @@ and  organization_id = :p_org_id]]>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SamVO"
+    ViewLink="model.view.OrgVO_vs_SamVO_VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PopulateProcessVO"
+    ViewLink="model.view.OrgVO_vs_PopluateProcessesVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

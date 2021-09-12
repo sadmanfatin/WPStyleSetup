@@ -6,11 +6,11 @@
   Name="AppModule"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
-  ClearCacheOnRollback="true"
   ComponentClass="model.service.AppModuleImpl"
   DefClass="model.service.AppModuleDefImpl"
   ComponentInterface="model.service.common.AppModule"
-  ClientProxyName="model.service.client.AppModuleClient">
+  ClientProxyName="model.service.client.AppModuleClient"
+  ClearCacheOnRollback="true">
   <DesignTime>
     <Attr Name="_deployType" Value="0"/>
     <Attr Name="_isDefCodegen" Value="true"/>
@@ -31,6 +31,9 @@
   <ViewUsage
     Name="PocStylesVO1"
     ViewObjectName="model.view.PocStylesVO"/>
+  <ViewUsage
+    Name="PopulateProcessVO1"
+    ViewObjectName="model.view.PopulateProcessVO"/>
   <ViewLinkUsage
     Name="WpStyleWiseProcessSamR01Link1"
     ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"
@@ -42,6 +45,12 @@
     ViewLinkObjectName="model.view.OrgVO_vs_SamVO_VL"
     SrcViewUsageName="model.service.AppModule.OrgVO1"
     DstViewUsageName="model.service.AppModule.SamVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgVO_vs_PopluateProcessesVO_vl1"
+    ViewLinkObjectName="model.view.OrgVO_vs_PopluateProcessesVO_vl"
+    SrcViewUsageName="model.service.AppModule.OrgVO1"
+    DstViewUsageName="model.service.AppModule.PopulateProcessVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

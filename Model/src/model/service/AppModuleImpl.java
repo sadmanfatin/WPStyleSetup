@@ -8,7 +8,10 @@ import javax.servlet.http.HttpSession;
 import model.service.common.AppModule;
 
 import model.view.PocStylesVOImpl;
+import model.view.SamVOImpl;
 import model.view.WpStyleSetupVOImpl;
+
+import model.view.WpStyleWiseProcessSamVOImpl;
 
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
@@ -31,11 +34,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                                  String respApplId) {  
         
         System.out.println("====================  set session values    ================================");
-        
-        
-       orgId = "343";
-       userId = "5219";
-    //
+
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
        
@@ -120,5 +119,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public PocStylesVOImpl getPocStylesVO1() {
         return (PocStylesVOImpl)findViewObject("PocStylesVO1");
+    }
+
+    /**
+     * Container's getter for PopulateProcessVO1.
+     * @return PopulateProcessVO1
+     */
+    public ViewObjectImpl getPopulateProcessVO1() {
+        return (ViewObjectImpl)findViewObject("PopulateProcessVO1");
+    }
+
+    /**
+     * Container's getter for OrgVO_vs_PopluateProcessesVO_vl1.
+     * @return OrgVO_vs_PopluateProcessesVO_vl1
+     */
+    public ViewLinkImpl getOrgVO_vs_PopluateProcessesVO_vl1() {
+        return (ViewLinkImpl)findViewLink("OrgVO_vs_PopluateProcessesVO_vl1");
     }
 }

@@ -415,6 +415,7 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t4">
+                    <af:commandButton text="populate process" id="cb8"/>
                     <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
                                       text="CreateInsert"
                                       disabled="#{!bindings.CreateInsert1.enabled}"
@@ -790,6 +791,162 @@
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PocStylesVO1.hints.SamVersion.format}"/>
                   </af:outputText>
+                </af:column>
+              </af:table>
+            </af:panelHeader>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="p2">
+          <af:dialog id="d3">
+            <af:panelHeader text="Populate Process" id="ph3">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+              <af:table value="#{bindings.PopulateProcessVO1.collectionModel}"
+                        var="row"
+                        rows="#{bindings.PopulateProcessVO1.rangeSize}"
+                        emptyText="#{bindings.PopulateProcessVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.PopulateProcessVO1.rangeSize}"
+                        rowBandingInterval="0"
+                        filterModel="#{bindings.PopulateProcessVO1Query.queryDescriptor}"
+                        queryListener="#{bindings.PopulateProcessVO1Query.processQuery}"
+                        filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.PopulateProcessVO1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.PopulateProcessVO1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t6">
+                <af:column headerText="#{bindings.PopulateProcessVO1.hints.CheckBox.label}"
+                           id="c60" align="center" sortable="true"
+                           filterable="true" width="70">
+                  <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
+                                            label="#{row.bindings.CheckBox.label}"
+                                            shortDesc="#{bindings.PopulateProcessVO1.hints.CheckBox.tooltip}"
+                                            id="sbc2"/>
+                </af:column>
+                <af:column sortProperty="OrgId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.OrgId.label}"
+                           id="c55">
+                  <af:inputText value="#{row.bindings.OrgId.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.OrgId.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.OrgId.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.OrgId.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.OrgId.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.OrgId.tooltip}"
+                                id="it36">
+                    <f:validator binding="#{row.bindings.OrgId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateProcessVO1.hints.OrgId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="WpSectionId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.WpSectionId.label}"
+                           id="c56">
+                  <af:inputText value="#{row.bindings.WpSectionId.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.WpSectionId.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.WpSectionId.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.WpSectionId.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.WpSectionId.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.WpSectionId.tooltip}"
+                                id="it35">
+                    <f:validator binding="#{row.bindings.WpSectionId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateProcessVO1.hints.WpSectionId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="UnitSectionId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.UnitSectionId.label}"
+                           id="c57">
+                  <af:inputText value="#{row.bindings.UnitSectionId.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.UnitSectionId.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.UnitSectionId.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.UnitSectionId.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.UnitSectionId.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.UnitSectionId.tooltip}"
+                                id="it37">
+                    <f:validator binding="#{row.bindings.UnitSectionId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateProcessVO1.hints.UnitSectionId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="SectionName" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.SectionName.label}"
+                           id="c53">
+                  <af:inputText value="#{row.bindings.SectionName.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.SectionName.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.SectionName.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.SectionName.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.SectionName.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.SectionName.tooltip}"
+                                id="it31">
+                    <f:validator binding="#{row.bindings.SectionName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Serial" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.Serial.label}"
+                           id="c59">
+                  <af:inputText value="#{row.bindings.Serial.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.Serial.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.Serial.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.Serial.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.Serial.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.Serial.tooltip}"
+                                id="it38">
+                    <f:validator binding="#{row.bindings.Serial.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateProcessVO1.hints.Serial.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="WpProcessId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.WpProcessId.label}"
+                           id="c52">
+                  <af:inputText value="#{row.bindings.WpProcessId.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.WpProcessId.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.WpProcessId.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.WpProcessId.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.WpProcessId.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.WpProcessId.tooltip}"
+                                id="it34">
+                    <f:validator binding="#{row.bindings.WpProcessId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateProcessVO1.hints.WpProcessId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="UnitProcessId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.UnitProcessId.label}"
+                           id="c58">
+                  <af:inputText value="#{row.bindings.UnitProcessId.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.UnitProcessId.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.UnitProcessId.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.UnitProcessId.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.UnitProcessId.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.UnitProcessId.tooltip}"
+                                id="it32">
+                    <f:validator binding="#{row.bindings.UnitProcessId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateProcessVO1.hints.UnitProcessId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="ProcessName" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateProcessVO1.hints.ProcessName.label}"
+                           id="c54">
+                  <af:inputText value="#{row.bindings.ProcessName.inputValue}"
+                                label="#{bindings.PopulateProcessVO1.hints.ProcessName.label}"
+                                required="#{bindings.PopulateProcessVO1.hints.ProcessName.mandatory}"
+                                columns="#{bindings.PopulateProcessVO1.hints.ProcessName.displayWidth}"
+                                maximumLength="#{bindings.PopulateProcessVO1.hints.ProcessName.precision}"
+                                shortDesc="#{bindings.PopulateProcessVO1.hints.ProcessName.tooltip}"
+                                id="it33">
+                    <f:validator binding="#{row.bindings.ProcessName.validator}"/>
+                  </af:inputText>
                 </af:column>
               </af:table>
             </af:panelHeader>
