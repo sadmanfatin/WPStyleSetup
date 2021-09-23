@@ -244,4 +244,30 @@ public class ManagedBean {
        
                
      }
+
+    public void populateProjectionStyle(ActionEvent actionEvent) {
+        // Add event code here...
+        System.out.println("populate projection style method");
+        
+        ViewObject projectionStyleVo = appM.getWpProjectionStyleVO1();
+        Row projectionStyleVoCurrentRow = projectionStyleVo.getCurrentRow();
+        System.out.println(projectionStyleVoCurrentRow.getAttribute("Style"));
+        
+        ViewObject styleSetupVo = appM.getWpStyleSetupVO1();
+        Row styleSetupVoRow = styleSetupVo.createRow();
+        styleSetupVoRow.setAttribute("SystemId", projectionStyleVoCurrentRow.getAttribute("SystemId"));   
+        styleSetupVoRow.setAttribute("BuyerName",projectionStyleVoCurrentRow.getAttribute("BuyerName"));
+        styleSetupVoRow.setAttribute("Season",projectionStyleVoCurrentRow.getAttribute("Season"));
+        styleSetupVoRow.setAttribute("Style",projectionStyleVoCurrentRow.getAttribute("Style"));
+        styleSetupVoRow.setAttribute("Color",projectionStyleVoCurrentRow.getAttribute("Color"));
+        styleSetupVoRow.setAttribute("WashName",projectionStyleVoCurrentRow.getAttribute("Wash"));
+        styleSetupVoRow.setAttribute("ProductionUnit",projectionStyleVoCurrentRow.getAttribute("ProductionUnit"));
+        styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));  
+        styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));
+        
+        styleSetupVo.insertRow(styleSetupVoRow);
+        styleSetupVo.setCurrentRow(styleSetupVoRow);
+        
+        
+    }
 }

@@ -33,6 +33,10 @@
                     <af:commandButton actionListener="#{bindings.Commit.execute}"
                                       text="Save"
                                       id="cb5" partialSubmit="true"/>
+                    <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
+                                      text="Add Projection Style"
+                                      disabled="#{!bindings.CreateInsert2.enabled}"
+                                      id="cb9" action="projection style pg"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -951,6 +955,142 @@
               </af:table>
             </af:panelHeader>
           </af:dialog>
+        </af:popup>
+        <af:popup id="p3">
+          <af:panelWindow id="pw1">
+            <af:panelFormLayout id="pfl1">
+              <af:inputText value="#{bindings.SystemId.inputValue}"
+                            label="#{bindings.SystemId.hints.label}"
+                            required="#{bindings.SystemId.hints.mandatory}"
+                            columns="#{bindings.SystemId.hints.displayWidth}"
+                            maximumLength="#{bindings.SystemId.hints.precision}"
+                            shortDesc="#{bindings.SystemId.hints.tooltip}"
+                            id="it44">
+                <f:validator binding="#{bindings.SystemId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SystemId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BuyerId.inputValue}"
+                            label="#{bindings.BuyerId.hints.label}"
+                            required="#{bindings.BuyerId.hints.mandatory}"
+                            columns="#{bindings.BuyerId.hints.displayWidth}"
+                            maximumLength="#{bindings.BuyerId.hints.precision}"
+                            shortDesc="#{bindings.BuyerId.hints.tooltip}"
+                            id="it45">
+                <f:validator binding="#{bindings.BuyerId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BuyerId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.BuyerName.inputValue}"
+                            label="#{bindings.BuyerName.hints.label}"
+                            required="#{bindings.BuyerName.hints.mandatory}"
+                            columns="#{bindings.BuyerName.hints.displayWidth}"
+                            maximumLength="#{bindings.BuyerName.hints.precision}"
+                            shortDesc="#{bindings.BuyerName.hints.tooltip}"
+                            id="it40">
+                <f:validator binding="#{bindings.BuyerName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Style.inputValue}"
+                            label="#{bindings.Style.hints.label}"
+                            required="#{bindings.Style.hints.mandatory}"
+                            columns="#{bindings.Style.hints.displayWidth}"
+                            maximumLength="#{bindings.Style.hints.precision}"
+                            shortDesc="#{bindings.Style.hints.tooltip}"
+                            id="it43">
+                <f:validator binding="#{bindings.Style.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Season.inputValue}"
+                            label="#{bindings.Season.hints.label}"
+                            required="#{bindings.Season.hints.mandatory}"
+                            columns="#{bindings.Season.hints.displayWidth}"
+                            maximumLength="#{bindings.Season.hints.precision}"
+                            shortDesc="#{bindings.Season.hints.tooltip}"
+                            id="it49">
+                <f:validator binding="#{bindings.Season.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Color.inputValue}"
+                            label="#{bindings.Color.hints.label}"
+                            required="#{bindings.Color.hints.mandatory}"
+                            columns="#{bindings.Color.hints.displayWidth}"
+                            maximumLength="#{bindings.Color.hints.precision}"
+                            shortDesc="#{bindings.Color.hints.tooltip}"
+                            id="it41">
+                <f:validator binding="#{bindings.Color.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Wash.inputValue}"
+                            label="#{bindings.Wash.hints.label}"
+                            required="#{bindings.Wash.hints.mandatory}"
+                            columns="#{bindings.Wash.hints.displayWidth}"
+                            maximumLength="#{bindings.Wash.hints.precision}"
+                            shortDesc="#{bindings.Wash.hints.tooltip}"
+                            id="it50">
+                <f:validator binding="#{bindings.Wash.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.OrgId.inputValue}"
+                            label="#{bindings.OrgId.hints.label}"
+                            required="#{bindings.OrgId.hints.mandatory}"
+                            columns="#{bindings.OrgId.hints.displayWidth}"
+                            maximumLength="#{bindings.OrgId.hints.precision}"
+                            shortDesc="#{bindings.OrgId.hints.tooltip}"
+                            id="it39">
+                <f:validator binding="#{bindings.OrgId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.OrgId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.OrderedQty.inputValue}"
+                            label="#{bindings.OrderedQty.hints.label}"
+                            required="#{bindings.OrderedQty.hints.mandatory}"
+                            columns="#{bindings.OrderedQty.hints.displayWidth}"
+                            maximumLength="#{bindings.OrderedQty.hints.precision}"
+                            shortDesc="#{bindings.OrderedQty.hints.tooltip}"
+                            id="it46">
+                <f:validator binding="#{bindings.OrderedQty.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.OrderedQty.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.CreationDate.inputValue}"
+                            label="#{bindings.CreationDate.hints.label}"
+                            required="#{bindings.CreationDate.hints.mandatory}"
+                            shortDesc="#{bindings.CreationDate.hints.tooltip}"
+                            id="id10">
+                <f:validator binding="#{bindings.CreationDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.CreatedBy.inputValue}"
+                            label="#{bindings.CreatedBy.hints.label}"
+                            required="#{bindings.CreatedBy.hints.mandatory}"
+                            columns="#{bindings.CreatedBy.hints.displayWidth}"
+                            maximumLength="#{bindings.CreatedBy.hints.precision}"
+                            shortDesc="#{bindings.CreatedBy.hints.tooltip}"
+                            id="it48">
+                <f:validator binding="#{bindings.CreatedBy.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CreatedBy.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.LastUpdatedDate.inputValue}"
+                            label="#{bindings.LastUpdatedDate.hints.label}"
+                            required="#{bindings.LastUpdatedDate.hints.mandatory}"
+                            shortDesc="#{bindings.LastUpdatedDate.hints.tooltip}"
+                            id="id9">
+                <f:validator binding="#{bindings.LastUpdatedDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.LastUpdatedDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.LastUpdatedBy.inputValue}"
+                            label="#{bindings.LastUpdatedBy.hints.label}"
+                            required="#{bindings.LastUpdatedBy.hints.mandatory}"
+                            columns="#{bindings.LastUpdatedBy.hints.displayWidth}"
+                            maximumLength="#{bindings.LastUpdatedBy.hints.precision}"
+                            shortDesc="#{bindings.LastUpdatedBy.hints.tooltip}"
+                            id="it42">
+                <f:validator binding="#{bindings.LastUpdatedBy.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LastUpdatedBy.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:commandButton text="Add" id="cb10"/>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
         </af:popup>
       </af:form>
     </af:document>

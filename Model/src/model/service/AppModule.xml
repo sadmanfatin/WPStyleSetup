@@ -34,6 +34,9 @@
   <ViewUsage
     Name="PopulateProcessVO1"
     ViewObjectName="model.view.PopulateProcessVO"/>
+  <ViewUsage
+    Name="WpProjectionStyleVO1"
+    ViewObjectName="model.view.WpProjectionStyleVO"/>
   <ViewLinkUsage
     Name="WpStyleWiseProcessSamR01Link1"
     ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"

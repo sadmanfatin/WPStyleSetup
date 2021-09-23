@@ -37,7 +37,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
-       
+         orgId = "343";
+          userId = "5219";
         FacesContext fctx = FacesContext.getCurrentInstance();
         ExternalContext ectx = fctx.getExternalContext();
         HttpSession userSession = (HttpSession)ectx.getSession(false);
@@ -135,5 +136,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getOrgVO_vs_PopluateProcessesVO_vl1() {
         return (ViewLinkImpl)findViewLink("OrgVO_vs_PopluateProcessesVO_vl1");
+    }
+
+    /**
+     * Container's getter for WpProjectionStyleVO1.
+     * @return WpProjectionStyleVO1
+     */
+    public ViewObjectImpl getWpProjectionStyleVO1() {
+        return (ViewObjectImpl)findViewObject("WpProjectionStyleVO1");
     }
 }

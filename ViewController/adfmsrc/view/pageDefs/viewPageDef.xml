@@ -30,6 +30,9 @@
     <searchRegion Binds="PopulateProcessVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="PopulateProcessVO1Query"/>
+    <iterator Binds="WpProjectionStyleVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="WpProjectionStyleVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="WpStyleWiseProcessSamVO1Iterator"
@@ -168,5 +171,75 @@
         <Item Value="n"/>
       </ValueList>
     </button>
+    <action IterBinding="WpProjectionStyleVO1Iterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="SystemId">
+      <AttrNames>
+        <Item Value="SystemId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="BuyerId">
+      <AttrNames>
+        <Item Value="BuyerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="BuyerName">
+      <AttrNames>
+        <Item Value="BuyerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Style">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Wash">
+      <AttrNames>
+        <Item Value="Wash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="OrderedQty">
+      <AttrNames>
+        <Item Value="OrderedQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
+                     id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
+                     id="LastUpdatedDate">
+      <AttrNames>
+        <Item Value="LastUpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
+                     id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

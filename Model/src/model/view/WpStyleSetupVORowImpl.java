@@ -219,6 +219,16 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ProjectionStyle {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getProjectionStyle();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setProjectionStyle((String)value);
+            }
+        }
+        ,
         AvailableSamVersion {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getAvailableSamVersion();
@@ -307,6 +317,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
+    public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int UPDATEDVERSIONAVAILAVLE = AttributesEnum.UpdatedVersionAvailavle.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
@@ -678,6 +689,22 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public void setUpdatedVersionAvailavle(Boolean value) {
         setAttributeInternal(UPDATEDVERSIONAVAILAVLE, value);
+    }
+
+    /**
+     * Gets the attribute value for PROJECTION_STYLE using the alias name ProjectionStyle.
+     * @return the PROJECTION_STYLE
+     */
+    public String getProjectionStyle() {
+        return (String) getAttributeInternal(PROJECTIONSTYLE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PROJECTION_STYLE using the alias name ProjectionStyle.
+     * @param value value to set the PROJECTION_STYLE
+     */
+    public void setProjectionStyle(String value) {
+        setAttributeInternal(PROJECTIONSTYLE, value);
     }
 
     /**

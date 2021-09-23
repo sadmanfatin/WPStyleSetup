@@ -19,6 +19,23 @@
       <to-value>#{viewScope.RespAppId}</to-value>
     </input-page-parameter>
   </view>
+  <view id="ProjectionStylePG">
+    <page>/ProjectionStylePG.jspx</page>
+  </view>
+  <control-flow-rule id="__5">
+    <from-activity-id id="__6">view</from-activity-id>
+    <control-flow-case id="__8">
+      <from-outcome id="__9">projection style pg</from-outcome>
+      <to-activity-id id="__7">ProjectionStylePG</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__10">
+    <from-activity-id id="__11">ProjectionStylePG</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome id="__14">return to view</from-outcome>
+      <to-activity-id id="__12">view</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
   <managed-bean id="__2">
     <managed-bean-name id="__1">ManagedBean</managed-bean-name>
     <managed-bean-class id="__4">ManagedBean</managed-bean-class>

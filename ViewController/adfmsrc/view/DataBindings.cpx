@@ -4,9 +4,13 @@
              Package="view" ClientType="Generic">
   <pageMap>
     <page path="/view.jspx" usageId="view_viewPageDef"/>
+    <page path="/ProjectionStylePG.jspx"
+          usageId="view_ProjectionStylePGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_viewPageDef" path="view.pageDefs.viewPageDef"/>
+    <page id="view_ProjectionStylePGPageDef"
+          path="view.pageDefs.ProjectionStylePGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model.service"

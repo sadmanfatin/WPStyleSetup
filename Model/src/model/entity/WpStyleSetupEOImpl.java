@@ -128,6 +128,16 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        ProjectionStyle {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getProjectionStyle();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setProjectionStyle((String)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamEO {
             public Object get(WpStyleSetupEOImpl obj) {
                 return obj.getWpStyleWiseProcessSamEO();
@@ -176,6 +186,7 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int PBFLAG = AttributesEnum.PbFlag.index();
+    public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
     public static final int WPSTYLEWISEPROCESSSAMEO = AttributesEnum.WpStyleWiseProcessSamEO.index();
 
     /**
@@ -355,6 +366,22 @@ public class WpStyleSetupEOImpl extends EntityImpl {
      */
     public void setPbFlag(String value) {
         setAttributeInternal(PBFLAG, value);
+    }
+
+    /**
+     * Gets the attribute value for ProjectionStyle, using the alias name ProjectionStyle.
+     * @return the ProjectionStyle
+     */
+    public String getProjectionStyle() {
+        return (String)getAttributeInternal(PROJECTIONSTYLE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ProjectionStyle.
+     * @param value value to set the ProjectionStyle
+     */
+    public void setProjectionStyle(String value) {
+        setAttributeInternal(PROJECTIONSTYLE, value);
     }
 
     /**

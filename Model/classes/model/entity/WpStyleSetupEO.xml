@@ -130,6 +130,18 @@
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ProjectionStyle"
+    Precision="250"
+    ColumnName="PROJECTION_STYLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WP_STYLE_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="WpStyleWiseProcessSamEO"
     Association="model.entity.WpStyleWiseProcessSamR01Assoc"

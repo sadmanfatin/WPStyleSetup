@@ -13,8 +13,43 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">148.29883</property>
+         name="y">297.89648</property>
       <property
-         name="x">512.0</property>
+         name="x">259.0</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">ProjectionStylePG</property>
+      <property
+         name="page">/ProjectionStylePG.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ProjectionStylePG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">297.59766</property>
+      <property
+         name="x">528.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">projection style pg</property>
+      <property
+         name="sdm:polyPoints">R46,300.0,294.0459,486.99442,293.74707,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">return to view</property>
+      <property
+         name="sdm:polyPoints">L54,487.0,300.74707,300.00558,301.0459,R54</property>
+   </ControlFlowCase>
 </SDM>
