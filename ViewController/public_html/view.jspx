@@ -138,7 +138,7 @@
                              headerText="Buyer Name"
                              id="c2" width="140" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
-                             visible="false">
+                             visible="true">
                     <af:inputText value="#{row.bindings.BuyerName.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.BuyerName.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.BuyerName.mandatory}"
