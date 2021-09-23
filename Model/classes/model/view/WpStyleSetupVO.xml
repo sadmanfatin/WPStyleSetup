@@ -71,18 +71,15 @@
       )  AVAILABLE_SAM_VERSION            
        
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
-    (  SELECT  POCL.SYSTEM_ID, 
-        POCH.LC_UNIT, 
-        POCH.BUYER_ID, 
-        POCH.SEASON, 
-        POCH.STYLE ,   
-        POCL.COLOR, 
-        POCL.WASH_NAME , 
-        POCH.ORDER_QTY 
-        FROM XX_OM_POC_H_T POCH,
-       XX_OM_POC_L_T POCL 
-      WHERE POCH.POC_ID = POCL.POC_ID
-       AND POCH.GM_APPROVAL = 'Y'  
+    (  SELECT PV.SYSTEM_ID, 
+        PV.LC_UNIT, 
+        PV.BUYER_ID, 
+        PV.SEASON, 
+        PV.STYLE ,   
+        PV.COLOR, 
+        PV.WASH_NAME , 
+        PV.ORDER_QTY 
+        FROM POC_SYSTEM_ID_VIEW PV
       ) POC  
      WHERE WPSTYLESETUPEO.SYSTEM_ID = POC.SYSTEM_ID]]>
   </SQLQuery>
