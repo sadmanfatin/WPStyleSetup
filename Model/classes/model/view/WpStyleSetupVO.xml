@@ -21,6 +21,19 @@
     Name="OrgLOV1"
     ViewObjectName="model.lov.OrgLOV"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BuyerLOV1"
+    ViewObjectName="model.lov.BuyerLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SeasonLOV1"
+    ViewObjectName="model.lov.SeasonLOV">
+    <ParameterMap>
+      <PIMap Variable="p_buyer_id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ProductionUnitName"
     ListVOName="OrgLOV1"

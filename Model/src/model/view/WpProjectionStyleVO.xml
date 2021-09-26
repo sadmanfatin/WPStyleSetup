@@ -194,7 +194,6 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     AliasName="ORDERED_QTY"/>
   <ViewAttribute
     Name="ProductionUnitName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"

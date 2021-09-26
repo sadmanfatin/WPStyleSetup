@@ -14,6 +14,85 @@
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="OrgLOV1"
+    ViewObjectName="model.lov.OrgLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BuyerLOV1"
+    ViewObjectName="model.lov.BuyerLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SeasonLOV1"
+    ViewObjectName="model.lov.SeasonLOV">
+    <ParameterMap>
+      <PIMap Variable="p_buyer_id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_ProductionUnitName"
+    ListVOName="OrgLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductionUnitName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ProductionUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgName"/>
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BuyerName"
+    ListVOName="BuyerLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BuyerName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Season"
+    ListVOName="SeasonLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT WpProjectionStyleEO.SYSTEM_ID, 
        WpProjectionStyleEO.BUYER_ID, 
@@ -57,10 +136,17 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     ColumnType="VARCHAR2"
     AliasName="BUYER_NAME"
     Expression="BUYER_NAME"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_BuyerName">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Style"
@@ -73,7 +159,15 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     PrecisionRule="true"
     EntityAttrName="Season"
     EntityUsage="WpProjectionStyleEO"
-    AliasName="SEASON"/>
+    AliasName="SEASON"
+    LOVName="LOV_Season">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Color"
     PrecisionRule="true"
@@ -100,7 +194,6 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     AliasName="ORDERED_QTY"/>
   <ViewAttribute
     Name="ProductionUnitName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
@@ -108,10 +201,17 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     ColumnType="VARCHAR2"
     AliasName="PRODUCTION_UNIT_NAME"
     Expression="PRODUCTION_UNIT_NAME"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_ProductionUnitName">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CreationDate"

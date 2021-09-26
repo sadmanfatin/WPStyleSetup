@@ -20,19 +20,9 @@
         <Item Value="BuyerId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="BuyerName">
-      <AttrNames>
-        <Item Value="BuyerName"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Style">
       <AttrNames>
         <Item Value="Style"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Season">
-      <AttrNames>
-        <Item Value="Season"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Color">
@@ -61,5 +51,14 @@
         <Item Value="ProductionUnit"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="WpProjectionStyleVO1Iterator" StaticList="false"
+          Uses="LOV_BuyerName" id="BuyerName" DTSupportsMRU="true"/>
+    <list IterBinding="WpProjectionStyleVO1Iterator" StaticList="false"
+          Uses="LOV_Season" id="Season" DTSupportsMRU="true"/>
+    <list IterBinding="WpProjectionStyleVO1Iterator" StaticList="false"
+          Uses="LOV_ProductionUnitName" id="ProductionUnitName"
+          DTSupportsMRU="true"/>
+    <action IterBinding="WpProjectionStyleVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

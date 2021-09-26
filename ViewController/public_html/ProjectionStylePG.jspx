@@ -24,11 +24,28 @@
                         required="#{bindings.BuyerId.hints.mandatory}"
                         columns="#{bindings.BuyerId.hints.displayWidth}"
                         maximumLength="#{bindings.BuyerId.hints.precision}"
-                        shortDesc="#{bindings.BuyerId.hints.tooltip}" id="it5">
+                        shortDesc="#{bindings.BuyerId.hints.tooltip}" id="it5"
+                        partialTriggers="soc1">
             <f:validator binding="#{bindings.BuyerId.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.BuyerId.format}"/>
           </af:inputText>
+          <af:selectOneChoice value="#{bindings.BuyerName.inputValue}"
+                              label="#{bindings.BuyerName.label}"
+                              required="#{bindings.BuyerName.hints.mandatory}"
+                              shortDesc="#{bindings.BuyerName.hints.tooltip}"
+                              id="soc1" autoSubmit="true"
+                              partialTriggers="soc1">
+            <f:selectItems value="#{bindings.BuyerName.items}" id="si1"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.Season.inputValue}"
+                              label="#{bindings.Season.label}"
+                              required="#{bindings.Season.hints.mandatory}"
+                              shortDesc="#{bindings.Season.hints.tooltip}"
+                              id="soc2" autoSubmit="true"
+                              partialTriggers="soc1">
+            <f:selectItems value="#{bindings.Season.items}" id="si2"/>
+          </af:selectOneChoice>
           <af:inputText value="#{bindings.Style.inputValue}"
                         label="#{bindings.Style.hints.label}"
                         required="#{bindings.Style.hints.mandatory}"
@@ -36,14 +53,6 @@
                         maximumLength="#{bindings.Style.hints.precision}"
                         shortDesc="#{bindings.Style.hints.tooltip}" id="it4">
             <f:validator binding="#{bindings.Style.validator}"/>
-          </af:inputText>
-          <af:inputText value="#{bindings.Season.inputValue}"
-                        label="#{bindings.Season.hints.label}"
-                        required="#{bindings.Season.hints.mandatory}"
-                        columns="#{bindings.Season.hints.displayWidth}"
-                        maximumLength="#{bindings.Season.hints.precision}"
-                        shortDesc="#{bindings.Season.hints.tooltip}" id="it6">
-            <f:validator binding="#{bindings.Season.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.Color.inputValue}"
                         label="#{bindings.Color.hints.label}"
@@ -88,14 +97,33 @@
                         columns="#{bindings.ProductionUnit.hints.displayWidth}"
                         maximumLength="#{bindings.ProductionUnit.hints.precision}"
                         shortDesc="#{bindings.ProductionUnit.hints.tooltip}"
-                        id="it8">
+                        id="it8" partialTriggers="soc3">
             <f:validator binding="#{bindings.ProductionUnit.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.ProductionUnit.format}"/>
           </af:inputText>
+          <af:selectOneChoice value="#{bindings.ProductionUnitName.inputValue}"
+                              label="#{bindings.ProductionUnitName.label}"
+                              required="#{bindings.ProductionUnitName.hints.mandatory}"
+                              shortDesc="#{bindings.ProductionUnitName.hints.tooltip}"
+                              id="soc3" autoSubmit="true">
+            <f:selectItems value="#{bindings.ProductionUnitName.items}"
+                           id="si3"/>
+          </af:selectOneChoice>
           <f:facet name="footer">
-            <af:commandButton text="Submit" id="cb1" action="return to view"
-                              actionListener="#{ManagedBean.populateProjectionStyle}"/>
+            <af:group id="g1">
+              <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                   inlineStyle="padding:5.0px;">
+                <af:commandButton text="Populate Style" id="cb1"
+                                  action="return to view"
+                                  actionListener="#{ManagedBean.populateProjectionStyle}"/>
+                <af:spacer width="30" height="10" id="s1"/>
+                <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                  text="Cancel"
+                                  disabled="#{!bindings.Delete.enabled}"
+                                  id="cb2" action="return to view"/>
+              </af:panelGroupLayout>
+            </af:group>
           </f:facet>
         </af:panelFormLayout>
       </af:form>
