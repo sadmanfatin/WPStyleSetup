@@ -20,11 +20,6 @@
         <Item Value="BuyerId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="BuyerName">
-      <AttrNames>
-        <Item Value="BuyerName"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="Style">
       <AttrNames>
         <Item Value="Style"/>
@@ -53,29 +48,6 @@
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="OrderedQty">
       <AttrNames>
         <Item Value="OrderedQty"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
-                     id="CreationDate">
-      <AttrNames>
-        <Item Value="CreationDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="CreatedBy">
-      <AttrNames>
-        <Item Value="CreatedBy"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
-                     id="LastUpdatedDate">
-      <AttrNames>
-        <Item Value="LastUpdatedDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
-                     id="LastUpdatedBy">
-      <AttrNames>
-        <Item Value="LastUpdatedBy"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator"

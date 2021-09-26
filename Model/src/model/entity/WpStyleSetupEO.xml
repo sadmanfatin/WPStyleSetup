@@ -142,11 +142,29 @@
       <Attr Name="_DisplaySize" Value="250"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="AvailableSamVersion"
+    ColumnName="AVAILABLE_SAM_VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="WpStyleWiseProcessSamEO"
     Association="model.entity.WpStyleWiseProcessSamR01Assoc"
     AssociationEnd="model.entity.WpStyleWiseProcessSamR01Assoc.WpStyleWiseProcessSamEO"
     AssociationOtherEnd="model.entity.WpStyleWiseProcessSamR01Assoc.WpStyleSetupEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="WpStyleWiseProcessSamEO1"
+    Association="model.entity.WpStyleWiseProcessSamR01Assoc1"
+    AssociationEnd="model.entity.WpStyleWiseProcessSamR01Assoc1.WpStyleWiseProcessSamEO1"
+    AssociationOtherEnd="model.entity.WpStyleWiseProcessSamR01Assoc1.WpStyleSetupEO1"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

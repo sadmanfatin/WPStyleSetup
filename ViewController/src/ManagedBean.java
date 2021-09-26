@@ -262,9 +262,11 @@ public class ManagedBean {
         styleSetupVoRow.setAttribute("Color",projectionStyleVoCurrentRow.getAttribute("Color"));
         styleSetupVoRow.setAttribute("WashName",projectionStyleVoCurrentRow.getAttribute("Wash"));
         styleSetupVoRow.setAttribute("ProductionUnit",projectionStyleVoCurrentRow.getAttribute("ProductionUnit"));
+        styleSetupVoRow.setAttribute("ProductionUnitName",projectionStyleVoCurrentRow.getAttribute("ProductionUnitName"));
         styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));  
-        styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));
-        
+        styleSetupVoRow.setAttribute("SamVersion",0);  
+        styleSetupVoRow.setAttribute("AvailableSamVersion",0);  
+        styleSetupVoRow.setAttribute("ProjectionStyle","y");  
         styleSetupVo.insertRow(styleSetupVoRow);
         styleSetupVo.setCurrentRow(styleSetupVoRow);
         

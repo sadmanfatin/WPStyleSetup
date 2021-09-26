@@ -166,6 +166,16 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
                 obj.setWpStyleSetupEO((WpStyleSetupEOImpl)value);
             }
         }
+        ,
+        WpStyleSetupEO1 {
+            public Object get(WpStyleWiseProcessSamEOImpl obj) {
+                return obj.getWpStyleSetupEO1();
+            }
+
+            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
+                obj.setWpStyleSetupEO1((WpStyleSetupEOImpl)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -195,6 +205,7 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
         }
     }
 
+
     public static final int SAMID = AttributesEnum.SamId.index();
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int WPPROCESSID = AttributesEnum.WpProcessId.index();
@@ -209,12 +220,14 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int WPSTYLESETUPEO = AttributesEnum.WpStyleSetupEO.index();
+    public static final int WPSTYLESETUPEO1 = AttributesEnum.WpStyleSetupEO1.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public WpStyleWiseProcessSamEOImpl() {
     }
+
 
     /**
      * @return the definition object for this instance class.
@@ -481,6 +494,20 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
         setAttributeInternal(WPSTYLESETUPEO, value);
     }
 
+
+    /**
+     * @return the associated entity WpStyleSetupEOImpl.
+     */
+    public WpStyleSetupEOImpl getWpStyleSetupEO1() {
+        return (WpStyleSetupEOImpl)getAttributeInternal(WPSTYLESETUPEO1);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity WpStyleSetupEOImpl.
+     */
+    public void setWpStyleSetupEO1(WpStyleSetupEOImpl value) {
+        setAttributeInternal(WPSTYLESETUPEO1, value);
+    }
 
     /**
      * @param samId key constituent

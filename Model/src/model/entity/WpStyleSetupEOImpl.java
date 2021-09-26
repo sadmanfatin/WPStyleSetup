@@ -138,9 +138,29 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        AvailableSamVersion {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getAvailableSamVersion();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setAvailableSamVersion((Number)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamEO {
             public Object get(WpStyleSetupEOImpl obj) {
                 return obj.getWpStyleWiseProcessSamEO();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        WpStyleWiseProcessSamEO1 {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getWpStyleWiseProcessSamEO1();
             }
 
             public void put(WpStyleSetupEOImpl obj, Object value) {
@@ -187,7 +207,9 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int PBFLAG = AttributesEnum.PbFlag.index();
     public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
+    public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int WPSTYLEWISEPROCESSSAMEO = AttributesEnum.WpStyleWiseProcessSamEO.index();
+    public static final int WPSTYLEWISEPROCESSSAMEO1 = AttributesEnum.WpStyleWiseProcessSamEO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -385,6 +407,22 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for AvailableSamVersion, using the alias name AvailableSamVersion.
+     * @return the AvailableSamVersion
+     */
+    public Number getAvailableSamVersion() {
+        return (Number)getAttributeInternal(AVAILABLESAMVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for AvailableSamVersion.
+     * @param value value to set the AvailableSamVersion
+     */
+    public void setAvailableSamVersion(Number value) {
+        setAttributeInternal(AVAILABLESAMVERSION, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -424,6 +462,13 @@ public class WpStyleSetupEOImpl extends EntityImpl {
         return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMEO);
     }
 
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getWpStyleWiseProcessSamEO1() {
+        return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMEO1);
+    }
 
     /**
      * @param styleSetupId key constituent

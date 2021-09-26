@@ -56,29 +56,6 @@
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
-                     id="CreationDate">
-      <AttrNames>
-        <Item Value="CreationDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="CreatedBy">
-      <AttrNames>
-        <Item Value="CreatedBy"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
-                     id="LastUpdatedDate">
-      <AttrNames>
-        <Item Value="LastUpdatedDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
-                     id="LastUpdatedBy">
-      <AttrNames>
-        <Item Value="LastUpdatedBy"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator"
                      id="ProductionUnit">
       <AttrNames>
         <Item Value="ProductionUnit"/>

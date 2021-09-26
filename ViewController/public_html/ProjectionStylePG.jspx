@@ -29,15 +29,6 @@
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.BuyerId.format}"/>
           </af:inputText>
-          <af:inputText value="#{bindings.BuyerName.inputValue}"
-                        label="#{bindings.BuyerName.hints.label}"
-                        required="#{bindings.BuyerName.hints.mandatory}"
-                        columns="#{bindings.BuyerName.hints.displayWidth}"
-                        maximumLength="#{bindings.BuyerName.hints.precision}"
-                        shortDesc="#{bindings.BuyerName.hints.tooltip}"
-                        id="it1">
-            <f:validator binding="#{bindings.BuyerName.validator}"/>
-          </af:inputText>
           <af:inputText value="#{bindings.Style.inputValue}"
                         label="#{bindings.Style.hints.label}"
                         required="#{bindings.Style.hints.mandatory}"
@@ -101,44 +92,6 @@
             <f:validator binding="#{bindings.ProductionUnit.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.ProductionUnit.format}"/>
-          </af:inputText>
-          <af:inputDate value="#{bindings.CreationDate.inputValue}"
-                        label="#{bindings.CreationDate.hints.label}"
-                        required="#{bindings.CreationDate.hints.mandatory}"
-                        shortDesc="#{bindings.CreationDate.hints.tooltip}"
-                        id="id1">
-            <f:validator binding="#{bindings.CreationDate.validator}"/>
-            <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
-          </af:inputDate>
-          <af:inputText value="#{bindings.CreatedBy.inputValue}"
-                        label="#{bindings.CreatedBy.hints.label}"
-                        required="#{bindings.CreatedBy.hints.mandatory}"
-                        columns="#{bindings.CreatedBy.hints.displayWidth}"
-                        maximumLength="#{bindings.CreatedBy.hints.precision}"
-                        shortDesc="#{bindings.CreatedBy.hints.tooltip}"
-                        id="it12">
-            <f:validator binding="#{bindings.CreatedBy.validator}"/>
-            <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.CreatedBy.format}"/>
-          </af:inputText>
-          <af:inputDate value="#{bindings.LastUpdatedDate.inputValue}"
-                        label="#{bindings.LastUpdatedDate.hints.label}"
-                        required="#{bindings.LastUpdatedDate.hints.mandatory}"
-                        shortDesc="#{bindings.LastUpdatedDate.hints.tooltip}"
-                        id="id2">
-            <f:validator binding="#{bindings.LastUpdatedDate.validator}"/>
-            <af:convertDateTime pattern="#{bindings.LastUpdatedDate.format}"/>
-          </af:inputDate>
-          <af:inputText value="#{bindings.LastUpdatedBy.inputValue}"
-                        label="#{bindings.LastUpdatedBy.hints.label}"
-                        required="#{bindings.LastUpdatedBy.hints.mandatory}"
-                        columns="#{bindings.LastUpdatedBy.hints.displayWidth}"
-                        maximumLength="#{bindings.LastUpdatedBy.hints.precision}"
-                        shortDesc="#{bindings.LastUpdatedBy.hints.tooltip}"
-                        id="it10">
-            <f:validator binding="#{bindings.LastUpdatedBy.validator}"/>
-            <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.LastUpdatedBy.format}"/>
           </af:inputText>
           <f:facet name="footer">
             <af:commandButton text="Submit" id="cb1" action="return to view"

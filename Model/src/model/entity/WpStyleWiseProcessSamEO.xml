@@ -169,6 +169,13 @@
     AssociationOtherEnd="model.entity.WpStyleWiseProcessSamR01Assoc.WpStyleWiseProcessSamEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="WpStyleSetupEO1"
+    Association="model.entity.WpStyleWiseProcessSamR01Assoc1"
+    AssociationEnd="model.entity.WpStyleWiseProcessSamR01Assoc1.WpStyleSetupEO1"
+    AssociationOtherEnd="model.entity.WpStyleWiseProcessSamR01Assoc1.WpStyleWiseProcessSamEO1"
+    Type="model.entity.WpStyleSetupEOImpl"
+    IsUpdateable="true"/>
   <Key
     Name="WpStyleWiseProcessSamPk"
     PrimaryKey="true">

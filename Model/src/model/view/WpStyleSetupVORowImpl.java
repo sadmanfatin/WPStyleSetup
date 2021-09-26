@@ -229,16 +229,6 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        AvailableSamVersion {
-            public Object get(WpStyleSetupVORowImpl obj) {
-                return obj.getAvailableSamVersion();
-            }
-
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAvailableSamVersion((Number)value);
-            }
-        }
-        ,
         UpdatedVersionAvailavle {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getUpdatedVersionAvailavle();
@@ -246,6 +236,16 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setUpdatedVersionAvailavle((Boolean)value);
+            }
+        }
+        ,
+        AvailableSamVersion {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getAvailableSamVersion();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAvailableSamVersion((Number)value);
             }
         }
         ,
@@ -262,6 +262,26 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
         OrgLOV1 {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getOrgLOV1();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        BuyerLOV1 {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getBuyerLOV1();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        SeasonLOV1 {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getSeasonLOV1();
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
@@ -318,10 +338,12 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
-    public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int UPDATEDVERSIONAVAILAVLE = AttributesEnum.UpdatedVersionAvailavle.index();
+    public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
+    public static final int BUYERLOV1 = AttributesEnum.BuyerLOV1.index();
+    public static final int SEASONLOV1 = AttributesEnum.SeasonLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -659,21 +681,6 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
         setAttributeInternal(ORGID, value);
     }
 
-    /**
-     * Gets the attribute value for the calculated attribute AvailableSamVersion.
-     * @return the AvailableSamVersion
-     */
-    public Number getAvailableSamVersion() {
-        return (Number) getAttributeInternal(AVAILABLESAMVERSION);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute AvailableSamVersion.
-     * @param value value to set the  AvailableSamVersion
-     */
-    public void setAvailableSamVersion(Number value) {
-        setAttributeInternal(AVAILABLESAMVERSION, value);
-    }
 
     /**
      * Gets the attribute value for the calculated attribute UpdatedVersionAvailavle.
@@ -689,6 +696,22 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public void setUpdatedVersionAvailavle(Boolean value) {
         setAttributeInternal(UPDATEDVERSIONAVAILAVLE, value);
+    }
+
+    /**
+     * Gets the attribute value for AVAILABLE_SAM_VERSION using the alias name AvailableSamVersion.
+     * @return the AVAILABLE_SAM_VERSION
+     */
+    public Number getAvailableSamVersion() {
+        return (Number) getAttributeInternal(AVAILABLESAMVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for AVAILABLE_SAM_VERSION using the alias name AvailableSamVersion.
+     * @param value value to set the AVAILABLE_SAM_VERSION
+     */
+    public void setAvailableSamVersion(Number value) {
+        setAttributeInternal(AVAILABLESAMVERSION, value);
     }
 
     /**
@@ -719,6 +742,20 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public RowSet getOrgLOV1() {
         return (RowSet)getAttributeInternal(ORGLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> BuyerLOV1.
+     */
+    public RowSet getBuyerLOV1() {
+        return (RowSet)getAttributeInternal(BUYERLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> SeasonLOV1.
+     */
+    public RowSet getSeasonLOV1() {
+        return (RowSet)getAttributeInternal(SEASONLOV1);
     }
 
     /**

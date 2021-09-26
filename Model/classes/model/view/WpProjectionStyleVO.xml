@@ -25,6 +25,7 @@
        WpProjectionStyleEO.ORG_ID, 
        WpProjectionStyleEO.ORDERED_QTY, 
        WpProjectionStyleEO.PRODUCTION_UNIT, 
+       ORG_ID_TO_ORG_NAME(WpProjectionStyleEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME, 
        WpProjectionStyleEO.CREATION_DATE, 
        WpProjectionStyleEO.CREATED_BY, 
        WpProjectionStyleEO.LAST_UPDATED_DATE, 
@@ -98,6 +99,21 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     EntityUsage="WpProjectionStyleEO"
     AliasName="ORDERED_QTY"/>
   <ViewAttribute
+    Name="ProductionUnitName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRODUCTION_UNIT_NAME"
+    Expression="PRODUCTION_UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
@@ -126,5 +142,5 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     PrecisionRule="true"
     EntityAttrName="ProductionUnit"
     EntityUsage="WpProjectionStyleEO"
-    AliasName="PRODUCTION_UINT"/>
+    AliasName="PRODUCTION_UNIT"/>
 </ViewObject>

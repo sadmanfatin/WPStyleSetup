@@ -13,8 +13,8 @@
   UseGlueCode="false"
   RowClass="model.entity.WpProjectionStyleEOImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
     <AttrArray Name="_publishEvents"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Attribute
@@ -113,7 +113,7 @@
   </Attribute>
   <Attribute
     Name="ProductionUnit"
-    ColumnName="PRODUCTION_UINT"
+    ColumnName="PRODUCTION_UNIT"
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
