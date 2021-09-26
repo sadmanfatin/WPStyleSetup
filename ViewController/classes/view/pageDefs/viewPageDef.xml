@@ -137,6 +137,8 @@
           <Item Value="OrgId"/>
           <Item Value="AvailableSamVersion"/>
           <Item Value="UpdatedVersionAvailavle"/>
+          <Item Value="Fabrication"/>
+          <Item Value="WashType"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

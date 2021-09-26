@@ -34,6 +34,14 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="FabricationLOV1"
+    ViewObjectName="model.lov.FabricationLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashTypeLOV1"
+    ViewObjectName="model.lov.WashTypeLOV"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ProductionUnitName"
     ListVOName="OrgLOV1"
@@ -53,6 +61,42 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="OrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Fabrication"
+    ListVOName="FabricationLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Fabrication"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Fabrication"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Fabrication"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WashType"
+    ListVOName="WashTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WashType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WashType"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -78,8 +122,10 @@
        WPSTYLESETUPEO.SAM_VERSION, 
        WPSTYLESETUPEO.ORG_ID,
         WPSTYLESETUPEO.PROJECTION_STYLE,
-       WPSTYLESETUPEO.AVAILABLE_SAM_VERSION            
-       
+       WPSTYLESETUPEO.AVAILABLE_SAM_VERSION    ,
+               
+        WPSTYLESETUPEO.FABRICATION,
+         WPSTYLESETUPEO.WASH_TYPE
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
     (  SELECT PV.SYSTEM_ID, 
         PV.LC_UNIT, 
@@ -325,6 +371,34 @@
     EntityAttrName="AvailableSamVersion"
     EntityUsage="WpStyleSetupEO"
     AliasName="AVAILABLE_SAM_VERSION"/>
+  <ViewAttribute
+    Name="Fabrication"
+    PrecisionRule="true"
+    EntityAttrName="Fabrication"
+    EntityUsage="WpStyleSetupEO"
+    AliasName="FABRICATION"
+    LOVName="LOV_Fabrication">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashType"
+    PrecisionRule="true"
+    EntityAttrName="WashType"
+    EntityUsage="WpStyleSetupEO"
+    AliasName="WASH_TYPE"
+    LOVName="LOV_WashType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="WpStyleWiseProcessSamVO"
     ViewLink="model.view.WpStyleWiseProcessSamR01Link"

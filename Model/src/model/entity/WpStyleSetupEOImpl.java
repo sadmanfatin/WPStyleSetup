@@ -148,6 +148,26 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        Fabrication {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getFabrication();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setFabrication((String)value);
+            }
+        }
+        ,
+        WashType {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getWashType();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setWashType((String)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamEO {
             public Object get(WpStyleSetupEOImpl obj) {
                 return obj.getWpStyleWiseProcessSamEO();
@@ -208,6 +228,8 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     public static final int PBFLAG = AttributesEnum.PbFlag.index();
     public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
+    public static final int FABRICATION = AttributesEnum.Fabrication.index();
+    public static final int WASHTYPE = AttributesEnum.WashType.index();
     public static final int WPSTYLEWISEPROCESSSAMEO = AttributesEnum.WpStyleWiseProcessSamEO.index();
     public static final int WPSTYLEWISEPROCESSSAMEO1 = AttributesEnum.WpStyleWiseProcessSamEO1.index();
 
@@ -423,6 +445,38 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for Fabrication, using the alias name Fabrication.
+     * @return the Fabrication
+     */
+    public String getFabrication() {
+        return (String)getAttributeInternal(FABRICATION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Fabrication.
+     * @param value value to set the Fabrication
+     */
+    public void setFabrication(String value) {
+        setAttributeInternal(FABRICATION, value);
+    }
+
+    /**
+     * Gets the attribute value for WashType, using the alias name WashType.
+     * @return the WashType
+     */
+    public String getWashType() {
+        return (String)getAttributeInternal(WASHTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for WashType.
+     * @param value value to set the WashType
+     */
+    public void setWashType(String value) {
+        setAttributeInternal(WASHTYPE, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -469,6 +523,7 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     public RowIterator getWpStyleWiseProcessSamEO1() {
         return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMEO1);
     }
+
 
     /**
      * @param styleSetupId key constituent

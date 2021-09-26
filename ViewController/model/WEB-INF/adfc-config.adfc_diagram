@@ -13,24 +13,24 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">297.89648</property>
+         name="y">295.1953</property>
       <property
-         name="x">259.0</property>
+         name="x">279.0</property>
    </View>
    <View
       id="View3">
       <property
-         name="activityId">ProjectionStylePG</property>
+         name="activityId">AddProjectionStylePG</property>
       <property
-         name="page">/ProjectionStylePG.jspx</property>
+         name="page">/AddProjectionStylePG.jspx</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>ProjectionStylePG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>AddProjectionStylePG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">297.59766</property>
+         name="y">265.2119</property>
       <property
-         name="x">528.0</property>
+         name="x">672.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -38,9 +38,9 @@
       from="View2"
       to="View3">
       <property
-         name="fromOutcome">projection style pg</property>
+         name="fromOutcome">Add projection style pg</property>
       <property
-         name="sdm:polyPoints">R46,300.0,294.0459,486.99442,293.74707,L46</property>
+         name="sdm:polyPoints">R46,320.0,291.34473,630.6671,261.7119,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -50,6 +50,6 @@
       <property
          name="fromOutcome">return to view</property>
       <property
-         name="sdm:polyPoints">L54,487.0,300.74707,300.00558,301.0459,R54</property>
+         name="sdm:polyPoints">L54,631.0,268.7119,320.33273,298.34473,R54</property>
    </ControlFlowCase>
 </SDM>

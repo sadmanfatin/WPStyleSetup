@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
-                version="11.1.1.62.29" id="ProjectionStylePGPageDef"
+                version="11.1.1.62.29" id="AddProjectionStylePGPageDef"
                 Package="view.pageDefs">
   <parameters/>
   <executables>

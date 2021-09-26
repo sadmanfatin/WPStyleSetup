@@ -249,6 +249,26 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        Fabrication {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getFabrication();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setFabrication((String)value);
+            }
+        }
+        ,
+        WashType {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getWashType();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setWashType((String)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamVO {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWpStyleWiseProcessSamVO();
@@ -282,6 +302,26 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
         SeasonLOV1 {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getSeasonLOV1();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        FabricationLOV1 {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getFabricationLOV1();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        WashTypeLOV1 {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getWashTypeLOV1();
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
@@ -340,10 +380,14 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
     public static final int UPDATEDVERSIONAVAILAVLE = AttributesEnum.UpdatedVersionAvailavle.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
+    public static final int FABRICATION = AttributesEnum.Fabrication.index();
+    public static final int WASHTYPE = AttributesEnum.WashType.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
     public static final int BUYERLOV1 = AttributesEnum.BuyerLOV1.index();
     public static final int SEASONLOV1 = AttributesEnum.SeasonLOV1.index();
+    public static final int FABRICATIONLOV1 = AttributesEnum.FabricationLOV1.index();
+    public static final int WASHTYPELOV1 = AttributesEnum.WashTypeLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -715,6 +759,38 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for FABRICATION using the alias name Fabrication.
+     * @return the FABRICATION
+     */
+    public String getFabrication() {
+        return (String) getAttributeInternal(FABRICATION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for FABRICATION using the alias name Fabrication.
+     * @param value value to set the FABRICATION
+     */
+    public void setFabrication(String value) {
+        setAttributeInternal(FABRICATION, value);
+    }
+
+    /**
+     * Gets the attribute value for WASH_TYPE using the alias name WashType.
+     * @return the WASH_TYPE
+     */
+    public String getWashType() {
+        return (String) getAttributeInternal(WASHTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for WASH_TYPE using the alias name WashType.
+     * @param value value to set the WASH_TYPE
+     */
+    public void setWashType(String value) {
+        setAttributeInternal(WASHTYPE, value);
+    }
+
+    /**
      * Gets the attribute value for PROJECTION_STYLE using the alias name ProjectionStyle.
      * @return the PROJECTION_STYLE
      */
@@ -756,6 +832,20 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public RowSet getSeasonLOV1() {
         return (RowSet)getAttributeInternal(SEASONLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FabricationLOV1.
+     */
+    public RowSet getFabricationLOV1() {
+        return (RowSet)getAttributeInternal(FABRICATIONLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> WashTypeLOV1.
+     */
+    public RowSet getWashTypeLOV1() {
+        return (RowSet)getAttributeInternal(WASHTYPELOV1);
     }
 
     /**

@@ -4,7 +4,7 @@
              Package="view" ClientType="Generic">
   <pageMap>
     <page path="/view.jspx" usageId="view_viewPageDef"/>
-    <page path="/ProjectionStylePG.jspx"
+    <page path="/AddProjectionStylePG.jspx"
           usageId="view_ProjectionStylePGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>

@@ -36,7 +36,8 @@
                     <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
                                       text="Add Projection Style"
                                       disabled="#{!bindings.CreateInsert2.enabled}"
-                                      id="cb9" action="projection style pg"/>
+                                      id="cb9"
+                                      action="Add projection style pg"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -233,7 +234,7 @@
                   <af:column sortProperty="ProductionUnit"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.ProductionUnit.label}"
-                             id="c7" visible="true" align="center"
+                             id="c7" visible="false" align="center"
                              partialTriggers="soc1"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
                     <af:inputText value="#{row.bindings.ProductionUnit.inputValue}"
@@ -274,6 +275,30 @@
                                   id="it22" readOnly="true">
                       <f:validator binding="#{row.bindings.PbFlag.validator}"/>
                     </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.WpStyleSetupVO1.hints.Fabrication.label}"
+                             id="c61" align="center" sortable="true"
+                             filterable="true">
+                    <af:selectOneChoice value="#{row.bindings.Fabrication.inputValue}"
+                                        label="#{row.bindings.Fabrication.label}"
+                                        required="#{bindings.WpStyleSetupVO1.hints.Fabrication.mandatory}"
+                                        shortDesc="#{bindings.WpStyleSetupVO1.hints.Fabrication.tooltip}"
+                                        id="soc2" autoSubmit="true">
+                      <f:selectItems value="#{row.bindings.Fabrication.items}"
+                                     id="si2"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="#{bindings.WpStyleSetupVO1.hints.WashType.label}"
+                             id="c62" align="center" sortable="true"
+                             filterable="true">
+                    <af:selectOneChoice value="#{row.bindings.WashType.inputValue}"
+                                        label="#{row.bindings.WashType.label}"
+                                        required="#{bindings.WpStyleSetupVO1.hints.WashType.mandatory}"
+                                        shortDesc="#{bindings.WpStyleSetupVO1.hints.WashType.tooltip}"
+                                        id="soc3" autoSubmit="true">
+                      <f:selectItems value="#{row.bindings.WashType.items}"
+                                     id="si3"/>
+                    </af:selectOneChoice>
                   </af:column>
                   <af:column sortProperty="CreatedBy" filterable="true"
                              sortable="true"
