@@ -21,7 +21,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entity.WpStyleSetupEO.StyleSetupId"/>
-      <Item Value="model.entity.WpStyleSetupEO.SamVersion"/>
+      <Item Value="model.entity.WpStyleSetupEO.SystemId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -35,7 +35,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entity.WpStyleWiseProcessSamEO.StyleSetupId"/>
-      <Item Value="model.entity.WpStyleWiseProcessSamEO.SamVersion"/>
+      <Item Value="model.entity.WpStyleWiseProcessSamEO.SystemId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

@@ -40,10 +40,11 @@ SV.SEQ_NO,
 SV.BATCH_QTY,
 SV.BATCH_TIME,
 SV.SAM,
-WP.WP_PROCESS_ID
-
+WP.WP_PROCESS_ID,
+SV.SECTION_TYPE
 FROM WP_STYLE_WISE_PROCESS_SAM_V SV,
 WP_PROCESS_INFO WP
+
 
 WHERE SV.UNIT_PROCESS_ID = WP.UNIT_PROCESS_ID
 AND SV.UNIT_SECTION_ID = WP.UNIT_SECTION_ID
@@ -218,6 +219,21 @@ AND  SV.SYSTEM_ID = :p_system_id]]>
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SectionType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SECTION_TYPE"
+    Expression="SECTION_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
   <ResourceBundle>

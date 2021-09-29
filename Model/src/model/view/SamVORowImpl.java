@@ -133,6 +133,16 @@ public class SamVORowImpl extends ViewRowImpl {
                 obj.setWpProcessId((Number)value);
             }
         }
+        ,
+        SectionType {
+            public Object get(SamVORowImpl obj) {
+                return obj.getSectionType();
+            }
+
+            public void put(SamVORowImpl obj, Object value) {
+                obj.setSectionType((String)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -160,6 +170,8 @@ public class SamVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
@@ -172,6 +184,7 @@ public class SamVORowImpl extends ViewRowImpl {
     public static final int BATCHTIME = AttributesEnum.BatchTime.index();
     public static final int SAM = AttributesEnum.Sam.index();
     public static final int WPPROCESSID = AttributesEnum.WpProcessId.index();
+    public static final int SECTIONTYPE = AttributesEnum.SectionType.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -369,6 +382,22 @@ public class SamVORowImpl extends ViewRowImpl {
      */
     public void setWpProcessId(Number value) {
         setAttributeInternal(WPPROCESSID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute SectionType.
+     * @return the SectionType
+     */
+    public String getSectionType() {
+        return (String) getAttributeInternal(SECTIONTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute SectionType.
+     * @param value value to set the  SectionType
+     */
+    public void setSectionType(String value) {
+        setAttributeInternal(SECTIONTYPE, value);
     }
 
     /**

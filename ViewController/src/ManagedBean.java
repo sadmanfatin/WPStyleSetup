@@ -6,8 +6,12 @@ import javax.faces.event.ActionEvent;
 
 import model.service.AppModuleImpl;
 
+import model.view.CWPLDefaultProcessesVOImpl;
+import model.view.CWPLDefaultProcessesVORowImpl;
 import model.view.PocStylesVORowImpl;
 
+import model.view.PopulateProcessVOImpl;
+import model.view.PopulateProcessVORowImpl;
 import model.view.SamVOImpl;
 import model.view.SamVORowImpl;
 import model.view.WpStyleSetupVOImpl;
@@ -28,6 +32,7 @@ import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.Key;
 import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Number;
 
@@ -118,7 +123,7 @@ public class ManagedBean {
 
                     wpStyleSetupVo.insertRow(wpStyleSetupRow);
                     
-                   populateStyleWiseProcesses(pocStylesRow.getSystemId());
+                   populateStyleWiseProcesses(pocStylesRow.getSystemId() , wpStyleSetupRow.getOrgId().toString() );
                 
                 //   populateProcesses(pocStylesRow.getSectionId(),   new Number(pocStylesRow.getOrgId())   );
                 }
@@ -151,9 +156,11 @@ public class ManagedBean {
     }
 
 
-    private void populateStyleWiseProcesses(Number systemId) {
+    private void populateStyleWiseProcesses(Number systemId , String orgId) {
         WpStyleWiseProcessSamVOImpl styleWiseProcessSamVo = (WpStyleWiseProcessSamVOImpl)appM.getWpStyleWiseProcessSamVO1();
         WpStyleWiseProcessSamVORowImpl styleWiseProcessSamVoRow = null;
+        CWPLDefaultProcessesVOImpl cwplDefaultProcessesVo = (CWPLDefaultProcessesVOImpl)appM.getCWPLDefaultProcessesVO1();
+        CWPLDefaultProcessesVORowImpl   cwplDefaultProcessesVoRow = null ; 
         
         SamVOImpl samVo = (SamVOImpl)appM.getSamVO1();
         samVo.setp_system_id(systemId.toString());
@@ -163,26 +170,61 @@ public class ManagedBean {
         
         Row[] samVoRows =  samVo.getAllRowsInRange();
              
+       String samVoSectionType = null;
+         
+             
         for(Row row: samVoRows){
+          
             SamVoRow = (SamVORowImpl)row;
+         //     samVoSectionType = (String)row.getAttribute("SectionType");
+           samVoSectionType  =   SamVoRow.getSectionType();
+             
+           //  /** populate all process for GWL and only dry processes for CWPL from samView   */
             
-            styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();
+          //if( orgId.equals("344")  || (orgId.equals("343")  && samVoSectionType.equals("Dry") )    ) {
+                
+                styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();                
+                styleWiseProcessSamVoRow.setWpProcessId(SamVoRow.getWpProcessId());
+                styleWiseProcessSamVoRow.setBatchQty(SamVoRow.getBatchQty());
+                styleWiseProcessSamVoRow.setBatchTime(SamVoRow.getBatchTime());
+                styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
+                styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
+                styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
+                
+        //  }
             
-            styleWiseProcessSamVoRow.setWpProcessId(SamVoRow.getWpProcessId());
-            styleWiseProcessSamVoRow.setBatchQty(SamVoRow.getBatchQty());
-            styleWiseProcessSamVoRow.setBatchTime(SamVoRow.getBatchTime());
-            styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
-            styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
-            styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
-        }
+                        
+        }   
         
+        /**    populate default processes for cwpl styles   */
+        
+        if (orgId.equals("343") ) {
+            
+            RowSetIterator cwplRowsRs  = cwplDefaultProcessesVo.createRowSetIterator("");
+          
+            System.out.println("cwplRowsRs.getAllRowsInRange().length "  + cwplRowsRs.getAllRowsInRange().length);
+            System.out.println("cwplRowsRs.getFetchedRowCount() "  + cwplRowsRs.getFetchedRowCount());
+            
+            while (cwplRowsRs.hasNext()){
+                
+                cwplDefaultProcessesVoRow = ( CWPLDefaultProcessesVORowImpl) cwplRowsRs.next();
+                styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow(); 
+                
+                styleWiseProcessSamVoRow.setProcessName(cwplDefaultProcessesVoRow.getProcessName());
+                styleWiseProcessSamVoRow.setWpProcessId(cwplDefaultProcessesVoRow.getWpProcessId());
+                
+            }            
+             
+            cwplRowsRs.closeRowSetIterator();        
+        }
+   
         
     }
 
     public void updateStyleVersion(ActionEvent actionEvent) {
         // Add event code here...
         
-        String statement = "BEGIN APPS.UPDATE_WP_STYLE_SETUP_VERSION(:1,:2); END;";
+        String statement = "BEGIN APPS.UPDATE_WP_STYLE_SETUP_VERSION(:1,:2, :3); END;";
         CallableStatement cs =  appM.getDBTransaction().createCallableStatement(statement, 1);
         WpStyleSetupVOImpl styleSetupVo = (WpStyleSetupVOImpl)appM.getWpStyleSetupVO1();
         WpStyleSetupVORowImpl styleSetupVoRow = (WpStyleSetupVORowImpl)styleSetupVo.getCurrentRow();
@@ -190,11 +232,12 @@ public class ManagedBean {
         
         Map sessionScope = ADFContext.getCurrent().getSessionScope();
         String userId = (String)sessionScope.get("userId");
-        
+        String orgId = styleSetupVoRow.getOrgId().toString();
         
         try {
             cs.setInt(1, Integer.parseInt(styleSetupId));
             cs.setInt(2, Integer.parseInt(userId));
+            cs.setInt(3, Integer.parseInt(orgId));
             cs.execute();
         }
         catch(Exception e){

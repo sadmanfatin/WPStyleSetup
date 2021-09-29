@@ -3,24 +3,24 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="PopulateProcessVO"
+  Name="CWPLDefaultProcessesVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false"
-  RowClass="model.view.PopulateProcessVORowImpl"
-  ComponentClass="model.view.PopulateProcessVOImpl">
+  RowClass="model.view.CWPLDefaultProcessesVORowImpl"
+  ComponentClass="model.view.CWPLDefaultProcessesVOImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.PopulateProcessVO_LABEL"/>
+        ResId="model.view.CWPLDefaultProcessesVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
@@ -34,7 +34,8 @@
        PI.PROCESS_NAME,
        SI.SECTION_TYPE
   FROM WP_SECTION_INFO SI, WP_PROCESS_INFO PI
- WHERE SI.WP_SECTION_ID = PI.WP_SECTION_ID]]>
+ WHERE SI.WP_SECTION_ID = PI.WP_SECTION_ID
+ and  WP_PROCESS_ID in (1091,1092)]]>
   </SQLQuery>
   <ViewAttribute
     Name="OrgId"
@@ -168,15 +169,6 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="CheckBox"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="WpProcessId"/>
   </AttrArray>

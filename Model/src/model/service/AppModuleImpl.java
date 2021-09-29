@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import model.service.common.AppModule;
 
+import model.view.CWPLDefaultProcessesVOImpl;
 import model.view.PocStylesVOImpl;
+import model.view.PopulateProcessVOImpl;
 import model.view.SamVOImpl;
 import model.view.WpStyleSetupVOImpl;
 
@@ -144,5 +146,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getWpProjectionStyleVO1() {
         return (ViewObjectImpl)findViewObject("WpProjectionStyleVO1");
+    }
+
+    /**
+     * Container's getter for CWPLDefaultProcessesVO1.
+     * @return CWPLDefaultProcessesVO1
+     */
+    public CWPLDefaultProcessesVOImpl getCWPLDefaultProcessesVO1() {
+        return (CWPLDefaultProcessesVOImpl)findViewObject("CWPLDefaultProcessesVO1");
     }
 }

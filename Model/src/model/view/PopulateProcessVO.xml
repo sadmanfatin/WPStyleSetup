@@ -9,9 +9,13 @@
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  RowClass="model.view.PopulateProcessVORowImpl"
+  ComponentClass="model.view.PopulateProcessVOImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -27,7 +31,8 @@
        SI.SERIAL,
        PI.WP_PROCESS_ID,
        PI.UNIT_PROCESS_ID,
-       PI.PROCESS_NAME
+       PI.PROCESS_NAME,
+       SI.SECTION_TYPE
   FROM WP_SECTION_INFO SI, WP_PROCESS_INFO PI
  WHERE SI.WP_SECTION_ID = PI.WP_SECTION_ID]]>
   </SQLQuery>
@@ -146,6 +151,21 @@
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SectionType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SECTION_TYPE"
+    Expression="SECTION_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

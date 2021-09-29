@@ -37,6 +37,9 @@
   <ViewUsage
     Name="WpProjectionStyleVO1"
     ViewObjectName="model.view.WpProjectionStyleVO"/>
+  <ViewUsage
+    Name="CWPLDefaultProcessesVO1"
+    ViewObjectName="model.view.CWPLDefaultProcessesVO"/>
   <ViewLinkUsage
     Name="WpStyleWiseProcessSamR01Link1"
     ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"

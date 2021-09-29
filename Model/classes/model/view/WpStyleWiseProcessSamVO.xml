@@ -34,8 +34,10 @@
        WpStyleWiseProcessSamEO.LAST_UPDATED_BY, 
        WpStyleWiseProcessSamEO.LAST_UPDATED_DATE,
        WpStyleWiseProcessSamEO.SAM_VERSION,
+        WpStyleWiseProcessSamEO.SYSTEM_ID,
        (select wp.process_name from wp_process_info wp where wp.WP_PROCESS_ID = WpStyleWiseProcessSamEO.WP_PROCESS_ID ) PROCESS_NAME
-FROM WP_STYLE_WISE_PROCESS_SAM WpStyleWiseProcessSamEO]]>
+FROM WP_STYLE_WISE_PROCESS_SAM WpStyleWiseProcessSamEO
+order by  WpStyleWiseProcessSamEO.PROCESS_SEQ]]>
   </SQLQuery>
   <EntityUsage
     Name="WpStyleWiseProcessSamEO"
@@ -119,6 +121,12 @@ FROM WP_STYLE_WISE_PROCESS_SAM WpStyleWiseProcessSamEO]]>
     EntityAttrName="SamVersion"
     EntityUsage="WpStyleWiseProcessSamEO"
     AliasName="SAM_VERSION"/>
+  <ViewAttribute
+    Name="SystemId"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="WpStyleWiseProcessSamEO"
+    AliasName="SYSTEM_ID"/>
   <ViewAttribute
     Name="ProcessName"
     IsPersistent="false"

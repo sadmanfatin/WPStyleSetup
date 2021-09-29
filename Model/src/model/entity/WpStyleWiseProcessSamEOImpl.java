@@ -157,6 +157,16 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
             }
         }
         ,
+        SystemId {
+            public Object get(WpStyleWiseProcessSamEOImpl obj) {
+                return obj.getSystemId();
+            }
+
+            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
+                obj.setSystemId((Number)value);
+            }
+        }
+        ,
         WpStyleSetupEO {
             public Object get(WpStyleWiseProcessSamEOImpl obj) {
                 return obj.getWpStyleSetupEO();
@@ -219,6 +229,7 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
+    public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int WPSTYLESETUPEO = AttributesEnum.WpStyleSetupEO.index();
     public static final int WPSTYLESETUPEO1 = AttributesEnum.WpStyleSetupEO1.index();
 
@@ -448,6 +459,22 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for SystemId, using the alias name SystemId.
+     * @return the SystemId
+     */
+    public Number getSystemId() {
+        return (Number)getAttributeInternal(SYSTEMID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SystemId.
+     * @param value value to set the SystemId
+     */
+    public void setSystemId(Number value) {
+        setAttributeInternal(SYSTEMID, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -508,6 +535,7 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     public void setWpStyleSetupEO1(WpStyleSetupEOImpl value) {
         setAttributeInternal(WPSTYLESETUPEO1, value);
     }
+
 
     /**
      * @param samId key constituent

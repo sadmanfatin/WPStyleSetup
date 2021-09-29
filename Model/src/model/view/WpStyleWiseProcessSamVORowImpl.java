@@ -147,6 +147,16 @@ public class WpStyleWiseProcessSamVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        SystemId {
+            public Object get(WpStyleWiseProcessSamVORowImpl obj) {
+                return obj.getSystemId();
+            }
+
+            public void put(WpStyleWiseProcessSamVORowImpl obj, Object value) {
+                obj.setSystemId((Number)value);
+            }
+        }
+        ,
         ProcessName {
             public Object get(WpStyleWiseProcessSamVORowImpl obj) {
                 return obj.getProcessName();
@@ -199,6 +209,7 @@ public class WpStyleWiseProcessSamVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
+    public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int PROCESSNAME = AttributesEnum.ProcessName.index();
 
     /**
@@ -421,6 +432,22 @@ public class WpStyleWiseProcessSamVORowImpl extends ViewRowImpl {
      */
     public void setProcessName(String value) {
         setAttributeInternal(PROCESSNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for SYSTEM_ID using the alias name SystemId.
+     * @return the SYSTEM_ID
+     */
+    public Number getSystemId() {
+        return (Number) getAttributeInternal(SYSTEMID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SYSTEM_ID using the alias name SystemId.
+     * @param value value to set the SYSTEM_ID
+     */
+    public void setSystemId(Number value) {
+        setAttributeInternal(SYSTEMID, value);
     }
 
     /**

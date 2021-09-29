@@ -74,7 +74,6 @@
                   <af:column sortProperty="SystemId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.SystemId.label}"
-                             id="c5" visible="false"
                              inlineStyle="#{row.bindings.WorkingStatus.attributeValue == 'Holiday' ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
                     <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.SystemId.label}"
@@ -533,7 +532,7 @@
                   </af:column>
                   <af:column headerText="Process Name"
                              id="c47" align="center" sortable="true"
-                             filterable="true" width="140"
+                             filterable="true" width="160"
                              sortProperty="ProcessName">
                     <af:inputText value="#{row.bindings.ProcessName.inputValue}"
                                   label="#{bindings.WpStyleWiseProcessSamVO1.hints.ProcessName.label}"
