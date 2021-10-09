@@ -26,13 +26,16 @@
                                       partialSubmit="true">
                       <af:showPopupBehavior popupId="::p1"/>
                     </af:commandButton>
+                    <af:spacer width="20" height="10" id="s1"/>
                     <af:commandButton actionListener="#{bindings.Delete.execute}"
                                       text="Delete"
                                       disabled="#{!bindings.Delete.enabled}"
                                       id="cb2" partialSubmit="true"/>
+                    <af:spacer width="20" height="10" id="spacer1"/>
                     <af:commandButton actionListener="#{bindings.Commit.execute}"
                                       text="Save"
                                       id="cb5" partialSubmit="true"/>
+                    <af:spacer width="20" height="10" id="spacer2"/>
                     <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
                                       text="Add Projection Style"
                                       disabled="#{!bindings.CreateInsert2.enabled}"
@@ -140,7 +143,7 @@
                   <af:column sortProperty="BuyerName" filterable="true"
                              sortable="true"
                              headerText="Buyer Name"
-                             id="c2" width="140" align="center"
+                             id="c2" width="150" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
                              visible="true">
                     <af:inputText value="#{row.bindings.BuyerName.inputValue}"
@@ -172,7 +175,8 @@
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.Style.label}"
                              id="c6" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="150">
                     <af:inputText value="#{row.bindings.Style.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.Style.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.Style.mandatory}"
@@ -187,7 +191,8 @@
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.Color.label}"
                              id="c10" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="120">
                     <af:inputText value="#{row.bindings.Color.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.Color.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.Color.mandatory}"
@@ -202,7 +207,8 @@
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.WashName.label}"
                              id="c43" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="120">
                     <af:inputText value="#{row.bindings.WashName.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.WashName.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.WashName.mandatory}"
@@ -215,9 +221,10 @@
                   </af:column>
                   <af:column sortProperty="OrderQty" filterable="true"
                              sortable="true"
-                             headerText="#{bindings.WpStyleSetupVO1.hints.OrderQty.label}"
+                             headerText="Order Qty"
                              id="c36" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="80">
                     <af:inputText value="#{row.bindings.OrderQty.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.OrderQty.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.OrderQty.mandatory}"
@@ -259,21 +266,6 @@
                       <f:selectItems value="#{row.bindings.ProductionUnitName.items}"
                                      id="si1"/>
                     </af:selectOneChoice>
-                  </af:column>
-                  <af:column sortProperty="PbFlag" filterable="true"
-                             sortable="true"
-                             headerText="#{bindings.WpStyleSetupVO1.hints.PbFlag.label}"
-                             id="c38" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
-                    <af:inputText value="#{row.bindings.PbFlag.inputValue}"
-                                  label="#{bindings.WpStyleSetupVO1.hints.PbFlag.label}"
-                                  required="#{bindings.WpStyleSetupVO1.hints.PbFlag.mandatory}"
-                                  columns="#{bindings.WpStyleSetupVO1.hints.PbFlag.displayWidth}"
-                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.PbFlag.precision}"
-                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.PbFlag.tooltip}"
-                                  id="it22" readOnly="true">
-                      <f:validator binding="#{row.bindings.PbFlag.validator}"/>
-                    </af:inputText>
                   </af:column>
                   <af:column headerText="#{bindings.WpStyleSetupVO1.hints.Fabrication.label}"
                              id="c61" align="center" sortable="true"
@@ -371,9 +363,10 @@
                   </af:column>
                   <af:column sortProperty="SamVersion" filterable="true"
                              sortable="true"
-                             headerText="#{bindings.WpStyleSetupVO1.hints.SamVersion.label}"
+                             headerText="Sam Version"
                              id="c8" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="70">
                     <af:inputText value="#{row.bindings.SamVersion.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.SamVersion.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.SamVersion.mandatory}"
@@ -386,9 +379,10 @@
                                         pattern="#{bindings.WpStyleSetupVO1.hints.SamVersion.format}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column headerText="#{bindings.WpStyleSetupVO1.hints.AvailableSamVersion.label}"
+                  <af:column headerText="Available Sam Version"
                              id="c48" align="center"
-                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}">
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="70">
                     <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.AvailableSamVersion.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.AvailableSamVersion.mandatory}"
@@ -419,6 +413,21 @@
                     <af:commandButton text="Update Version" id="cb6"
                                       visible="#{row.bindings.UpdatedVersionAvailavle.inputValue}"
                                       actionListener="#{ManagedBean.updateStyleVersion}"/>
+                  </af:column>
+                  <af:column sortProperty="PbFlag" filterable="true"
+                             sortable="true" headerText="Planning Board Flag"
+                             id="c38" align="center"
+                             inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
+                             width="60">
+                    <af:inputText value="#{row.bindings.PbFlag.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.PbFlag.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.PbFlag.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.PbFlag.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.PbFlag.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.PbFlag.tooltip}"
+                                  id="it22" readOnly="true">
+                      <f:validator binding="#{row.bindings.PbFlag.validator}"/>
+                    </af:inputText>
                   </af:column>
                   <af:column sortProperty="OrgId" filterable="true"
                              sortable="true"

@@ -10,3 +10,6 @@
 *.cdi_javac
 *.class
 *.class
+*.class
+*.cdi_javac
+*.cdi_javac
