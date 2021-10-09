@@ -37,3 +37,8 @@ h3
     margin-bottom:2px; 
     padding:5px; 
 }
+
+.samVersionWarning{
+    background-color:rgb(226,176,181)
+}
+
