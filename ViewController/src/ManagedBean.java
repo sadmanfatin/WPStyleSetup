@@ -58,7 +58,7 @@ public class ManagedBean {
     public void populateStyleDialogueListener(DialogEvent dialogEvent) {
         // Add event code here...
         if (dialogEvent.getOutcome().name().equals("ok")) {
-            System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );
+         //   System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );
         
             populateStyle();
             
@@ -94,7 +94,7 @@ public class ManagedBean {
                 
                 if ( flag != null &&  flag.equals("y")) {
                     
-                   System.out.println(  "flag != null &&  flag.equals(\"y\")");
+                 //  System.out.println(  "flag != null &&  flag.equals(\"y\")");
                     
                     wpStyleSetupRow = (WpStyleSetupVORowImpl)wpStyleSetupVo.createRow();
                 
@@ -213,6 +213,8 @@ public class ManagedBean {
                 styleWiseProcessSamVoRow.setProcessName(cwplDefaultProcessesVoRow.getProcessName());
                 styleWiseProcessSamVoRow.setWpProcessId(cwplDefaultProcessesVoRow.getWpProcessId());
                 
+                styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
+                
             }            
              
             cwplRowsRs.closeRowSetIterator();        
@@ -290,11 +292,11 @@ public class ManagedBean {
 
     public void populateProjectionStyle(ActionEvent actionEvent) {
         // Add event code here...
-        System.out.println("populate projection style method");
+       // System.out.println("populate projection style method");
         
         ViewObject projectionStyleVo = appM.getWpProjectionStyleVO1();
         Row projectionStyleVoCurrentRow = projectionStyleVo.getCurrentRow();
-        System.out.println(projectionStyleVoCurrentRow.getAttribute("Style"));
+       // System.out.println(projectionStyleVoCurrentRow.getAttribute("Style"));
         
         ViewObject styleSetupVo = appM.getWpStyleSetupVO1();
         Row styleSetupVoRow = styleSetupVo.createRow();

@@ -14,7 +14,8 @@
                         required="#{bindings.SystemId.hints.mandatory}"
                         columns="#{bindings.SystemId.hints.displayWidth}"
                         maximumLength="#{bindings.SystemId.hints.precision}"
-                        shortDesc="#{bindings.SystemId.hints.tooltip}" id="it3">
+                        shortDesc="#{bindings.SystemId.hints.tooltip}" id="it3"
+                        readOnly="true">
             <f:validator binding="#{bindings.SystemId.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.SystemId.format}"/>
@@ -25,7 +26,7 @@
                         columns="#{bindings.BuyerId.hints.displayWidth}"
                         maximumLength="#{bindings.BuyerId.hints.precision}"
                         shortDesc="#{bindings.BuyerId.hints.tooltip}" id="it5"
-                        partialTriggers="soc1">
+                        partialTriggers="soc1" visible="false">
             <f:validator binding="#{bindings.BuyerId.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.BuyerId.format}"/>
@@ -51,7 +52,8 @@
                         required="#{bindings.Style.hints.mandatory}"
                         columns="#{bindings.Style.hints.displayWidth}"
                         maximumLength="#{bindings.Style.hints.precision}"
-                        shortDesc="#{bindings.Style.hints.tooltip}" id="it4">
+                        shortDesc="#{bindings.Style.hints.tooltip}" id="it4"
+                        autoSubmit="true">
             <f:validator binding="#{bindings.Style.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.Color.inputValue}"
@@ -59,7 +61,8 @@
                         required="#{bindings.Color.hints.mandatory}"
                         columns="#{bindings.Color.hints.displayWidth}"
                         maximumLength="#{bindings.Color.hints.precision}"
-                        shortDesc="#{bindings.Color.hints.tooltip}" id="it2">
+                        shortDesc="#{bindings.Color.hints.tooltip}" id="it2"
+                        autoSubmit="true">
             <f:validator binding="#{bindings.Color.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.Wash.inputValue}"
@@ -67,7 +70,8 @@
                         required="#{bindings.Wash.hints.mandatory}"
                         columns="#{bindings.Wash.hints.displayWidth}"
                         maximumLength="#{bindings.Wash.hints.precision}"
-                        shortDesc="#{bindings.Wash.hints.tooltip}" id="it9">
+                        shortDesc="#{bindings.Wash.hints.tooltip}" id="it9"
+                        autoSubmit="true">
             <f:validator binding="#{bindings.Wash.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.OrgId.inputValue}"
@@ -75,7 +79,8 @@
                         required="#{bindings.OrgId.hints.mandatory}"
                         columns="#{bindings.OrgId.hints.displayWidth}"
                         maximumLength="#{bindings.OrgId.hints.precision}"
-                        shortDesc="#{bindings.OrgId.hints.tooltip}" id="it11">
+                        shortDesc="#{bindings.OrgId.hints.tooltip}" id="it11"
+                        visible="false">
             <f:validator binding="#{bindings.OrgId.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.OrgId.format}"/>
@@ -86,7 +91,7 @@
                         columns="#{bindings.OrderedQty.hints.displayWidth}"
                         maximumLength="#{bindings.OrderedQty.hints.precision}"
                         shortDesc="#{bindings.OrderedQty.hints.tooltip}"
-                        id="it7">
+                        id="it7" autoSubmit="true">
             <f:validator binding="#{bindings.OrderedQty.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.OrderedQty.format}"/>
@@ -97,7 +102,7 @@
                         columns="#{bindings.ProductionUnit.hints.displayWidth}"
                         maximumLength="#{bindings.ProductionUnit.hints.precision}"
                         shortDesc="#{bindings.ProductionUnit.hints.tooltip}"
-                        id="it8" partialTriggers="soc3">
+                        id="it8" partialTriggers="soc3" visible="false">
             <f:validator binding="#{bindings.ProductionUnit.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.ProductionUnit.format}"/>
@@ -118,10 +123,12 @@
                                   action="return to view"
                                   actionListener="#{ManagedBean.populateProjectionStyle}"/>
                 <af:spacer width="30" height="10" id="s1"/>
-                <af:commandButton actionListener="#{bindings.Delete.execute}"
+                <af:commandButton
                                   text="Cancel"
                                   disabled="#{!bindings.Delete.enabled}"
-                                  id="cb2" action="return to view"/>
+                                  id="cb2"
+                                  actionListener="#{bindings.Delete.execute}"
+                                  action="return to view"/>
               </af:panelGroupLayout>
             </af:group>
           </f:facet>

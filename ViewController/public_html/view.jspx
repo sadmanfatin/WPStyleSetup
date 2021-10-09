@@ -481,7 +481,7 @@
                           selectedRowKeys="#{bindings.WpStyleWiseProcessSamVO1.collectionModel.selectedRow}"
                           selectionListener="#{bindings.WpStyleWiseProcessSamVO1.collectionModel.makeCurrent}"
                           rowSelection="single" id="t2"
-                          partialTriggers=":::pc1:t1 ::cb3 cb4"
+                          partialTriggers=":::pc1:t1 ::cb3 cb4 :::pc1:cb5"
                           binding="#{ManagedBean.processSamTable}">
                   <af:column sortProperty="SamId" filterable="true"
                              sortable="true"

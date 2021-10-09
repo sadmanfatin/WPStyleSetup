@@ -153,7 +153,14 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     PrecisionRule="true"
     EntityAttrName="Style"
     EntityUsage="WpProjectionStyleEO"
-    AliasName="STYLE"/>
+    AliasName="STYLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Season"
     PrecisionRule="true"
@@ -165,6 +172,8 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -173,13 +182,27 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     PrecisionRule="true"
     EntityAttrName="Color"
     EntityUsage="WpProjectionStyleEO"
-    AliasName="COLOR"/>
+    AliasName="COLOR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Wash"
     PrecisionRule="true"
     EntityAttrName="Wash"
     EntityUsage="WpProjectionStyleEO"
-    AliasName="WASH"/>
+    AliasName="WASH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OrgId"
     PrecisionRule="true"
