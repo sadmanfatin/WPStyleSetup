@@ -412,16 +412,16 @@ public class PocStylesVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the attribute value for the calculated attribute CheckBox.
-     * @return the CheckBox
+     * Gets the attribute value for the calculated attribute SelectProcess.
+     * @return the SelectProcess
      */
     public String getCheckBox() {
         return (String) getAttributeInternal(CHECKBOX);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute CheckBox.
-     * @param value value to set the  CheckBox
+     * Sets <code>value</code> as the attribute value for the calculated attribute SelectProcess.
+     * @param value value to set the  SelectProcess
      */
     public void setCheckBox(String value) {
         setAttributeInternal(CHECKBOX, value);

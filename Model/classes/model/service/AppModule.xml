@@ -17,12 +17,6 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewUsage
-    Name="WpStyleSetupVO1"
-    ViewObjectName="model.view.WpStyleSetupVO"/>
-  <ViewUsage
-    Name="WpStyleWiseProcessSamVO1"
-    ViewObjectName="model.view.WpStyleWiseProcessSamVO"/>
-  <ViewUsage
     Name="OrgVO1"
     ViewObjectName="model.view.OrgVO"/>
   <ViewUsage
@@ -40,12 +34,12 @@
   <ViewUsage
     Name="CWPLDefaultProcessesVO1"
     ViewObjectName="model.view.CWPLDefaultProcessesVO"/>
-  <ViewLinkUsage
-    Name="WpStyleWiseProcessSamR01Link1"
-    ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"
-    SrcViewUsageName="model.service.AppModule.WpStyleSetupVO1"
-    DstViewUsageName="model.service.AppModule.WpStyleWiseProcessSamVO1"
-    Reversed="false"/>
+  <ViewUsage
+    Name="WpStyleSetupVO1"
+    ViewObjectName="model.view.WpStyleSetupVO"/>
+  <ViewUsage
+    Name="WpStyleWiseProcessSamVO1"
+    ViewObjectName="model.view.WpStyleWiseProcessSamVO"/>
   <ViewLinkUsage
     Name="OrgVO_vs_SamVO_VL1"
     ViewLinkObjectName="model.view.OrgVO_vs_SamVO_VL"
@@ -57,6 +51,18 @@
     ViewLinkObjectName="model.view.OrgVO_vs_PopluateProcessesVO_vl"
     SrcViewUsageName="model.service.AppModule.OrgVO1"
     DstViewUsageName="model.service.AppModule.PopulateProcessVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgVO_vs_WpStyleSetupVO_vl1"
+    ViewLinkObjectName="model.view.OrgVO_vs_WpStyleSetupVO_vl"
+    SrcViewUsageName="model.service.AppModule.OrgVO1"
+    DstViewUsageName="model.service.AppModule.WpStyleSetupVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpStyleWiseProcessSamR01Link1"
+    ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"
+    SrcViewUsageName="model.service.AppModule.WpStyleSetupVO1"
+    DstViewUsageName="model.service.AppModule.WpStyleWiseProcessSamVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

@@ -13,4 +13,20 @@ public class PopulateProcessVOImpl extends ViewObjectImpl {
      */
     public PopulateProcessVOImpl() {
     }
+
+    /**
+     * Returns the bind variable value for p_system_id.
+     * @return bind variable value for p_system_id
+     */
+    public String getp_system_id() {
+        return (String)getNamedWhereClauseParam("p_system_id");
+    }
+
+    /**
+     * Sets <code>value</code> for bind variable p_system_id.
+     * @param value value to bind as p_system_id
+     */
+    public void setp_system_id(String value) {
+        setNamedWhereClauseParam("p_system_id", value);
+    }
 }

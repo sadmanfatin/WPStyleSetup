@@ -11,6 +11,8 @@ import model.view.CWPLDefaultProcessesVOImpl;
 import model.view.PocStylesVOImpl;
 import model.view.PopulateProcessVOImpl;
 import model.view.SamVOImpl;
+
+
 import model.view.WpStyleSetupVOImpl;
 
 import model.view.WpStyleWiseProcessSamVOImpl;
@@ -39,7 +41,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
-      // orgId = "343";
+     //   orgId = "343";
      //   userId = "5219";
         FacesContext fctx = FacesContext.getCurrentInstance();
         ExternalContext ectx = fctx.getExternalContext();
@@ -62,34 +64,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }         
          
       }
-    
-    
-    
-    
-
-    /**
-     * Container's getter for WpStyleSetupVO1.
-     * @return WpStyleSetupVO1
-     */
-    public ViewObjectImpl getWpStyleSetupVO1() {
-        return (ViewObjectImpl)findViewObject("WpStyleSetupVO1");
-    }
-
-    /**
-     * Container's getter for WpStyleWiseProcessSamVO1.
-     * @return WpStyleWiseProcessSamVO1
-     */
-    public ViewObjectImpl getWpStyleWiseProcessSamVO1() {
-        return (ViewObjectImpl)findViewObject("WpStyleWiseProcessSamVO1");
-    }
-
-    /**
-     * Container's getter for WpStyleWiseProcessSamR01Link1.
-     * @return WpStyleWiseProcessSamR01Link1
-     */
-    public ViewLinkImpl getWpStyleWiseProcessSamR01Link1() {
-        return (ViewLinkImpl)findViewLink("WpStyleWiseProcessSamR01Link1");
-    }
 
 
     /**
@@ -154,5 +128,37 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public CWPLDefaultProcessesVOImpl getCWPLDefaultProcessesVO1() {
         return (CWPLDefaultProcessesVOImpl)findViewObject("CWPLDefaultProcessesVO1");
+    }
+
+    /**
+     * Container's getter for WpStyleSetupVO1.
+     * @return WpStyleSetupVO1
+     */
+    public WpStyleSetupVOImpl getWpStyleSetupVO1() {
+        return (WpStyleSetupVOImpl)findViewObject("WpStyleSetupVO1");
+    }
+
+    /**
+     * Container's getter for OrgVO_vs_WpStyleSetupVO_vl1.
+     * @return OrgVO_vs_WpStyleSetupVO_vl1
+     */
+    public ViewLinkImpl getOrgVO_vs_WpStyleSetupVO_vl1() {
+        return (ViewLinkImpl)findViewLink("OrgVO_vs_WpStyleSetupVO_vl1");
+    }
+
+    /**
+     * Container's getter for WpStyleWiseProcessSamVO1.
+     * @return WpStyleWiseProcessSamVO1
+     */
+    public WpStyleWiseProcessSamVOImpl getWpStyleWiseProcessSamVO1() {
+        return (WpStyleWiseProcessSamVOImpl)findViewObject("WpStyleWiseProcessSamVO1");
+    }
+
+    /**
+     * Container's getter for WpStyleWiseProcessSamR01Link1.
+     * @return WpStyleWiseProcessSamR01Link1
+     */
+    public ViewLinkImpl getWpStyleWiseProcessSamR01Link1() {
+        return (ViewLinkImpl)findViewLink("WpStyleWiseProcessSamR01Link1");
     }
 }

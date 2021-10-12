@@ -14,7 +14,7 @@
   ComponentClass="model.view.PopulateProcessVOImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
@@ -23,6 +23,10 @@
         ResId="model.view.PopulateProcessVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="p_system_id"
+    Kind="where"
+    Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[SELECT SI.ORG_ID,
        SI.WP_SECTION_ID,
@@ -34,7 +38,13 @@
        PI.PROCESS_NAME,
        SI.SECTION_TYPE
   FROM WP_SECTION_INFO SI, WP_PROCESS_INFO PI
- WHERE SI.WP_SECTION_ID = PI.WP_SECTION_ID]]>
+ WHERE SI.WP_SECTION_ID = PI.WP_SECTION_ID
+ AND  NOT EXISTS (SELECT 1 
+                    FROM WP_STYLE_WISE_PROCESS_SAM  SPS
+                        WHERE SPS.SYSTEM_ID  = :p_system_id  
+                        and  SPS.WP_PROCESS_ID = PI.WP_PROCESS_ID
+ 
+                     )]]>
   </SQLQuery>
   <ViewAttribute
     Name="OrgId"
@@ -169,7 +179,7 @@
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="CheckBox"
+    Name="SelectProcess"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"

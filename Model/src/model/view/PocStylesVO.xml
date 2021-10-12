@@ -47,14 +47,17 @@ POCH.ORDER_QTY ,
 SELECT  MAX(SV.SAM_VERSION) FROM WP_STYLE_WISE_PROCESS_SAM_V SV  WHERE  SV.SYSTEM_ID = POCL.SYSTEM_ID
 AND  SV.ORG_ID = :p_org_id
 )   SAM_VERSION
+
 FROM XX_OM_POC_H_T POCH,
 XX_OM_POC_L_T POCL 
 WHERE POCH.POC_ID = POCL.POC_ID
 AND POCH.GM_APPROVAL = 'Y'
-and POCH.creation_date > sysdate-360
-and pocl.system_id is not null
-and not exists (select  sts.system_id from wp_style_setup sts where sts.system_id =  pocl.system_id  )
-order by pocl.system_id desc]]>
+AND POCH.CREATION_DATE > SYSDATE-360
+AND POCL.SYSTEM_ID IS NOT NULL
+AND NOT EXISTS (SELECT  STS.SYSTEM_ID FROM WP_STYLE_SETUP STS WHERE STS.SYSTEM_ID =  POCL.SYSTEM_ID  
+AND STS.ORG_ID = :p_org_id
+)
+ORDER BY POCL.SYSTEM_ID DESC]]>
   </SQLQuery>
   <ViewAttribute
     Name="SystemId"

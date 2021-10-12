@@ -159,20 +159,10 @@
           <Item Value="WpProcessId"/>
           <Item Value="UnitProcessId"/>
           <Item Value="ProcessName"/>
-          <Item Value="CheckBox" Binds="CheckBox1"/>
+          <Item Value="SelectProcess" Binds="SelectProcess"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <button IterBinding="PopulateProcessVO1Iterator" id="CheckBox1"
-            DTSupportsMRU="false" StaticList="true">
-      <AttrNames>
-        <Item Value="CheckBox"/>
-      </AttrNames>
-      <ValueList>
-        <Item Value="y"/>
-        <Item Value="n"/>
-      </ValueList>
-    </button>
     <action IterBinding="WpProjectionStyleVO1Iterator" id="CreateInsert2"
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="SystemId">
@@ -243,5 +233,15 @@
         <Item Value="LastUpdatedBy"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="PopulateProcessVO1Iterator" id="SelectProcess"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectProcess"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

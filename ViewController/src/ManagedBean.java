@@ -30,6 +30,7 @@ import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
+import oracle.adf.view.rich.event.PopupFetchEvent;
 import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
@@ -315,6 +316,77 @@ public class ManagedBean {
         styleSetupVo.insertRow(styleSetupVoRow);
         styleSetupVo.setCurrentRow(styleSetupVoRow);
         
+        
+    }
+
+    public void populateProcessesForStyle(DialogEvent dialogEvent) {
+        if (dialogEvent.getOutcome().name().equals("ok")) {
+                 //   System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );
+                
+                    populateSelectedProcesse();
+                    
+                 AdfFacesContext.getCurrentInstance().addPartialTarget(this.getStyleSetupTable());
+                    AdfFacesContext.getCurrentInstance().addPartialTarget(this.getProcessSamTable());
+                    
+                } else if (dialogEvent.getOutcome().name().equals("cancel")) {
+                    ;
+                }
+    }
+
+    private void populateSelectedProcesse() {
+        WpStyleWiseProcessSamVOImpl styleWiseProcessSamVo =
+            (WpStyleWiseProcessSamVOImpl)appM.getWpStyleWiseProcessSamVO1();
+        WpStyleWiseProcessSamVORowImpl styleWiseProcessSamVoRow = null;
+
+        PopulateProcessVOImpl populateProcessVo =
+            (PopulateProcessVOImpl)appM.getPopulateProcessVO1();
+        PopulateProcessVORowImpl populateProcessVoRow = null;
+
+        String flag = null;
+        Row[] populateProcessVoRows = populateProcessVo.getAllRowsInRange();
+        
+        
+        
+        
+
+        for (Row row : populateProcessVoRows) {
+
+            populateProcessVoRow = (PopulateProcessVORowImpl)row;
+
+            try {
+                flag = populateProcessVoRow.getSelectProcess();
+
+                if (flag != null && flag.equals("y")) {
+                    styleWiseProcessSamVoRow =
+                            (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();
+                    styleWiseProcessSamVoRow.setWpProcessId(populateProcessVoRow.getWpProcessId());
+                    styleWiseProcessSamVoRow.setProcessName(populateProcessVoRow.getProcessName());
+                    styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
+
+    public void populateProcessPopUpFetchListener(PopupFetchEvent popupFetchEvent) {
+        // Add event code here...
+        String currentSystemId = null ;
+            
+            try{
+                currentSystemId = appM.getWpStyleSetupVO1().getCurrentRow().getAttribute("SystemId").toString();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                currentSystemId = "NoSystemId" ;
+                
+            }
+        PopulateProcessVOImpl populateProcessVo = (PopulateProcessVOImpl)appM.getPopulateProcessVO1(); 
+        populateProcessVo.setp_system_id(currentSystemId);
+        populateProcessVo.executeQuery();
         
     }
 }

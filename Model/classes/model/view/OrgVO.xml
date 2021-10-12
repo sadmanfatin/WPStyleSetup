@@ -73,6 +73,11 @@ and  organization_id = :p_org_id]]>
     ViewLink="model.view.OrgVO_vs_PopluateProcessesVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="WpStyleSetupVO"
+    ViewLink="model.view.OrgVO_vs_WpStyleSetupVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

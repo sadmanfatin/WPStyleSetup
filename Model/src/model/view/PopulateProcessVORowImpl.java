@@ -104,13 +104,13 @@ public class PopulateProcessVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        CheckBox {
+        SelectProcess {
             public Object get(PopulateProcessVORowImpl obj) {
-                return obj.getCheckBox();
+                return obj.getSelectProcess();
             }
 
             public void put(PopulateProcessVORowImpl obj, Object value) {
-                obj.setCheckBox((String)value);
+                obj.setSelectProcess((String)value);
             }
         }
         ;
@@ -141,6 +141,8 @@ public class PopulateProcessVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int WPSECTIONID = AttributesEnum.WpSectionId.index();
     public static final int UNITSECTIONID = AttributesEnum.UnitSectionId.index();
@@ -150,7 +152,7 @@ public class PopulateProcessVORowImpl extends ViewRowImpl {
     public static final int UNITPROCESSID = AttributesEnum.UnitProcessId.index();
     public static final int PROCESSNAME = AttributesEnum.ProcessName.index();
     public static final int SECTIONTYPE = AttributesEnum.SectionType.index();
-    public static final int CHECKBOX = AttributesEnum.CheckBox.index();
+    public static final int SELECTPROCESS = AttributesEnum.SelectProcess.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -303,19 +305,19 @@ public class PopulateProcessVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the attribute value for the calculated attribute CheckBox.
-     * @return the CheckBox
+     * Gets the attribute value for the calculated attribute SelectProcess.
+     * @return the SelectProcess
      */
-    public String getCheckBox() {
-        return (String) getAttributeInternal(CHECKBOX);
+    public String getSelectProcess() {
+        return (String) getAttributeInternal(SELECTPROCESS);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute CheckBox.
-     * @param value value to set the  CheckBox
+     * Sets <code>value</code> as the attribute value for the calculated attribute SelectProcess.
+     * @param value value to set the  SelectProcess
      */
-    public void setCheckBox(String value) {
-        setAttributeInternal(CHECKBOX, value);
+    public void setSelectProcess(String value) {
+        setAttributeInternal(SELECTPROCESS, value);
     }
 
     /**

@@ -460,7 +460,9 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t4">
-                    <af:commandButton text="populate process" id="cb8"/>
+                    <af:commandButton text="populate process" id="cb8">
+                      <af:showPopupBehavior popupId="::PopulateProcess"/>
+                    </af:commandButton>
                     <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
                                       text="CreateInsert"
                                       disabled="#{!bindings.CreateInsert1.enabled}"
@@ -855,8 +857,10 @@
             </af:panelHeader>
           </af:dialog>
         </af:popup>
-        <af:popup id="p2">
-          <af:dialog id="d3">
+        <af:popup id="PopulateProcess" contentDelivery="lazyUncached"
+                  popupFetchListener="#{ManagedBean.populateProcessPopUpFetchListener}">
+          <af:dialog id="d3"
+                     dialogListener="#{ManagedBean.populateProcessesForStyle}">
             <af:panelHeader text="Populate Process" id="ph3">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
@@ -872,15 +876,8 @@
                         filterVisible="true" varStatus="vs"
                         selectedRowKeys="#{bindings.PopulateProcessVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PopulateProcessVO1.collectionModel.makeCurrent}"
-                        rowSelection="single" id="t6">
-                <af:column headerText="Select"
-                           id="c60" align="center" sortable="true"
-                           filterable="true" width="60">
-                  <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
-                                            label="#{row.bindings.CheckBox.label}"
-                                            shortDesc="#{bindings.PopulateProcessVO1.hints.CheckBox.tooltip}"
-                                            id="sbc2"/>
-                </af:column>
+                        rowSelection="single" id="t6"
+                        inlineStyle="width:400.0px;">
                 <af:column sortProperty="OrgId" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateProcessVO1.hints.OrgId.label}"
@@ -929,10 +926,18 @@
                                       pattern="#{bindings.PopulateProcessVO1.hints.UnitSectionId.format}"/>
                   </af:inputText>
                 </af:column>
+                <af:column headerText="Select Process"
+                           id="c5" width="60" align="center" sortable="true"
+                           filterable="true">
+                  <af:selectBooleanCheckbox value="#{row.bindings.SelectProcess.inputValue}"
+                                            label="#{row.bindings.SelectProcess.label}"
+                                            shortDesc="#{bindings.PopulateProcessVO1.hints.SelectProcess.tooltip}"
+                                            id="sbc2"/>
+                </af:column>
                 <af:column sortProperty="SectionName" filterable="true"
                            sortable="true"
                            headerText="Section Name "
-                           id="c53" width="160" align="center"
+                           id="c53" width="160" align="left"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.SectionName.inputValue}"
                                 label="#{bindings.PopulateProcessVO1.hints.SectionName.label}"
@@ -947,7 +952,7 @@
                 <af:column sortProperty="Serial" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateProcessVO1.hints.Serial.label}"
-                           id="c59" align="center" width="60">
+                           id="c59" align="center" width="60" visible="false">
                   <af:inputText value="#{row.bindings.Serial.inputValue}"
                                 label="#{bindings.PopulateProcessVO1.hints.Serial.label}"
                                 required="#{bindings.PopulateProcessVO1.hints.Serial.mandatory}"
@@ -995,7 +1000,7 @@
                 <af:column sortProperty="ProcessName" filterable="true"
                            sortable="true"
                            headerText="Process Name"
-                           id="c54" width="140" align="center"
+                           id="c54" width="140" align="left"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.ProcessName.inputValue}"
                                 label="#{bindings.PopulateProcessVO1.hints.ProcessName.label}"
