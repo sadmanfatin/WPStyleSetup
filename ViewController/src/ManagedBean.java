@@ -184,13 +184,18 @@ public class ManagedBean {
             
           //if( orgId.equals("344")  || (orgId.equals("343")  && samVoSectionType.equals("Dry") )    ) {
                 
-                styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();                
+                styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();   
+            
                 styleWiseProcessSamVoRow.setWpProcessId(SamVoRow.getWpProcessId());
                 styleWiseProcessSamVoRow.setBatchQty(SamVoRow.getBatchQty());
                 styleWiseProcessSamVoRow.setBatchTime(SamVoRow.getBatchTime());
                 styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
                 styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
                 styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
+            
+                 styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
+            
+            
                 
         //  }
             
