@@ -25,7 +25,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setStyleSetupId((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -35,7 +35,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setSystemId((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -135,7 +135,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setProductionUnit((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -155,7 +155,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setPbFlag((String)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -165,7 +165,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setCreatedBy((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -175,7 +175,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setCreationDate((Date)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -185,7 +185,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setLastUpdatedBy((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -195,7 +195,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setLastUpdatedDate((Date)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -205,7 +205,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setSamVersion((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -215,7 +215,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setOrgId((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -225,7 +225,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setProjectionStyle((String)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -245,7 +245,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAvailableSamVersion((Number)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -255,7 +255,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setFabrication((String)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -265,13 +265,23 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setWashType((String)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
         WpStyleWiseProcessSamVO {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWpStyleWiseProcessSamVO();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        CurrentSamVsAvailableSamVO {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getCurrentSamVsAvailableSamVO();
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
@@ -383,6 +393,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int FABRICATION = AttributesEnum.Fabrication.index();
     public static final int WASHTYPE = AttributesEnum.WashType.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
+    public static final int CURRENTSAMVSAVAILABLESAMVO = AttributesEnum.CurrentSamVsAvailableSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
     public static final int BUYERLOV1 = AttributesEnum.BuyerLOV1.index();
     public static final int SEASONLOV1 = AttributesEnum.SeasonLOV1.index();
@@ -811,6 +822,13 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public RowIterator getWpStyleWiseProcessSamVO() {
         return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link CurrentSamVsAvailableSamVO.
+     */
+    public RowIterator getCurrentSamVsAvailableSamVO() {
+        return (RowIterator)getAttributeInternal(CURRENTSAMVSAVAILABLESAMVO);
     }
 
     /**

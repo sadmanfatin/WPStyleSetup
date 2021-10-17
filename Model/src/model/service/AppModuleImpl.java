@@ -161,4 +161,20 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getWpStyleWiseProcessSamR01Link1() {
         return (ViewLinkImpl)findViewLink("WpStyleWiseProcessSamR01Link1");
     }
+
+    /**
+     * Container's getter for CurrentSamVsAvailableSamVO1.
+     * @return CurrentSamVsAvailableSamVO1
+     */
+    public ViewObjectImpl getCurrentSamVsAvailableSamVO1() {
+        return (ViewObjectImpl)findViewObject("CurrentSamVsAvailableSamVO1");
+    }
+
+    /**
+     * Container's getter for WpStyleSetupVO_vs_CurrentSamVsAvailableSamVO_vl1.
+     * @return WpStyleSetupVO_vs_CurrentSamVsAvailableSamVO_vl1
+     */
+    public ViewLinkImpl getWpStyleSetupVO_vs_CurrentSamVsAvailableSamVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpStyleSetupVO_vs_CurrentSamVsAvailableSamVO_vl1");
+    }
 }
