@@ -33,6 +33,9 @@
     <iterator Binds="WpProjectionStyleVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="WpProjectionStyleVO1Iterator"/>
+    <iterator Binds="CurrentSamVsAvailableSamVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="CurrentSamVsAvailableSamVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="WpStyleWiseProcessSamVO1Iterator"
@@ -243,5 +246,47 @@
         <Item Value="n"/>
       </ValueList>
     </button>
+    <tree IterBinding="CurrentSamVsAvailableSamVO1Iterator"
+          id="CurrentSamVsAvailableSamVO1">
+      <nodeDefinition DefName="model.view.CurrentSamVsAvailableSamVO"
+                      Name="CurrentSamVsAvailableSamVO10">
+        <AttrNames>
+          <Item Value="OrgId"/>
+          <Item Value="SystemId"/>
+          <Item Value="WpProcessId"/>
+          <Item Value="ProcessName"/>
+          <Item Value="CurrentSam"/>
+          <Item Value="AvailableSam"/>
+          <Item Value="CurrentSamVersion"/>
+          <Item Value="AvailableSamVersion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="WpStyleSetupVO1Iterator" id="Style1">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpStyleSetupVO1Iterator" id="Color1">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpStyleSetupVO1Iterator" id="WashName">
+      <AttrNames>
+        <Item Value="WashName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpStyleSetupVO1Iterator" id="SamVersion">
+      <AttrNames>
+        <Item Value="SamVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpStyleSetupVO1Iterator"
+                     id="AvailableSamVersion">
+      <AttrNames>
+        <Item Value="AvailableSamVersion"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

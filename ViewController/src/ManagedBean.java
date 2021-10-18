@@ -229,7 +229,7 @@ public class ManagedBean {
         
     }
 
-    public void updateStyleVersion(ActionEvent actionEvent) {
+    public void updateStyleSamVersion(ActionEvent actionEvent) {
         // Add event code here...
         
         String statement = "BEGIN APPS.UPDATE_WP_STYLE_SETUP_VERSION(:1,:2, :3); END;";

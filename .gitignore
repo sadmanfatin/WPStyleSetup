@@ -20,3 +20,7 @@
 *.class
 *.cdi_javac
 *.cdi_javac
+Model/classes/model/service/AppModuleImpl.class
+Model/classes/.data/Model.cdi_javac
+ViewController/classes/.data/ViewController.cdi_javac
+ViewController/classes/ManagedBean.class
