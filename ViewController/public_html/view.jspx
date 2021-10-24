@@ -189,6 +189,20 @@
                       <f:validator binding="#{row.bindings.Style.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="#{bindings.WpStyleSetupVO1.hints.Remarks.label}"
+                             id="c70" align="center" sortable="true"
+                             filterable="true" filterFeatures="caseInsensitive"
+                             sortProperty="Remarks">
+                    <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.Remarks.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.Remarks.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.Remarks.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.Remarks.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.Remarks.tooltip}"
+                                  id="it47">
+                      <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                    </af:inputText>
+                  </af:column>
                   <af:column sortProperty="Color" filterable="true"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.Color.label}"
@@ -371,7 +385,8 @@
                              headerText="Sam Version"
                              id="c8" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(235,200,200)' :  'background-color: White'}"
-                             width="70" filterFeatures="caseInsensitive">
+                             width="70" filterFeatures="caseInsensitive"
+                             visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:inputText value="#{row.bindings.SamVersion.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.SamVersion.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.SamVersion.mandatory}"
@@ -388,7 +403,8 @@
                   <af:column headerText="Available Sam Version"
                              id="c48" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(235,200,200)' :  'background-color: White'}"
-                             width="70" filterFeatures="caseInsensitive">
+                             width="70" filterFeatures="caseInsensitive"
+                             visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.AvailableSamVersion.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.AvailableSamVersion.mandatory}"
@@ -416,7 +432,8 @@
                   </af:column>
                   <af:column id="c50" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
-                             width="80" filterFeatures="caseInsensitive">
+                             width="80" filterFeatures="caseInsensitive"
+                             visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:commandButton text="Update Sam" id="cb6"
                                       visible="#{row.bindings.UpdatedVersionAvailavle.inputValue}"
                                       inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
@@ -719,6 +736,16 @@
                               id="ph1" styleClass="customLayoutStyle">
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar"/>
+                <af:inputText value="#{bindings.OrgId.inputValue}"
+                              required="#{bindings.OrgId.hints.mandatory}"
+                              columns="#{bindings.OrgId.hints.displayWidth}"
+                              maximumLength="#{bindings.OrgId.hints.precision}"
+                              shortDesc="#{bindings.OrgId.hints.tooltip}"
+                              id="it51" visible="false">
+                  <f:validator binding="#{bindings.OrgId1.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.OrgId1.format}"/>
+                </af:inputText>
               </af:panelHeader>
             </af:panelGroupLayout>
           </f:facet>

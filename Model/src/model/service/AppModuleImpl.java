@@ -41,7 +41,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
-     //   orgId = "343";
+     //  orgId = "343";
      //  userId = "5219";
         FacesContext fctx = FacesContext.getCurrentInstance();
         ExternalContext ectx = fctx.getExternalContext();

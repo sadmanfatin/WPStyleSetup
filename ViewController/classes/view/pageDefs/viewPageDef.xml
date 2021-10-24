@@ -145,6 +145,7 @@
           <Item Value="UpdatedVersionAvailavle"/>
           <Item Value="Fabrication"/>
           <Item Value="WashType"/>
+          <Item Value="Remarks"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -206,7 +207,7 @@
         <Item Value="Wash"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="OrgId">
+    <attributeValues IterBinding="OrgVO1Iterator" id="OrgId">
       <AttrNames>
         <Item Value="OrgId"/>
       </AttrNames>
@@ -289,6 +290,11 @@
                      id="AvailableSamVersion">
       <AttrNames>
         <Item Value="AvailableSamVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="OrgId1">
+      <AttrNames>
+        <Item Value="OrgId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

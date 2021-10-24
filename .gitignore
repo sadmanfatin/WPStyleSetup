@@ -27,3 +27,9 @@ ViewController/classes/ManagedBean.class
 *.class
 classes/
 Model/classes/model/view/PocStylesVORowImpl$AttributesEnum$5.class
+Model/classes/.data/Model.cdi_javac
+Model/classes/model/service/AppModuleImpl.class
+ViewController/classes/.data/ViewController.cdi_javac
+ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
+*.class
+Model/classes/model/view/WpStyleSetupVORowImpl$AttributesEnum$1.class

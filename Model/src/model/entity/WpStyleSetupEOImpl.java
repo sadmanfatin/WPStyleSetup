@@ -168,6 +168,16 @@ public class WpStyleSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        Remarks {
+            public Object get(WpStyleSetupEOImpl obj) {
+                return obj.getRemarks();
+            }
+
+            public void put(WpStyleSetupEOImpl obj, Object value) {
+                obj.setRemarks((String)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamEO {
             public Object get(WpStyleSetupEOImpl obj) {
                 return obj.getWpStyleWiseProcessSamEO();
@@ -230,6 +240,7 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int FABRICATION = AttributesEnum.Fabrication.index();
     public static final int WASHTYPE = AttributesEnum.WashType.index();
+    public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int WPSTYLEWISEPROCESSSAMEO = AttributesEnum.WpStyleWiseProcessSamEO.index();
     public static final int WPSTYLEWISEPROCESSSAMEO1 = AttributesEnum.WpStyleWiseProcessSamEO1.index();
 
@@ -474,6 +485,22 @@ public class WpStyleSetupEOImpl extends EntityImpl {
      */
     public void setWashType(String value) {
         setAttributeInternal(WASHTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for Remarks, using the alias name Remarks.
+     * @return the Remarks
+     */
+    public String getRemarks() {
+        return (String)getAttributeInternal(REMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Remarks.
+     * @param value value to set the Remarks
+     */
+    public void setRemarks(String value) {
+        setAttributeInternal(REMARKS, value);
     }
 
     /**

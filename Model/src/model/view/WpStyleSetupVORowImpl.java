@@ -25,7 +25,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setStyleSetupId((Number)value);
             }
         }
         ,
@@ -35,7 +35,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setSystemId((Number)value);
             }
         }
         ,
@@ -135,7 +135,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setProductionUnit((Number)value);
             }
         }
         ,
@@ -155,7 +155,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setPbFlag((String)value);
             }
         }
         ,
@@ -165,7 +165,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setCreatedBy((Number)value);
             }
         }
         ,
@@ -175,7 +175,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setCreationDate((Date)value);
             }
         }
         ,
@@ -185,7 +185,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setLastUpdatedBy((Number)value);
             }
         }
         ,
@@ -195,7 +195,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setLastUpdatedDate((Date)value);
             }
         }
         ,
@@ -205,7 +205,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setSamVersion((Number)value);
             }
         }
         ,
@@ -215,7 +215,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setOrgId((Number)value);
             }
         }
         ,
@@ -225,7 +225,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setProjectionStyle((String)value);
             }
         }
         ,
@@ -245,7 +245,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setAvailableSamVersion((Number)value);
             }
         }
         ,
@@ -255,7 +255,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setFabrication((String)value);
             }
         }
         ,
@@ -265,7 +265,17 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
+                obj.setWashType((String)value);
+            }
+        }
+        ,
+        Remarks {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getRemarks();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setRemarks((String)value);
             }
         }
         ,
@@ -392,6 +402,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int FABRICATION = AttributesEnum.Fabrication.index();
     public static final int WASHTYPE = AttributesEnum.WashType.index();
+    public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
     public static final int CURRENTSAMVSAVAILABLESAMVO = AttributesEnum.CurrentSamVsAvailableSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
@@ -799,6 +810,22 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public void setWashType(String value) {
         setAttributeInternal(WASHTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for REMARKS using the alias name Remarks.
+     * @return the REMARKS
+     */
+    public String getRemarks() {
+        return (String) getAttributeInternal(REMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMARKS using the alias name Remarks.
+     * @param value value to set the REMARKS
+     */
+    public void setRemarks(String value) {
+        setAttributeInternal(REMARKS, value);
     }
 
     /**

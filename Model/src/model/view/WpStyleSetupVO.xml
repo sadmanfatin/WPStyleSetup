@@ -125,7 +125,8 @@
        WPSTYLESETUPEO.AVAILABLE_SAM_VERSION    ,
                
         WPSTYLESETUPEO.FABRICATION,
-         WPSTYLESETUPEO.WASH_TYPE
+         WPSTYLESETUPEO.WASH_TYPE ,
+      WPSTYLESETUPEO.REMARKS
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
     (  SELECT PV.SYSTEM_ID, 
         PV.LC_UNIT, 
@@ -399,6 +400,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="WpStyleSetupEO"
+    AliasName="REMARKS"/>
   <ViewLinkAccessor
     Name="WpStyleWiseProcessSamVO"
     ViewLink="model.view.WpStyleWiseProcessSamR01Link"
