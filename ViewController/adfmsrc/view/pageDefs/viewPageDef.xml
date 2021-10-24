@@ -36,6 +36,9 @@
     <iterator Binds="CurrentSamVsAvailableSamVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="CurrentSamVsAvailableSamVO1Iterator"/>
+    <searchRegion Criteria="PocStylesVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PocStylesVO1Iterator" id="PocStylesVOCriteriaQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="WpStyleWiseProcessSamVO1Iterator"

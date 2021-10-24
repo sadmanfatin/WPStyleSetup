@@ -1,5 +1,6 @@
 package model.view;
 
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.AttributeDefImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -153,6 +154,26 @@ public class PocStylesVORowImpl extends ViewRowImpl {
                 obj.setCheckBox((String)value);
             }
         }
+        ,
+        BuyerLOV1 {
+            public Object get(PocStylesVORowImpl obj) {
+                return obj.getBuyerLOV1();
+            }
+
+            public void put(PocStylesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        SeasonLOV1 {
+            public Object get(PocStylesVORowImpl obj) {
+                return obj.getSeasonLOV1();
+            }
+
+            public void put(PocStylesVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -196,6 +217,8 @@ public class PocStylesVORowImpl extends ViewRowImpl {
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int CHECKBOX = AttributesEnum.CheckBox.index();
+    public static final int BUYERLOV1 = AttributesEnum.BuyerLOV1.index();
+    public static final int SEASONLOV1 = AttributesEnum.SeasonLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -425,6 +448,20 @@ public class PocStylesVORowImpl extends ViewRowImpl {
      */
     public void setCheckBox(String value) {
         setAttributeInternal(CHECKBOX, value);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> BuyerLOV1.
+     */
+    public RowSet getBuyerLOV1() {
+        return (RowSet)getAttributeInternal(BUYERLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> SeasonLOV1.
+     */
+    public RowSet getSeasonLOV1() {
+        return (RowSet)getAttributeInternal(SEASONLOV1);
     }
 
     /**

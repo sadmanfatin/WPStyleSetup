@@ -730,6 +730,14 @@
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
+              <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:query id="qryId1" headerText="Search" disclosed="true"
+                          value="#{bindings.PocStylesVOCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.PocStylesVOCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.PocStylesVOCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.PocStylesVOCriteriaQuery.processQueryOperation}"
+                          resultComponentId="::t5"/>
+              </af:panelGroupLayout>
               <af:table value="#{bindings.PocStylesVO1.collectionModel}"
                         var="row" rows="#{bindings.PocStylesVO1.rangeSize}"
                         emptyText="#{bindings.PocStylesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -741,9 +749,9 @@
                         selectedRowKeys="#{bindings.PocStylesVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PocStylesVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t5"
-                        inlineStyle="width:1300.0px;">
+                        styleClass="AFStretchWidth">
                 <af:column headerText="#{bindings.PocStylesVO1.hints.CheckBox.label}"
-                           id="c42" align="center" width="60">
+                           id="c42" align="center" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
                                             label="#{row.bindings.CheckBox.label}"
                                             shortDesc="#{bindings.PocStylesVO1.hints.CheckBox.tooltip}"
@@ -752,7 +760,7 @@
                 <af:column sortProperty="SystemId" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PocStylesVO1.hints.SystemId.label}"
-                           id="c39" width="60" align="center">
+                           id="c39" width="50" align="center">
                   <af:outputText value="#{row.SystemId}" id="ot6">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PocStylesVO1.hints.SystemId.format}"/>
