@@ -227,10 +227,10 @@ ORDER BY POCL.SYSTEM_ID DESC]]>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -389,6 +389,20 @@ ORDER BY POCL.SYSTEM_ID DESC]]>
     <ViewCriteriaRow
       Name="vcrow0"
       UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PocStylesVOCriteria_vcrow0_BuyerId"
+        ViewAttribute="BuyerId"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Never"/>
+          </CustomProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="BuyerName"
         ViewAttribute="BuyerName"
