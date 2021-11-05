@@ -551,6 +551,19 @@
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.WpProcessId.format}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Section Type"
+                             id="c71" align="center" sortable="true"
+                             filterable="true" width="70">
+                    <af:inputText value="#{row.bindings.SectionType.inputValue}"
+                                  label="#{bindings.WpStyleWiseProcessSamVO1.hints.SectionType.label}"
+                                  required="#{bindings.WpStyleWiseProcessSamVO1.hints.SectionType.mandatory}"
+                                  columns="#{bindings.WpStyleWiseProcessSamVO1.hints.SectionType.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleWiseProcessSamVO1.hints.SectionType.precision}"
+                                  shortDesc="#{bindings.WpStyleWiseProcessSamVO1.hints.SectionType.tooltip}"
+                                  id="it52" readOnly="true">
+                      <f:validator binding="#{row.bindings.SectionType.validator}"/>
+                    </af:inputText>
+                  </af:column>
                   <af:column sortProperty="ProcessSeq" filterable="true"
                              sortable="true"
                              headerText="Process Seq"
@@ -611,7 +624,8 @@
                                   columns="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchQty.displayWidth}"
                                   maximumLength="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchQty.precision}"
                                   shortDesc="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchQty.tooltip}"
-                                  id="it11" autoSubmit="true">
+                                  id="it11" autoSubmit="true"
+                                  disabled="#{row.bindings.SectionType.inputValue == 'Dry'}">
                       <f:validator binding="#{row.bindings.BatchQty.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchQty.format}"/>
@@ -628,7 +642,8 @@
                                   columns="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchTime.displayWidth}"
                                   maximumLength="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchTime.precision}"
                                   shortDesc="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchTime.tooltip}"
-                                  id="it15" autoSubmit="true">
+                                  id="it15" autoSubmit="true"
+                                  disabled="#{row.bindings.SectionType.inputValue == 'Dry'}">
                       <f:validator binding="#{row.bindings.BatchTime.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchTime.format}"/>
@@ -645,7 +660,8 @@
                                   columns="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.displayWidth}"
                                   maximumLength="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.precision}"
                                   shortDesc="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.tooltip}"
-                                  id="it13" autoSubmit="true">
+                                  id="it13" autoSubmit="true"
+                                  disabled="#{row.bindings.SectionType.inputValue == 'Wet'}">
                       <f:validator binding="#{row.bindings.Sam.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.format}"/>
