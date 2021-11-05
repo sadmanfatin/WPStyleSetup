@@ -192,7 +192,7 @@ public class ManagedBean {
                 styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
                 styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
                 styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
-            
+                styleWiseProcessSamVoRow.setSectionType(SamVoRow.getSectionType());
                  styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
             
             
@@ -218,7 +218,8 @@ public class ManagedBean {
                 
                 styleWiseProcessSamVoRow.setProcessName(cwplDefaultProcessesVoRow.getProcessName());
                 styleWiseProcessSamVoRow.setWpProcessId(cwplDefaultProcessesVoRow.getWpProcessId());
-                
+                styleWiseProcessSamVoRow.setWpProcessId(cwplDefaultProcessesVoRow.getWpProcessId());
+                styleWiseProcessSamVoRow.setSectionType(cwplDefaultProcessesVoRow.getSectionType());
                 styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
                 
             }            

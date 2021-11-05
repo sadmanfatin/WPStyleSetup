@@ -59,6 +59,7 @@
           <Item Value="LastUpdatedBy"/>
           <Item Value="LastUpdatedDate"/>
           <Item Value="ProcessName"/>
+          <Item Value="SectionType"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

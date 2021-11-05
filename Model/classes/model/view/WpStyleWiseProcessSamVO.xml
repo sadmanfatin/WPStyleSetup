@@ -35,7 +35,12 @@
        WpStyleWiseProcessSamEO.LAST_UPDATED_DATE,
        WpStyleWiseProcessSamEO.SAM_VERSION,
         WpStyleWiseProcessSamEO.SYSTEM_ID,
-       (select wp.process_name from wp_process_info wp where wp.WP_PROCESS_ID = WpStyleWiseProcessSamEO.WP_PROCESS_ID ) PROCESS_NAME
+       (select wp.process_name from wp_process_info wp where wp.WP_PROCESS_ID = WpStyleWiseProcessSamEO.WP_PROCESS_ID ) PROCESS_NAME,
+       
+       (select si.section_type  from wp_section_info si, wp_process_info pi 
+        where si.wp_section_id = pi.wp_section_id
+        and pi.wp_process_id =   WpStyleWiseProcessSamEO.WP_PROCESS_ID) section_type
+        
 FROM WP_STYLE_WISE_PROCESS_SAM WpStyleWiseProcessSamEO
 order by  WpStyleWiseProcessSamEO.PROCESS_SEQ]]>
   </SQLQuery>
@@ -139,6 +144,20 @@ order by  WpStyleWiseProcessSamEO.PROCESS_SEQ]]>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SectionType"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SECTION_TYPE"
+    Expression="SECTION_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
 </ViewObject>
