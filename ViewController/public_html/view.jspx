@@ -769,11 +769,13 @@
         <af:popup id="p1" contentDelivery="lazyUncached">
           <af:dialog id="d2"
                      dialogListener="#{ManagedBean.populateStyleDialogueListener}">
-            <af:panelHeader text="Populate Style" id="ph2">
+            <af:panelHeader text="Populate Style" id="ph2"
+                            inlineStyle="width:1150.0px;">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
-              <af:panelGroupLayout layout="vertical" id="pgl1">
+              <af:panelGroupLayout layout="vertical" id="pgl1"
+                                   inlineStyle="margin-bottom:10.0px;">
                 <af:query id="qryId1" headerText="Search" disclosed="true"
                           value="#{bindings.PocStylesVOCriteriaQuery.queryDescriptor}"
                           model="#{bindings.PocStylesVOCriteriaQuery.queryModel}"
@@ -793,7 +795,7 @@
                         selectionListener="#{bindings.PocStylesVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t5"
                         styleClass="AFStretchWidth">
-                <af:column headerText="#{bindings.PocStylesVO1.hints.CheckBox.label}"
+                <af:column headerText="Select"
                            id="c42" align="center" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
                                             label="#{row.bindings.CheckBox.label}"
@@ -821,7 +823,7 @@
                 <af:column sortProperty="LcUnitName" filterable="true"
                            sortable="true"
                            headerText="Lc Unit Name"
-                           id="c24" align="center" width="140"
+                           id="c24" align="center" width="130"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.LcUnitName}" id="ot11"/>
                 </af:column>
@@ -837,7 +839,7 @@
                 <af:column sortProperty="ProductionUnitName" filterable="true"
                            sortable="true"
                            headerText="Production Unit Name"
-                           id="c31" align="center" width="140"
+                           id="c31" align="center" width="130"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.ProductionUnitName}" id="ot8"/>
                 </af:column>

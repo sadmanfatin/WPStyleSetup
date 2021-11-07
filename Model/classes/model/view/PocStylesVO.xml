@@ -408,13 +408,15 @@ ORDER BY POCL.SYSTEM_ID DESC]]>
         ViewAttribute="BuyerName"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Required"
+        GenerateIsNullClauseForBindVars="false"/>
       <ViewCriteriaItem
         Name="Season"
         ViewAttribute="Season"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Required"
+        GenerateIsNullClauseForBindVars="false"/>
       <ViewCriteriaItem
         Name="Style"
         ViewAttribute="Style"
