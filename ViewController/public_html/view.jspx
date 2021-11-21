@@ -40,7 +40,7 @@
                                       text="Add Projection Style"
                                       disabled="#{!bindings.CreateInsert2.enabled}"
                                       id="cb9"
-                                      action="Add projection style pg"/>
+                                      action="projection style pg"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -140,6 +140,12 @@
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleSetupVO1.hints.BuyerId.format}"/>
                     </af:inputText>
+                  </af:column>
+                  <af:column id="c73" width="40" align="center">
+                    <af:commandButton actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                      text="Edit"
+                                      disabled="#{!bindings.setCurrentRowWithKey.enabled}"
+                                      id="cb12" action="projection style pg"/>
                   </af:column>
                   <af:column sortProperty="BuyerName" filterable="true"
                              sortable="true"
