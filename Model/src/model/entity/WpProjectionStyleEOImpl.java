@@ -156,6 +156,16 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
                 obj.setLastUpdatedBy((Number)value);
             }
         }
+        ,
+        LcUnit {
+            public Object get(WpProjectionStyleEOImpl obj) {
+                return obj.getLcUnit();
+            }
+
+            public void put(WpProjectionStyleEOImpl obj, Object value) {
+                obj.setLcUnit((Number)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -183,6 +193,7 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int STYLE = AttributesEnum.Style.index();
@@ -196,11 +207,22 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
+    public static final int LCUNIT = AttributesEnum.LcUnit.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public WpProjectionStyleEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        if (mDefinitionObject == null) {
+            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpProjectionStyleEO");
+        }
+        return mDefinitionObject;
     }
 
     /**
@@ -412,6 +434,22 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for LcUnit, using the alias name LcUnit.
+     * @return the LcUnit
+     */
+    public Number getLcUnit() {
+        return (Number)getAttributeInternal(LCUNIT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for LcUnit.
+     * @param value value to set the LcUnit
+     */
+    public void setLcUnit(Number value) {
+        setAttributeInternal(LCUNIT, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -444,6 +482,7 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
         super.setAttrInvokeAccessor(index, value, attrDef);
     }
 
+
     /**
      * @param systemId key constituent
 
@@ -451,16 +490,6 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Number systemId) {
         return new Key(new Object[]{systemId});
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        if (mDefinitionObject == null) {
-            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpProjectionStyleEO");
-        }
-        return mDefinitionObject;
     }
 
     /**

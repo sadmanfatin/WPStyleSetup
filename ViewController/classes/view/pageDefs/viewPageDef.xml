@@ -147,6 +147,7 @@
           <Item Value="Fabrication"/>
           <Item Value="WashType"/>
           <Item Value="Remarks"/>
+          <Item Value="ProjectionStyle"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

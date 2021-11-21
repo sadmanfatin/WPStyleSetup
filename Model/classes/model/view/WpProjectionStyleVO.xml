@@ -31,28 +31,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
-  <ListBinding
-    Name="LOV_ProductionUnitName"
-    ListVOName="OrgLOV1"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="ProductionUnitName"/>
-    </AttrArray>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="ProductionUnit"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="OrgName"/>
-      <Item Value="OrgId"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="OrgName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
+  <ViewAccessor
+    Name="ProductionUnitLOV1"
+    ViewObjectName="model.lov.ProductionUnitLOV"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_BuyerName"
     ListVOName="BuyerLOV1"
@@ -93,6 +75,28 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_LcUnitName"
+    ListVOName="ProductionUnitLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LcUnitName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="LcUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgName"/>
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT WpProjectionStyleEO.SYSTEM_ID, 
        WpProjectionStyleEO.BUYER_ID, 
@@ -103,8 +107,8 @@
        WpProjectionStyleEO.WASH, 
        WpProjectionStyleEO.ORG_ID, 
        WpProjectionStyleEO.ORDERED_QTY, 
-       WpProjectionStyleEO.PRODUCTION_UNIT, 
-       ORG_ID_TO_ORG_NAME(WpProjectionStyleEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME, 
+       WpProjectionStyleEO.LC_UNIT, 
+       ORG_ID_TO_ORG_NAME(WpProjectionStyleEO.LC_UNIT) LC_UNIT_NAME, 
        WpProjectionStyleEO.CREATION_DATE, 
        WpProjectionStyleEO.CREATED_BY, 
        WpProjectionStyleEO.LAST_UPDATED_DATE, 
@@ -216,16 +220,22 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     EntityUsage="WpProjectionStyleEO"
     AliasName="ORDERED_QTY"/>
   <ViewAttribute
-    Name="ProductionUnitName"
+    Name="LcUnit"
+    PrecisionRule="true"
+    EntityAttrName="LcUnit"
+    EntityUsage="WpProjectionStyleEO"
+    AliasName="LC_UNIT"/>
+  <ViewAttribute
+    Name="LcUnitName"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="PRODUCTION_UNIT_NAME"
-    Expression="PRODUCTION_UNIT_NAME"
+    AliasName="LC_UNIT_NAME"
+    Expression="LC_UNIT_NAME"
     SQLType="VARCHAR"
-    LOVName="LOV_ProductionUnitName">
+    LOVName="LOV_LcUnitName">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
@@ -260,10 +270,4 @@ FROM WP_PROJECTION_STYLE WpProjectionStyleEO]]>
     EntityAttrName="LastUpdatedBy"
     EntityUsage="WpProjectionStyleEO"
     AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="ProductionUnit"
-    PrecisionRule="true"
-    EntityAttrName="ProductionUnit"
-    EntityUsage="WpProjectionStyleEO"
-    AliasName="PRODUCTION_UNIT"/>
 </ViewObject>

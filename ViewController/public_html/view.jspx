@@ -177,7 +177,8 @@
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.Style.label}"
                              id="c6" align="center"
-                             width="150" filterFeatures="caseInsensitive">
+                             width="150" filterFeatures="caseInsensitive"
+                             inlineStyle="#{row.bindings.ProjectionStyle.inputValue == 'y' ? 'background-color:rgb(130,180,220)' : ''}">
                     <af:inputText value="#{row.bindings.Style.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.Style.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.Style.mandatory}"
@@ -187,6 +188,21 @@
                                   id="it26" readOnly="true"
                                   contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
                       <f:validator binding="#{row.bindings.Style.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="Projection Style"
+                             id="c72" align="center" sortable="true"
+                             filterable="true" width="50"
+                             sortProperty="ProjectionStyle"
+                             inlineStyle="#{row.bindings.ProjectionStyle.inputValue == 'y' ? 'background-color:rgb(130,180,220)' : ''}">
+                    <af:inputText value="#{row.bindings.ProjectionStyle.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.ProjectionStyle.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.ProjectionStyle.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.ProjectionStyle.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.ProjectionStyle.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.ProjectionStyle.tooltip}"
+                                  id="it53" readOnly="true">
+                      <f:validator binding="#{row.bindings.ProjectionStyle.validator}"/>
                     </af:inputText>
                   </af:column>
                   <af:column headerText="#{bindings.WpStyleSetupVO1.hints.Remarks.label}"

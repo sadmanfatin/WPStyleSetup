@@ -42,9 +42,13 @@
     Name="WashTypeLOV1"
     ViewObjectName="model.lov.WashTypeLOV"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductionUnitLOV1"
+    ViewObjectName="model.lov.ProductionUnitLOV"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ProductionUnitName"
-    ListVOName="OrgLOV1"
+    ListVOName="ProductionUnitLOV1"
     ListRangeSize="-1"
     NullValueFlag="start"
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
@@ -103,17 +107,17 @@
   <SQLQuery>
     <![CDATA[SELECT WPSTYLESETUPEO.STYLE_SETUP_ID, 
        WPSTYLESETUPEO.SYSTEM_ID,
-       POC.LC_UNIT,  
-         APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) LC_UNIT_NAME,       
-        POC.BUYER_ID, 
-        APPS.XX_OM_BUYER_NAME_FOR_ID(POC.BUYER_ID) BUYER_NAME ,
-        POC.SEASON, 
-        POC.STYLE ,   
-        POC.COLOR, 
-        POC.WASH_NAME , 
-       POC.ORDER_QTY ,       
+       STYLES.LC_UNIT,  
+         APPS.ORG_ID_TO_ORG_NAME(STYLES.LC_UNIT) LC_UNIT_NAME,       
+        STYLES.BUYER_ID, 
+        APPS.XX_OM_BUYER_NAME_FOR_ID(STYLES.BUYER_ID) BUYER_NAME ,
+        STYLES.SEASON, 
+        STYLES.STYLE ,   
+        STYLES.COLOR, 
+        STYLES.WASH_NAME , 
+       STYLES.ORDER_QTY ,       
        WPSTYLESETUPEO.PRODUCTION_UNIT, 
-       APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) PRODUCTION_UNIT_NAME,   
+       APPS.ORG_ID_TO_ORG_NAME(WPSTYLESETUPEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME,   
        WPSTYLESETUPEO.PB_FLAG, 
        WPSTYLESETUPEO.CREATED_BY, 
        WPSTYLESETUPEO.CREATION_DATE, 
@@ -128,17 +132,31 @@
          WPSTYLESETUPEO.WASH_TYPE ,
       WPSTYLESETUPEO.REMARKS
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
-    (  SELECT PV.SYSTEM_ID, 
-        PV.LC_UNIT, 
-        PV.BUYER_ID, 
-        PV.SEASON, 
-        PV.STYLE ,   
-        PV.COLOR, 
-        PV.WASH_NAME , 
-        PV.ORDER_QTY 
-        FROM POC_SYSTEM_ID_VIEW PV
-      ) POC  
-     WHERE WPSTYLESETUPEO.SYSTEM_ID = POC.SYSTEM_ID]]>
+    
+    (   
+        SELECT PV.SYSTEM_ID,
+               PV.LC_UNIT,
+               PV.BUYER_ID,
+               PV.SEASON,
+               PV.STYLE,
+               PV.COLOR,
+               PV.WASH_NAME,
+               PV.ORDER_QTY
+          FROM POC_SYSTEM_ID_VIEW PV  
+                 
+        UNION ALL
+       
+        SELECT WPS.SYSTEM_ID,
+               WPS.LC_UNIT,
+               WPS.BUYER_ID,
+               WPS.SEASON,
+               WPS.STYLE,
+               WPS.COLOR,
+               WPS.WASH,
+               WPS.ORDERED_QTY
+          FROM WP_PROJECTION_STYLE WPS               
+      ) STYLES  
+     WHERE WPSTYLESETUPEO.SYSTEM_ID = STYLES.SYSTEM_ID]]>
   </SQLQuery>
   <EntityUsage
     Name="WpStyleSetupEO"
@@ -354,7 +372,8 @@
     PrecisionRule="true"
     EntityAttrName="ProjectionStyle"
     EntityUsage="WpStyleSetupEO"
-    AliasName="PROJECTION_STYLE"/>
+    AliasName="PROJECTION_STYLE"
+    DefaultValue="n"/>
   <ViewAttribute
     Name="UpdatedVersionAvailavle"
     IsSelected="false"

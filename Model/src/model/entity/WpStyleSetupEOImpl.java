@@ -187,16 +187,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
-        ,
-        WpStyleWiseProcessSamEO1 {
-            public Object get(WpStyleSetupEOImpl obj) {
-                return obj.getWpStyleWiseProcessSamEO1();
-            }
-
-            public void put(WpStyleSetupEOImpl obj, Object value) {
-                obj.setAttributeInternal(index(), value);
-            }
-        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -242,7 +232,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
     public static final int WASHTYPE = AttributesEnum.WashType.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int WPSTYLEWISEPROCESSSAMEO = AttributesEnum.WpStyleWiseProcessSamEO.index();
-    public static final int WPSTYLEWISEPROCESSSAMEO1 = AttributesEnum.WpStyleWiseProcessSamEO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -541,14 +530,6 @@ public class WpStyleSetupEOImpl extends EntityImpl {
      */
     public RowIterator getWpStyleWiseProcessSamEO() {
         return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMEO);
-    }
-
-
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getWpStyleWiseProcessSamEO1() {
-        return (RowIterator)getAttributeInternal(WPSTYLEWISEPROCESSSAMEO1);
     }
 
 

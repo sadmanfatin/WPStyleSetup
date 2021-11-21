@@ -96,23 +96,23 @@
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.OrderedQty.format}"/>
           </af:inputText>
-          <af:inputText value="#{bindings.ProductionUnit.inputValue}"
-                        label="#{bindings.ProductionUnit.hints.label}"
-                        required="#{bindings.ProductionUnit.hints.mandatory}"
-                        columns="#{bindings.ProductionUnit.hints.displayWidth}"
-                        maximumLength="#{bindings.ProductionUnit.hints.precision}"
-                        shortDesc="#{bindings.ProductionUnit.hints.tooltip}"
+          <af:inputText value="#{bindings.LcUnit.inputValue}"
+                        label="#{bindings.LcUnit.hints.label}"
+                        required="#{bindings.LcUnit.hints.mandatory}"
+                        columns="#{bindings.LcUnit.hints.displayWidth}"
+                        maximumLength="#{bindings.LcUnit.hints.precision}"
+                        shortDesc="#{bindings.LcUnit.hints.tooltip}"
                         id="it8" partialTriggers="soc3" visible="false">
-            <f:validator binding="#{bindings.ProductionUnit.validator}"/>
+            <f:validator binding="#{bindings.LcUnit.validator}"/>
             <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.ProductionUnit.format}"/>
+                              pattern="#{bindings.LcUnit.format}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{bindings.ProductionUnitName.inputValue}"
-                              label="#{bindings.ProductionUnitName.label}"
-                              required="#{bindings.ProductionUnitName.hints.mandatory}"
-                              shortDesc="#{bindings.ProductionUnitName.hints.tooltip}"
+          <af:selectOneChoice value="#{bindings.LcUnitName.inputValue}"
+                              label="#{bindings.LcUnitName.label}"
+                              required="#{bindings.LcUnitName.hints.mandatory}"
+                              shortDesc="#{bindings.LcUnitName.hints.tooltip}"
                               id="soc3" autoSubmit="true">
-            <f:selectItems value="#{bindings.ProductionUnitName.items}"
+            <f:selectItems value="#{bindings.LcUnitName.items}"
                            id="si3"/>
           </af:selectOneChoice>
           <f:facet name="footer">

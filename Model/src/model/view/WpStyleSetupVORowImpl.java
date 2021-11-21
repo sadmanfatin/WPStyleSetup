@@ -348,6 +348,16 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        ProductionUnitLOV1 {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getProductionUnitLOV1();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -410,6 +420,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int SEASONLOV1 = AttributesEnum.SeasonLOV1.index();
     public static final int FABRICATIONLOV1 = AttributesEnum.FabricationLOV1.index();
     public static final int WASHTYPELOV1 = AttributesEnum.WashTypeLOV1.index();
+    public static final int PRODUCTIONUNITLOV1 = AttributesEnum.ProductionUnitLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -891,6 +902,13 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public RowSet getWashTypeLOV1() {
         return (RowSet)getAttributeInternal(WASHTYPELOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> ProductionUnitLOV1.
+     */
+    public RowSet getProductionUnitLOV1() {
+        return (RowSet)getAttributeInternal(PRODUCTIONUNITLOV1);
     }
 
     /**

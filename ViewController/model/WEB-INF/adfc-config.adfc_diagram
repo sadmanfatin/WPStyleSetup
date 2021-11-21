@@ -40,7 +40,7 @@
       <property
          name="fromOutcome">Add projection style pg</property>
       <property
-         name="sdm:polyPoints">R46,320.0,291.34473,630.6671,261.7119,L46</property>
+         name="sdm:polyPoints">R46,320.0,291.34473,630.66315,261.36133,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -50,6 +50,6 @@
       <property
          name="fromOutcome">return to view</property>
       <property
-         name="sdm:polyPoints">L54,631.0,268.7119,320.33273,298.34473,R54</property>
+         name="sdm:polyPoints">L54,631.0,268.36133,320.33664,298.34473,R54</property>
    </ControlFlowCase>
 </SDM>

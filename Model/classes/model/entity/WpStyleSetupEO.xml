@@ -196,13 +196,6 @@
     AssociationOtherEnd="model.entity.WpStyleWiseProcessSamR01Assoc.WpStyleSetupEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="WpStyleWiseProcessSamEO1"
-    Association="model.entity.WpStyleWiseProcessSamR01Assoc1"
-    AssociationEnd="model.entity.WpStyleWiseProcessSamR01Assoc1.WpStyleWiseProcessSamEO1"
-    AssociationOtherEnd="model.entity.WpStyleWiseProcessSamR01Assoc1.WpStyleSetupEO1"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
   <Key
     Name="WpStyleSetupPk"
     PrimaryKey="true">
