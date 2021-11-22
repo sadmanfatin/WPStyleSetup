@@ -121,14 +121,24 @@
                                    inlineStyle="padding:5.0px;">
                 <af:commandButton text="Populate Style" id="cb1"
                                   action="return to view"
-                                  actionListener="#{ManagedBean.populateProjectionStyle}"/>
+                                  actionListener="#{ManagedBean.populateProjectionStyle}"
+                                  visible="#{viewScope.activityType == 'add'}"/>
                 <af:spacer width="30" height="10" id="s1"/>
                 <af:commandButton
-                                  text="Cancel"
+                                  text="Delete"
                                   disabled="#{!bindings.Delete.enabled}"
                                   id="cb2"
+                                  partialTriggers="it4 soc2 soc1 it2 it9 it11 it7 it8 soc3"
                                   actionListener="#{bindings.Delete.execute}"
+                                  visible="#{viewScope.activityType == 'add'}"
                                   action="return to view"/>
+                <af:spacer width="30" height="10" id="s2"/>
+                                <af:commandButton
+                                  text="Update"                                
+                                  id="cb3" action="return to view"
+                                                  actionListener="#{ManagedBean.updateProjectionStyle}"
+                                                  visible="#{viewScope.activityType == 'edit'}"/>
+                
               </af:panelGroupLayout>
             </af:group>
           </f:facet>

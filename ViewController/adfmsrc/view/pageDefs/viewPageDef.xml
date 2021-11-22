@@ -173,7 +173,9 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="WpProjectionStyleVO1Iterator" id="CreateInsert2"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
+            RequiresUpdateModel="true" Action="createInsertRow"
+            InstanceName="AppModuleDataControl.WpProjectionStyleVO1"
+            DataControl="AppModuleDataControl"/>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="SystemId">
       <AttrNames>
         <Item Value="SystemId"/>
@@ -299,9 +301,11 @@
         <Item Value="OrgId"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="WpProjectionStyleVO1Iterator" id="setCurrentRowWithKey"
-            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
-      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    <action IterBinding="WpProjectionStyleVO1Iterator"
+            id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{row.bindings.SystemId.inputValue}"
+                 NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

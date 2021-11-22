@@ -107,16 +107,6 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
             }
         }
         ,
-        ProductionUnit {
-            public Object get(WpProjectionStyleEOImpl obj) {
-                return obj.getProductionUnit();
-            }
-
-            public void put(WpProjectionStyleEOImpl obj, Object value) {
-                obj.setProductionUnit((Number)value);
-            }
-        }
-        ,
         CreationDate {
             public Object get(WpProjectionStyleEOImpl obj) {
                 return obj.getCreationDate();
@@ -194,6 +184,7 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
         }
     }
 
+
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int STYLE = AttributesEnum.Style.index();
@@ -202,7 +193,6 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
     public static final int WASH = AttributesEnum.Wash.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int ORDEREDQTY = AttributesEnum.OrderedQty.index();
-    public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
@@ -214,6 +204,7 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
      */
     public WpProjectionStyleEOImpl() {
     }
+
 
     /**
      * @return the definition object for this instance class.
@@ -353,21 +344,6 @@ public class WpProjectionStyleEOImpl extends EntityImpl {
         setAttributeInternal(ORDEREDQTY, value);
     }
 
-    /**
-     * Gets the attribute value for ProductionUnit, using the alias name ProductionUnit.
-     * @return the ProductionUnit
-     */
-    public Number getProductionUnit() {
-        return (Number)getAttributeInternal(PRODUCTIONUNIT);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for ProductionUnit.
-     * @param value value to set the ProductionUnit
-     */
-    public void setProductionUnit(Number value) {
-        setAttributeInternal(PRODUCTIONUNIT, value);
-    }
 
     /**
      * Gets the attribute value for CreationDate, using the alias name CreationDate.

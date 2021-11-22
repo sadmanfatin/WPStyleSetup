@@ -49,8 +49,6 @@
         <Item Value="OrderedQty"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="WpProjectionStyleVO1Iterator" id="Delete"
-            RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="WpProjectionStyleVO1Iterator" StaticList="false"
           Uses="LOV_LcUnitName" id="LcUnitName" DTSupportsMRU="true"/>
     <attributeValues IterBinding="WpProjectionStyleVO1Iterator" id="LcUnit">
@@ -58,5 +56,7 @@
         <Item Value="LcUnit"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="WpProjectionStyleVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

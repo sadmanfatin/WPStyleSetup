@@ -112,17 +112,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="ProductionUnit"
-    ColumnName="PRODUCTION_UNIT"
-    SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    TableName="WP_PROJECTION_STYLE">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="CreationDate"
     ColumnName="CREATION_DATE"
     SQLType="TIMESTAMP"

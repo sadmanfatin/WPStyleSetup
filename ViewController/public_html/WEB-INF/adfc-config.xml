@@ -19,21 +19,43 @@
       <to-value>#{viewScope.RespAppId}</to-value>
     </input-page-parameter>
   </view>
-  <view id="ProjectionStylePG">
+  <view id="ProjectionStylePGAdd">
     <page>/ProjectionStylePG.jspx</page>
+    <input-page-parameter>
+      <from-value>add</from-value>
+      <to-value>#{viewScope.activityType}</to-value>
+    </input-page-parameter>
+  </view>
+  <view id="ProjectionStylePGEdit">
+    <page id="__16">/ProjectionStylePG.jspx</page>
+    <input-page-parameter id="__15">
+      <from-value>edit</from-value>
+      <to-value>#{viewScope.activityType}</to-value>
+    </input-page-parameter>
   </view>
   <control-flow-rule id="__5">
     <from-activity-id id="__6">view</from-activity-id>
     <control-flow-case id="__8">
-      <from-outcome id="__9">projection style pg</from-outcome>
-      <to-activity-id id="__7">ProjectionStylePG</to-activity-id>
+      <from-outcome id="__9">add projection style</from-outcome>
+      <to-activity-id id="__7">ProjectionStylePGAdd</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__17">
+      <from-outcome id="__23">edit projection style</from-outcome>
+      <to-activity-id id="__18">ProjectionStylePGEdit</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__10">
-    <from-activity-id id="__11">ProjectionStylePG</from-activity-id>
+    <from-activity-id id="__11">ProjectionStylePGAdd</from-activity-id>
     <control-flow-case id="__13">
       <from-outcome id="__14">return to view</from-outcome>
       <to-activity-id id="__12">view</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__19">
+    <from-activity-id id="__20">ProjectionStylePGEdit</from-activity-id>
+    <control-flow-case id="__21">
+      <from-outcome id="__24">return to view</from-outcome>
+      <to-activity-id id="__22">view</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__2">

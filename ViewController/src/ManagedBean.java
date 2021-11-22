@@ -304,10 +304,17 @@ public class ManagedBean {
         ViewObject projectionStyleVo = appM.getWpProjectionStyleVO1();
         Row projectionStyleVoCurrentRow = projectionStyleVo.getCurrentRow();
        // System.out.println(projectionStyleVoCurrentRow.getAttribute("Style"));
-        
+
+         
         ViewObject styleSetupVo = appM.getWpStyleSetupVO1();
-        Row styleSetupVoRow = styleSetupVo.createRow();
-        styleSetupVoRow.setAttribute("SystemId", projectionStyleVoCurrentRow.getAttribute("SystemId"));   
+        Row styleSetupVoRow ;
+        styleSetupVoRow = styleSetupVo.getCurrentRow();
+
+         //   System.out.println("! projectionStyleSystemId.equals(styleSetupSystemId) ");
+       styleSetupVoRow = styleSetupVo.createRow();
+           
+
+       styleSetupVoRow.setAttribute("SystemId", projectionStyleVoCurrentRow.getAttribute("SystemId"));        
         styleSetupVoRow.setAttribute("BuyerName",projectionStyleVoCurrentRow.getAttribute("BuyerName"));
         styleSetupVoRow.setAttribute("Season",projectionStyleVoCurrentRow.getAttribute("Season"));
         styleSetupVoRow.setAttribute("Style",projectionStyleVoCurrentRow.getAttribute("Style"));
@@ -319,7 +326,7 @@ public class ManagedBean {
         styleSetupVoRow.setAttribute("ProductionUnitName",projectionStyleVoCurrentRow.getAttribute("LcUnitName"));
         styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));  
         styleSetupVoRow.setAttribute("SamVersion",0);  
-        styleSetupVoRow.setAttribute("AvailableSamVersion",0);  
+       // styleSetupVoRow.setAttribute("AvailableSamVersion",0);  
         styleSetupVoRow.setAttribute("ProjectionStyle","y");  
         styleSetupVo.insertRow(styleSetupVoRow);
         styleSetupVo.setCurrentRow(styleSetupVoRow);
@@ -396,5 +403,33 @@ public class ManagedBean {
         populateProcessVo.setp_system_id(currentSystemId);
         populateProcessVo.executeQuery();
         
+    }
+
+
+
+    public void updateProjectionStyle(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        ViewObject projectionStyleVo = appM.getWpProjectionStyleVO1();
+        Row projectionStyleVoCurrentRow = projectionStyleVo.getCurrentRow();
+        // System.out.println(projectionStyleVoCurrentRow.getAttribute("Style"));
+        // Number  projectionStyleSystemId = (Number)projectionStyleVoCurrentRow.getAttribute("SystemId");
+        
+        ViewObject styleSetupVo = appM.getWpStyleSetupVO1();
+        Row styleSetupVoRow ;
+        styleSetupVoRow = styleSetupVo.getCurrentRow();
+       // Number styleSetupSystemId = (Number)styleSetupVoRow.getAttribute("SystemId");
+               
+       styleSetupVoRow.setAttribute("BuyerName",projectionStyleVoCurrentRow.getAttribute("BuyerName"));
+       styleSetupVoRow.setAttribute("Season",projectionStyleVoCurrentRow.getAttribute("Season"));
+       styleSetupVoRow.setAttribute("Style",projectionStyleVoCurrentRow.getAttribute("Style"));
+       styleSetupVoRow.setAttribute("Color",projectionStyleVoCurrentRow.getAttribute("Color"));
+       styleSetupVoRow.setAttribute("WashName",projectionStyleVoCurrentRow.getAttribute("Wash"));
+       styleSetupVoRow.setAttribute("LcUnit",projectionStyleVoCurrentRow.getAttribute("LcUnit"));
+       styleSetupVoRow.setAttribute("LcUnitName",projectionStyleVoCurrentRow.getAttribute("LcUnitName"));
+       styleSetupVoRow.setAttribute("ProductionUnit",projectionStyleVoCurrentRow.getAttribute("LcUnit"));
+       styleSetupVoRow.setAttribute("ProductionUnitName",projectionStyleVoCurrentRow.getAttribute("LcUnitName"));
+       styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));  
+     
     }
 }
