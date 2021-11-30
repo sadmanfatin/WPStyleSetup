@@ -76,16 +76,16 @@
                   </af:column>
                   <af:column sortProperty="SystemId" filterable="true"
                              sortable="true"
-                             headerText="#{bindings.WpStyleSetupVO1.hints.SystemId.label}"
+                             headerText="System Id"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
-                             visible="false">
+                             visible="true" width="40">
                     <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.SystemId.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.SystemId.mandatory}"
                                   columns="#{bindings.WpStyleSetupVO1.hints.SystemId.displayWidth}"
                                   maximumLength="#{bindings.WpStyleSetupVO1.hints.SystemId.precision}"
                                   shortDesc="#{bindings.WpStyleSetupVO1.hints.SystemId.tooltip}"
-                                  id="it25">
+                                  id="it25" readOnly="true">
                       <f:validator binding="#{row.bindings.SystemId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleSetupVO1.hints.SystemId.format}"/>
@@ -151,7 +151,7 @@
                   <af:column sortProperty="BuyerName" filterable="true"
                              sortable="true"
                              headerText="Buyer Name"
-                             id="c2" width="150" align="center"
+                             id="c2" width="140" align="center"
                              visible="true" filterFeatures="caseInsensitive">
                     <af:inputText value="#{row.bindings.BuyerName.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.BuyerName.label}"
@@ -168,7 +168,7 @@
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.Season.label}"
                              id="c44" align="center"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" width="90">
                     <af:inputText value="#{row.bindings.Season.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.Season.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.Season.mandatory}"
@@ -262,7 +262,7 @@
                              sortable="true"
                              headerText="Order Qty"
                              id="c36" align="center"
-                             width="80" filterFeatures="caseInsensitive">
+                             width="70" filterFeatures="caseInsensitive">
                     <af:inputText value="#{row.bindings.OrderQty.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.OrderQty.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.OrderQty.mandatory}"
@@ -408,7 +408,7 @@
                              headerText="Sam Version"
                              id="c8" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(235,200,200)' :  'background-color: White'}"
-                             width="70" filterFeatures="caseInsensitive"
+                             width="50" filterFeatures="caseInsensitive"
                              visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:inputText value="#{row.bindings.SamVersion.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.SamVersion.label}"
@@ -426,7 +426,7 @@
                   <af:column headerText="Available Sam Version"
                              id="c48" align="center"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(235,200,200)' :  'background-color: White'}"
-                             width="70" filterFeatures="caseInsensitive"
+                             width="60" filterFeatures="caseInsensitive"
                              visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.AvailableSamVersion.label}"
@@ -623,7 +623,7 @@
                              sortable="true"
                              headerText="Plan Day"
                              id="c13" align="center"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" width="60">
                     <af:inputText value="#{row.bindings.PlanDay.inputValue}"
                                   label="#{bindings.WpStyleWiseProcessSamVO1.hints.PlanDay.label}"
                                   required="#{bindings.WpStyleWiseProcessSamVO1.hints.PlanDay.mandatory}"
@@ -640,7 +640,7 @@
                              sortable="true"
                              headerText="Batch Qty"
                              id="c17" align="center"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" width="60">
                     <af:inputText value="#{row.bindings.BatchQty.inputValue}"
                                   label="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchQty.label}"
                                   required="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchQty.mandatory}"
@@ -658,7 +658,7 @@
                              sortable="true"
                              headerText="Batch Time"
                              id="c12" align="center"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" width="60">
                     <af:inputText value="#{row.bindings.BatchTime.inputValue}"
                                   label="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchTime.label}"
                                   required="#{bindings.WpStyleWiseProcessSamVO1.hints.BatchTime.mandatory}"
@@ -676,7 +676,7 @@
                              sortable="true"
                              headerText="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.label}"
                              id="c21" align="center"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" width="60">
                     <af:inputText value="#{row.bindings.Sam.inputValue}"
                                   label="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.label}"
                                   required="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.mandatory}"
@@ -691,7 +691,7 @@
                     </af:inputText>
                   </af:column>
                   <af:column id="c51" align="center"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" width="60">
                     <af:commandButton actionListener="#{bindings.Delete1.execute}"
                                       text="Delete"
                                       disabled="#{!bindings.Delete1.enabled}"
