@@ -78,7 +78,7 @@
                              sortable="true"
                              headerText="System Id"
                              inlineStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue  ?   'background-color:rgb(226,176,181)' :  'background-color: White'}"
-                             visible="true" width="40">
+                             visible="true" width="40" align="center">
                     <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                   label="#{bindings.WpStyleSetupVO1.hints.SystemId.label}"
                                   required="#{bindings.WpStyleSetupVO1.hints.SystemId.mandatory}"
