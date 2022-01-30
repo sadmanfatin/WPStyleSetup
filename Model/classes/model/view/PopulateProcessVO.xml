@@ -42,9 +42,9 @@
  AND  NOT EXISTS (SELECT 1 
                     FROM WP_STYLE_WISE_PROCESS_SAM  SPS
                         WHERE SPS.SYSTEM_ID  = :p_system_id  
-                        and  SPS.WP_PROCESS_ID = PI.WP_PROCESS_ID
- 
-                     )]]>
+                        and  SPS.WP_PROCESS_ID = PI.WP_PROCESS_ID 
+                     )             
+ ORDER BY    SI.UNIT_SECTION_ID ,    PI.UNIT_PROCESS_ID]]>
   </SQLQuery>
   <ViewAttribute
     Name="OrgId"

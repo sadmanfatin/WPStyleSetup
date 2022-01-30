@@ -24,7 +24,7 @@
                   id="WpStyleSetupVO1Query"/>
     <iterator Binds="OrgVO1" RangeSize="10" DataControl="AppModuleDataControl"
               id="OrgVO1Iterator"/>
-    <iterator Binds="PopulateProcessVO1" RangeSize="25"
+    <iterator Binds="PopulateProcessVO1" RangeSize="100"
               DataControl="AppModuleDataControl"
               id="PopulateProcessVO1Iterator"/>
     <searchRegion Binds="PopulateProcessVO1Iterator" Criteria=""
