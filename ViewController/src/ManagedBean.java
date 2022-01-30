@@ -376,6 +376,7 @@ public class ManagedBean {
                             (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();
                     styleWiseProcessSamVoRow.setWpProcessId(populateProcessVoRow.getWpProcessId());
                     styleWiseProcessSamVoRow.setProcessName(populateProcessVoRow.getProcessName());
+                    styleWiseProcessSamVoRow.setSectionType(populateProcessVoRow.getSectionType());
                     styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
                 }
             } catch (Exception e) {
