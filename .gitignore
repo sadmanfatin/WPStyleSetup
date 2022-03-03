@@ -1,39 +1,21 @@
 
 *.ear
-*.class
-*.xcfg
 *.xcfg
 *.jdb
 *.war
 *.jws
 *.jdb
 *.cdi_javac
-*.class
-*.class
-*.class
-*.cdi_javac
-*.cdi_javac
-*.class
-*.cdi_javac
-*.class
-*.class
-*.class
-*.cdi_javac
-*.cdi_javac
-Model/classes/model/service/AppModuleImpl.class
-Model/classes/.data/Model.cdi_javac
-ViewController/classes/.data/ViewController.cdi_javac
-ViewController/classes/ManagedBean.class
-*.class
+# default application storage directory used by the IDE Performance Cache feature
+.data/
+
+# used for ADF styles caching
+temp/
+
+# default output directories
 classes/
-Model/classes/model/view/PocStylesVORowImpl$AttributesEnum$5.class
-Model/classes/.data/Model.cdi_javac
-Model/classes/model/service/AppModuleImpl.class
-ViewController/classes/.data/ViewController.cdi_javac
-ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
-*.class
-Model/classes/model/view/WpStyleSetupVORowImpl$AttributesEnum$1.class
-Model/classes/.data/Model.cdi_javac
-Model/classes/model/service/AppModuleImpl.class
-ViewController/classes/.data/ViewController.cdi_javac
-ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
+deploy/
+javadoc/
+
+# lock file, a part of Oracle Credential Store Framework
+cwallet.sso.lck
