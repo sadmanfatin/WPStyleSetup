@@ -14,7 +14,6 @@ import model.view.SamVOImpl;
 
 
 import model.view.WpStyleSetupVOImpl;
-
 import model.view.WpStyleWiseProcessSamVOImpl;
 
 import oracle.jbo.server.ApplicationModuleImpl;
@@ -41,8 +40,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
-       orgId = "343";
-       userId = "5219";
+//       orgId = "343";
+//       userId = "5219";
         FacesContext fctx = FacesContext.getCurrentInstance();
         ExternalContext ectx = fctx.getExternalContext();
         HttpSession userSession = (HttpSession)ectx.getSession(false);
@@ -176,5 +175,38 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getWpStyleSetupVO_vs_CurrentSamVsAvailableSamVO_vl1() {
         return (ViewLinkImpl)findViewLink("WpStyleSetupVO_vs_CurrentSamVsAvailableSamVO_vl1");
+    }
+
+
+    /**
+     * Container's getter for WpStyleSetupVO2.
+     * @return WpStyleSetupVO2
+     */
+    public WpStyleSetupVOImpl getWpStyleSetupVO2() {
+        return (WpStyleSetupVOImpl)findViewObject("WpStyleSetupVO2");
+    }
+
+    /**
+     * Container's getter for OrgVO_vs_WpStyleSetupVO_vl2.
+     * @return OrgVO_vs_WpStyleSetupVO_vl2
+     */
+    public ViewLinkImpl getOrgVO_vs_WpStyleSetupVO_vl2() {
+        return (ViewLinkImpl)findViewLink("OrgVO_vs_WpStyleSetupVO_vl2");
+    }
+
+    /**
+     * Container's getter for WpStyleWiseProcessSamVO2.
+     * @return WpStyleWiseProcessSamVO2
+     */
+    public WpStyleWiseProcessSamVOImpl getWpStyleWiseProcessSamVO2() {
+        return (WpStyleWiseProcessSamVOImpl)findViewObject("WpStyleWiseProcessSamVO2");
+    }
+
+    /**
+     * Container's getter for WpStyleWiseProcessSamR01Link2.
+     * @return WpStyleWiseProcessSamR01Link2
+     */
+    public ViewLinkImpl getWpStyleWiseProcessSamR01Link2() {
+        return (ViewLinkImpl)findViewLink("WpStyleWiseProcessSamR01Link2");
     }
 }

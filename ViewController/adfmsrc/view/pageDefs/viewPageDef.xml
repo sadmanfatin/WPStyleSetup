@@ -39,6 +39,15 @@
     <searchRegion Criteria="PocStylesVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="PocStylesVO1Iterator" id="PocStylesVOCriteriaQuery"/>
+    <iterator Binds="WpStyleSetupVO2" RangeSize="25"
+              DataControl="AppModuleDataControl" id="WpStyleSetupVO2Iterator"/>
+    <searchRegion Criteria="WpStyleSetupVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="WpStyleSetupVO2Iterator"
+                  id="WpStyleSetupVOCriteriaQuery"/>
+    <iterator Binds="WpStyleWiseProcessSamVO2" RangeSize="30"
+              DataControl="AppModuleDataControl"
+              id="WpStyleWiseProcessSamVO2Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="WpStyleWiseProcessSamVO1Iterator"
@@ -307,5 +316,31 @@
       <NamedData NDName="rowKey" NDValue="#{row.bindings.SystemId.inputValue}"
                  NDType="java.lang.String"/>
     </action>
+    <tree IterBinding="WpStyleSetupVO2Iterator" id="WpStyleSetupVO2">
+      <nodeDefinition DefName="model.view.WpStyleSetupVO"
+                      Name="WpStyleSetupVO20">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="WpStyleWiseProcessSamVO2Iterator"
+          id="WpStyleWiseProcessSamVO2">
+      <nodeDefinition DefName="model.view.WpStyleWiseProcessSamVO"
+                      Name="WpStyleWiseProcessSamVO20">
+        <AttrNames>
+          <Item Value="SectionType"/>
+          <Item Value="ProcessSeq"/>
+          <Item Value="ProcessName"/>
+          <Item Value="BatchQty"/>
+          <Item Value="BatchTime"/>
+          <Item Value="Sam"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

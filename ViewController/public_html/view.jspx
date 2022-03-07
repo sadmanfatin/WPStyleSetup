@@ -148,37 +148,37 @@
                                       id="cb12" action="edit projection style"
                                       visible="#{row.bindings.ProjectionStyle.inputValue == 'y'}"/>
                   </af:column>
-                  <af:column sortProperty="BuyerName" filterable="true"
+                  <af:column sortProperty="BuyerName"
                              sortable="true"
                              headerText="Buyer Name"
                              id="c2" width="140" align="center"
-                             visible="true" filterFeatures="caseInsensitive">
-                    <af:inputText value="#{row.bindings.BuyerName.inputValue}"
-                                  label="#{bindings.WpStyleSetupVO1.hints.BuyerName.label}"
-                                  required="#{bindings.WpStyleSetupVO1.hints.BuyerName.mandatory}"
-                                  columns="#{bindings.WpStyleSetupVO1.hints.BuyerName.displayWidth}"
-                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.BuyerName.precision}"
-                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.BuyerName.tooltip}"
-                                  id="it4" readOnly="true"
-                                  contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
-                      <f:validator binding="#{row.bindings.BuyerName.validator}"/>
-                    </af:inputText>
+                             visible="true" filterFeatures="caseInsensitive"
+                             filterable="true">
+                    <af:selectOneChoice value="#{row.bindings.BuyerName.inputValue}"
+                                        label="#{row.bindings.BuyerName.label}"
+                                        required="#{bindings.WpStyleSetupVO1.hints.BuyerName.mandatory}"
+                                        shortDesc="#{bindings.WpStyleSetupVO1.hints.BuyerName.tooltip}"
+                                        id="soc4" readOnly="true"
+                                        contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
+                      <f:selectItems value="#{row.bindings.BuyerName.items}"
+                                     id="si4"/>
+                    </af:selectOneChoice>
                   </af:column>
-                  <af:column sortProperty="Season" filterable="true"
+                  <af:column sortProperty="Season"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.Season.label}"
                              id="c44" align="center"
-                             filterFeatures="caseInsensitive" width="90">
-                    <af:inputText value="#{row.bindings.Season.inputValue}"
-                                  label="#{bindings.WpStyleSetupVO1.hints.Season.label}"
-                                  required="#{bindings.WpStyleSetupVO1.hints.Season.mandatory}"
-                                  columns="#{bindings.WpStyleSetupVO1.hints.Season.displayWidth}"
-                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.Season.precision}"
-                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.Season.tooltip}"
-                                  id="it7" readOnly="true"
-                                  contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
-                      <f:validator binding="#{row.bindings.Season.validator}"/>
-                    </af:inputText>
+                             filterFeatures="caseInsensitive" width="120"
+                             filterable="true">
+                    <af:selectOneChoice value="#{row.bindings.Season.inputValue}"
+                                        label="#{row.bindings.Season.label}"
+                                        required="#{bindings.WpStyleSetupVO1.hints.Season.mandatory}"
+                                        shortDesc="#{bindings.WpStyleSetupVO1.hints.Season.tooltip}"
+                                        id="soc5" readOnly="true"
+                                        contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
+                      <f:selectItems value="#{row.bindings.Season.items}"
+                                     id="si5"/>
+                    </af:selectOneChoice>
                   </af:column>
                   <af:column sortProperty="Style" filterable="true"
                              sortable="true"
@@ -504,11 +504,16 @@
                     <af:commandButton text="populate process" id="cb8">
                       <af:showPopupBehavior popupId="::PopulateProcess"/>
                     </af:commandButton>
+                    <af:spacer width="20" height="10" id="s2"/>
                     <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
                                       text="CreateInsert"
                                       disabled="#{!bindings.CreateInsert1.enabled}"
                                       id="cb3" partialSubmit="true"
                                       visible="false"/>
+                    <af:commandButton text="populate process From Another Style"
+                                      id="commandButton1">
+                      <af:showPopupBehavior popupId="::p4"/>
+                    </af:commandButton>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -1349,6 +1354,175 @@
               </f:facet>
             </af:panelFormLayout>
           </af:panelWindow>
+        </af:popup>
+        <af:popup id="p4" contentDelivery="lazyUncached"
+                  popupFetchListener="#{ManagedBean.populateProcessPopUpFetchListener}">
+          <af:dialog id="d5"
+                     dialogListener="#{ManagedBean.populateProcessFromStyleDialogeListener}">
+            <af:panelGroupLayout layout="vertical" id="pgl4">
+              <af:panelHeader text="Populate From Style" id="ph5"
+                              inlineStyle="width:1000.0px;">
+                <af:query id="qryId2" headerText="Search" disclosed="true"
+                          value="#{bindings.WpStyleSetupVOCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.WpStyleSetupVOCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.WpStyleSetupVOCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.WpStyleSetupVOCriteriaQuery.processQueryOperation}"
+                          resultComponentId="::t9"/>
+              </af:panelHeader>
+              <af:panelGroupLayout id="pgl5" layout="horizontal" valign="top">
+                <af:panelHeader text="Styles" id="ph6">
+                  <f:facet name="context"/>
+                  <f:facet name="menuBar"/>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="legend"/>
+                  <f:facet name="info"/>
+                  <af:table value="#{bindings.WpStyleSetupVO2.collectionModel}"
+                            var="row"
+                            rows="#{bindings.WpStyleSetupVO2.rangeSize}"
+                            emptyText="#{bindings.WpStyleSetupVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.WpStyleSetupVO2.rangeSize}"
+                            rowBandingInterval="0"
+                            queryListener="#{bindings.WpStyleSetupVOCriteriaQuery.processQuery}"
+                            filterVisible="true" varStatus="vs"
+                            selectedRowKeys="#{bindings.WpStyleSetupVO2.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.WpStyleSetupVO2.collectionModel.makeCurrent}"
+                            rowSelection="single" id="t9"
+                            inlineStyle="width:650.0px;">
+                    <af:column sortProperty="SystemId" filterable="true"
+                               sortable="false"
+                               headerText="#{bindings.WpStyleSetupVO2.hints.SystemId.label}"
+                               id="c75" width="50" align="center">
+                      <af:inputText value="#{row.bindings.SystemId.inputValue}"
+                                    label="#{bindings.WpStyleSetupVO2.hints.SystemId.label}"
+                                    required="#{bindings.WpStyleSetupVO2.hints.SystemId.mandatory}"
+                                    columns="#{bindings.WpStyleSetupVO2.hints.SystemId.displayWidth}"
+                                    maximumLength="#{bindings.WpStyleSetupVO2.hints.SystemId.precision}"
+                                    shortDesc="#{bindings.WpStyleSetupVO2.hints.SystemId.tooltip}"
+                                    id="it54" readOnly="true">
+                        <f:validator binding="#{row.bindings.SystemId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WpStyleSetupVO2.hints.SystemId.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="Season"
+                               sortable="false"
+                               headerText="#{bindings.WpStyleSetupVO2.hints.Season.label}"
+                               id="c77" align="center">
+                      <af:selectOneChoice value="#{row.bindings.Season.inputValue}"
+                                          label="#{row.bindings.Season.label}"
+                                          required="#{bindings.WpStyleSetupVO2.hints.Season.mandatory}"
+                                          shortDesc="#{bindings.WpStyleSetupVO2.hints.Season.tooltip}"
+                                          id="soc6" readOnly="true">
+                        <f:selectItems value="#{row.bindings.Season.items}"
+                                       id="si6"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="Style" filterable="true"
+                               sortable="false"
+                               headerText="#{bindings.WpStyleSetupVO2.hints.Style.label}"
+                               id="c78" width="150" align="center">
+                      <af:inputText value="#{row.bindings.Style.inputValue}"
+                                    label="#{bindings.WpStyleSetupVO2.hints.Style.label}"
+                                    required="#{bindings.WpStyleSetupVO2.hints.Style.mandatory}"
+                                    columns="#{bindings.WpStyleSetupVO2.hints.Style.displayWidth}"
+                                    maximumLength="#{bindings.WpStyleSetupVO2.hints.Style.precision}"
+                                    shortDesc="#{bindings.WpStyleSetupVO2.hints.Style.tooltip}"
+                                    id="it56" readOnly="true">
+                        <f:validator binding="#{row.bindings.Style.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="Color" filterable="true"
+                               sortable="false"
+                               headerText="#{bindings.WpStyleSetupVO2.hints.Color.label}"
+                               id="c76" width="150" align="center">
+                      <af:inputText value="#{row.bindings.Color.inputValue}"
+                                    label="#{bindings.WpStyleSetupVO2.hints.Color.label}"
+                                    required="#{bindings.WpStyleSetupVO2.hints.Color.mandatory}"
+                                    columns="#{bindings.WpStyleSetupVO2.hints.Color.displayWidth}"
+                                    maximumLength="#{bindings.WpStyleSetupVO2.hints.Color.precision}"
+                                    shortDesc="#{bindings.WpStyleSetupVO2.hints.Color.tooltip}"
+                                    id="it58" readOnly="true">
+                        <f:validator binding="#{row.bindings.Color.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="WashName" filterable="true"
+                               sortable="false"
+                               headerText="#{bindings.WpStyleSetupVO2.hints.WashName.label}"
+                               id="c74" width="150" align="center">
+                      <af:inputText value="#{row.bindings.WashName.inputValue}"
+                                    label="#{bindings.WpStyleSetupVO2.hints.WashName.label}"
+                                    required="#{bindings.WpStyleSetupVO2.hints.WashName.mandatory}"
+                                    columns="#{bindings.WpStyleSetupVO2.hints.WashName.displayWidth}"
+                                    maximumLength="#{bindings.WpStyleSetupVO2.hints.WashName.precision}"
+                                    shortDesc="#{bindings.WpStyleSetupVO2.hints.WashName.tooltip}"
+                                    id="it57" readOnly="true">
+                        <f:validator binding="#{row.bindings.WashName.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                  </af:table>
+                </af:panelHeader>
+                <af:panelHeader text="Processes" id="ph7">
+                  <f:facet name="context"/>
+                  <f:facet name="menuBar"/>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="legend"/>
+                  <f:facet name="info"/>
+                  <af:table value="#{bindings.WpStyleWiseProcessSamVO2.collectionModel}"
+                            var="row"
+                            rows="#{bindings.WpStyleWiseProcessSamVO2.rangeSize}"
+                            emptyText="#{bindings.WpStyleWiseProcessSamVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.WpStyleWiseProcessSamVO2.rangeSize}"
+                            rowBandingInterval="0" id="t10"
+                            partialTriggers="::t9 ::qryId2" filterVisible="true"
+                            filterModel="#{bindings.WpStyleWiseProcessSamVOCriteriaQuery.queryDescriptor}"
+                            inlineStyle="width:400.0px;">
+                    <af:column sortProperty="SectionType" sortable="false"
+                               headerText="#{bindings.WpStyleWiseProcessSamVO2.hints.SectionType.label}"
+                               id="c81" align="center">
+                      <af:outputText value="#{row.SectionType}" id="ot28"/>
+                    </af:column>
+                    <af:column sortProperty="ProcessSeq" sortable="false"
+                               headerText="#{bindings.WpStyleWiseProcessSamVO2.hints.ProcessSeq.label}"
+                               id="c83" align="center">
+                      <af:outputText value="#{row.ProcessSeq}" id="ot30">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WpStyleWiseProcessSamVO2.hints.ProcessSeq.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="ProcessName" sortable="false"
+                               headerText="#{bindings.WpStyleWiseProcessSamVO2.hints.ProcessName.label}"
+                               id="c79" align="center" width="150">
+                      <af:outputText value="#{row.ProcessName}" id="ot32"/>
+                    </af:column>
+                    <af:column sortProperty="BatchQty" sortable="false"
+                               headerText="#{bindings.WpStyleWiseProcessSamVO2.hints.BatchQty.label}"
+                               id="c80" align="center" visible="false">
+                      <af:outputText value="#{row.BatchQty}" id="ot31">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WpStyleWiseProcessSamVO2.hints.BatchQty.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="BatchTime" sortable="false"
+                               headerText="#{bindings.WpStyleWiseProcessSamVO2.hints.BatchTime.label}"
+                               id="c84" align="center" visible="false">
+                      <af:outputText value="#{row.BatchTime}" id="ot27">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WpStyleWiseProcessSamVO2.hints.BatchTime.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Sam" sortable="false"
+                               headerText="#{bindings.WpStyleWiseProcessSamVO2.hints.Sam.label}"
+                               id="c82" align="center" visible="false">
+                      <af:outputText value="#{row.Sam}" id="ot29">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WpStyleWiseProcessSamVO2.hints.Sam.format}"/>
+                      </af:outputText>
+                    </af:column>
+                  </af:table>
+                </af:panelHeader>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:dialog>
         </af:popup>
       </af:form>
     </af:document>

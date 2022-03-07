@@ -1,5 +1,6 @@
 import java.sql.CallableStatement;
 
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.faces.event.ActionEvent;
@@ -433,4 +434,57 @@ public class ManagedBean {
        styleSetupVoRow.setAttribute("OrderQty",projectionStyleVoCurrentRow.getAttribute("OrderedQty"));  
      
     }
+
+    public void populateProcessFromStyleDialogeListener(DialogEvent dialogEvent) {
+        // Add event code here...
+        
+        if (dialogEvent.getOutcome().name().equals("ok")) {
+         //   System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );
+         ViewObject styleSetupVo2  = appM.getWpStyleSetupVO2();
+         ViewObject populatingToProcessVo = appM.getWpStyleWiseProcessSamVO1();
+         ViewObject populatingFromProcessVo = appM.getWpStyleWiseProcessSamVO2();
+         ViewObject populatingFromStyleVo = appM.getWpStyleSetupVO2();
+         Row populatingFromStyleVoCurrentRow = populatingFromStyleVo.getCurrentRow();
+         Row[] matchedProcessRows ;
+        Number wpProcessId = null;
+ 
+                if( populatingFromStyleVoCurrentRow  !=  null){
+                                                                                
+                        Row populatingToProcessVoRow;
+                        Row[]  populatingFromProcessVoRows = populatingFromProcessVo.getAllRowsInRange();
+                        
+                        for (Row populatingFromProcessVoRow : populatingFromProcessVoRows ) {
+                            
+                            wpProcessId = (Number)populatingFromProcessVoRow.getAttribute("WpProcessId");
+                          //  System.out.println("  wpProcessId "  + wpProcessId + " processName   "+populatingFromProcessVoRow.getAttribute("ProcessName"));                          
+                            
+                            matchedProcessRows =  populatingToProcessVo.getFilteredRows("WpProcessId", wpProcessId);
+                           //   System.out.println("  matchedProcessRows.length "+  matchedProcessRows.length);
+                                                       
+                            if ( matchedProcessRows.length == 0){         // if process doesn't already exist then populate                       
+                                
+                                populatingToProcessVoRow  =  populatingToProcessVo.createRow();                                
+                                populatingToProcessVoRow.setAttribute("WpProcessId", populatingFromProcessVoRow.getAttribute("WpProcessId"));
+                                populatingToProcessVoRow.setAttribute("ProcessName", populatingFromProcessVoRow.getAttribute("ProcessName"));
+                                populatingToProcessVoRow.setAttribute("ProcessSeq", populatingFromProcessVoRow.getAttribute("ProcessSeq"));
+                                populatingToProcessVoRow.setAttribute("SectionType", populatingFromProcessVoRow.getAttribute("SectionType"));
+                                populatingToProcessVoRow.setAttribute("Sam", populatingFromProcessVoRow.getAttribute("Sam"));
+                                populatingToProcessVoRow.setAttribute("BatchQty", populatingFromProcessVoRow.getAttribute("BatchQty"));
+                                populatingToProcessVoRow.setAttribute("BatchTime", populatingFromProcessVoRow.getAttribute("BatchTime"));
+                                populatingToProcessVo.insertRow(populatingToProcessVoRow);                                
+                                
+                            }                                                    
+                       
+                        }                                                               
+                    
+                    }             
+         
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getProcessSamTable());
+            
+        } else if (dialogEvent.getOutcome().name().equals("cancel")) {
+            ;
+        }
+    }
+
+    
 }
