@@ -1,20 +1,22 @@
+#OS Cruft
+.DS_Store
+Thumbs.db
 
-*.ear
-*.xcfg
-*.jdb
+# Compiled class file
+# Log files
+*.log
+
+# Archives
 *.war
-*.jdb
-*.cdi_javac
-# default application storage directory used by the IDE Performance Cache feature
-.data/
+*.ear
+# Misc
+*.sso
 
-# used for ADF styles caching
-temp/
-
-# default output directories
+# Unwanted directories
 classes/
 deploy/
-javadoc/
+*.cdi_javac
+Model/classes/
+ViewController/classes/
+Model/classes/.data/Model.cdi_javac
 
-# lock file, a part of Oracle Credential Store Framework
-cwallet.sso.lck
