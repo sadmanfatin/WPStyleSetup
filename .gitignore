@@ -11,6 +11,7 @@ Thumbs.db
 *.ear
 # Misc
 *.sso
+.data
 
 # Unwanted directories
 classes/
@@ -19,4 +20,5 @@ deploy/
 Model/classes/
 ViewController/classes/
 Model/classes/.data/Model.cdi_javac
+
 
