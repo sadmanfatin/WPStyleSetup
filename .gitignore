@@ -3,7 +3,6 @@
 *.xcfg
 *.jdb
 *.war
-*.jws
 *.jdb
 *.cdi_javac
 # default application storage directory used by the IDE Performance Cache feature
