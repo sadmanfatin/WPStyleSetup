@@ -279,6 +279,16 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ItemDescription {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getItemDescription();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setItemDescription((String)value);
+            }
+        }
+        ,
         WpStyleWiseProcessSamVO {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWpStyleWiseProcessSamVO();
@@ -413,6 +423,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int FABRICATION = AttributesEnum.Fabrication.index();
     public static final int WASHTYPE = AttributesEnum.WashType.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
+    public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
     public static final int CURRENTSAMVSAVAILABLESAMVO = AttributesEnum.CurrentSamVsAvailableSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
@@ -837,6 +848,22 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public void setRemarks(String value) {
         setAttributeInternal(REMARKS, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ItemDescription.
+     * @return the ItemDescription
+     */
+    public String getItemDescription() {
+        return (String) getAttributeInternal(ITEMDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ItemDescription.
+     * @param value value to set the  ItemDescription
+     */
+    public void setItemDescription(String value) {
+        setAttributeInternal(ITEMDESCRIPTION, value);
     }
 
     /**

@@ -145,6 +145,26 @@ public class PocStylesVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ItemDescription {
+            public Object get(PocStylesVORowImpl obj) {
+                return obj.getItemDescription();
+            }
+
+            public void put(PocStylesVORowImpl obj, Object value) {
+                obj.setItemDescription((String)value);
+            }
+        }
+        ,
+        Fabrication {
+            public Object get(PocStylesVORowImpl obj) {
+                return obj.getFabrication();
+            }
+
+            public void put(PocStylesVORowImpl obj, Object value) {
+                obj.setFabrication((String)value);
+            }
+        }
+        ,
         CheckBox {
             public Object get(PocStylesVORowImpl obj) {
                 return obj.getCheckBox();
@@ -216,6 +236,8 @@ public class PocStylesVORowImpl extends ViewRowImpl {
     public static final int WASHNAME = AttributesEnum.WashName.index();
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
+    public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
+    public static final int FABRICATION = AttributesEnum.Fabrication.index();
     public static final int CHECKBOX = AttributesEnum.CheckBox.index();
     public static final int BUYERLOV1 = AttributesEnum.BuyerLOV1.index();
     public static final int SEASONLOV1 = AttributesEnum.SeasonLOV1.index();
@@ -432,6 +454,38 @@ public class PocStylesVORowImpl extends ViewRowImpl {
      */
     public void setSamVersion(Number value) {
         setAttributeInternal(SAMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ItemDescription.
+     * @return the ItemDescription
+     */
+    public String getItemDescription() {
+        return (String) getAttributeInternal(ITEMDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ItemDescription.
+     * @param value value to set the  ItemDescription
+     */
+    public void setItemDescription(String value) {
+        setAttributeInternal(ITEMDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Fabrication.
+     * @return the Fabrication
+     */
+    public String getFabrication() {
+        return (String) getAttributeInternal(FABRICATION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Fabrication.
+     * @param value value to set the  Fabrication
+     */
+    public void setFabrication(String value) {
+        setAttributeInternal(FABRICATION, value);
     }
 
     /**

@@ -114,6 +114,8 @@
           <Item Value="OrderQty"/>
           <Item Value="SamVersion"/>
           <Item Value="CheckBox" Binds="CheckBox"/>
+          <Item Value="Fabrication"/>
+          <Item Value="ItemDescription"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -157,6 +159,7 @@
           <Item Value="WashType"/>
           <Item Value="Remarks"/>
           <Item Value="ProjectionStyle"/>
+          <Item Value="ItemDescription"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -101,7 +101,18 @@
          POV.COLOR,
          POV.WASH_NAME,
          POV.ORDER_QTY,
-         SV.SAM_VERSION
+         SV.SAM_VERSION,
+         POV.STYLE_DESCRIPTION ITEM_DESCRIPTION,
+         
+         
+         (SELECT 
+             decode (D1.ITEM_PREFIX , 11 , 'Denim' , 12 , 'Non-Denim' , null) 
+           FROM XX_OM_POC_D1_T D1, XX_ORDER_INFO_V OIV
+             WHERE     D1.FOB_ID = OIV.FOB_ID
+           AND OIV.SYSTEM_ID = POV.SYSTEM_ID
+            AND (D1.ITEM_PREFIX = 11 OR D1.ITEM_PREFIX = 12)
+           AND ROWNUM = 1)   FABRICATION
+          
     FROM POC_SYSTEM_ID_VIEW POV, 
     
     (SELECT  V.SYSTEM_ID, MAX (V.SAM_VERSION)  SAM_VERSION
@@ -116,7 +127,7 @@
                FROM WP_STYLE_SETUP STS
               WHERE STS.SYSTEM_ID = POV.SYSTEM_ID AND STS.ORG_ID = :p_org_id)
               
-                and  POV.STYLE like '%2112662%'
+              --  and  POV.STYLE like '%2112662%'
                 
               ORDER BY POV.SYSTEM_ID DESC]]>
   </SQLQuery>
@@ -354,6 +365,36 @@
     Expression="SAM_VERSION">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_DESCRIPTION"
+    Expression="ITEM_DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Fabrication"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FABRICATION"
+    Expression="FABRICATION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

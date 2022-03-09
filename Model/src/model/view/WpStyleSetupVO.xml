@@ -166,11 +166,11 @@
        WPSTYLESETUPEO.SAM_VERSION, 
        WPSTYLESETUPEO.ORG_ID,
         WPSTYLESETUPEO.PROJECTION_STYLE,
-       WPSTYLESETUPEO.AVAILABLE_SAM_VERSION    ,
-               
+       WPSTYLESETUPEO.AVAILABLE_SAM_VERSION    ,              
         WPSTYLESETUPEO.FABRICATION,
          WPSTYLESETUPEO.WASH_TYPE ,
-      WPSTYLESETUPEO.REMARKS
+      WPSTYLESETUPEO.REMARKS,
+      STYLES.ITEM_DESCRIPTION
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
     
     (   
@@ -181,6 +181,7 @@
                PV.STYLE,
                PV.COLOR,
                PV.WASH_NAME,
+               PV.STYLE_DESCRIPTION ITEM_DESCRIPTION,
                PV.ORDER_QTY
           FROM POC_SYSTEM_ID_VIEW PV  
                  
@@ -193,6 +194,7 @@
                WPS.STYLE,
                WPS.COLOR,
                WPS.WASH,
+               'Projection Style' ITEM_DESCRIPTION,
                WPS.ORDERED_QTY
           FROM WP_PROJECTION_STYLE WPS               
       ) STYLES  
@@ -509,6 +511,16 @@
     EntityAttrName="Remarks"
     EntityUsage="WpStyleSetupEO"
     AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="ItemDescription"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_DESCRIPTION"
+    Expression="ITEM_DESCRIPTION"
+    SQLType="VARCHAR"/>
   <ViewCriteria
     Name="WpStyleSetupVOCriteria"
     ViewObjectName="model.view.WpStyleSetupVO"

@@ -197,6 +197,21 @@
                       <f:validator binding="#{row.bindings.Style.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Item Description"
+                             id="c86" width="150" align="center"
+                             sortable="true" filterable="true"
+                             filterFeatures="caseInsensitive"
+                             sortProperty="ItemDescription">
+                    <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.ItemDescription.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.ItemDescription.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.ItemDescription.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.ItemDescription.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.ItemDescription.tooltip}"
+                                  id="it7" readOnly="true">
+                      <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
+                    </af:inputText>
+                  </af:column>
                   <af:column headerText="Projection Style"
                              id="c72" align="center" sortable="true"
                              filterable="true" width="50"
@@ -295,8 +310,9 @@
                     </af:inputText>
                   </af:column>
                   <af:column headerText="#{bindings.WpStyleSetupVO1.hints.ProductionUnitName.label}"
-                             id="c1" align="center" width="140"
-                             filterFeatures="caseInsensitive">
+                             id="c1" align="center" width="140" filterable="true"
+                             filterFeatures="caseInsensitive"
+                             sortProperty="ProductionUnitName">
                     <af:selectOneChoice value="#{row.bindings.ProductionUnitName.inputValue}"
                                         label="#{row.bindings.ProductionUnitName.label}"
                                         required="#{bindings.WpStyleSetupVO1.hints.ProductionUnitName.mandatory}"
@@ -309,20 +325,23 @@
                   </af:column>
                   <af:column headerText="#{bindings.WpStyleSetupVO1.hints.Fabrication.label}"
                              id="c61" align="center" sortable="true"
-                             filterable="true" filterFeatures="caseInsensitive">
+                             filterable="true" filterFeatures="caseInsensitive"
+                             sortProperty="Fabrication" width="80">
                     <af:selectOneChoice value="#{row.bindings.Fabrication.inputValue}"
                                         label="#{row.bindings.Fabrication.label}"
                                         required="#{bindings.WpStyleSetupVO1.hints.Fabrication.mandatory}"
                                         shortDesc="#{bindings.WpStyleSetupVO1.hints.Fabrication.tooltip}"
                                         id="soc2" autoSubmit="true"
-                                        contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;">
+                                        contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;"
+                                        readOnly="#{row.bindings.ProjectionStyle.inputValue == 'n'}">
                       <f:selectItems value="#{row.bindings.Fabrication.items}"
                                      id="si2"/>
                     </af:selectOneChoice>
                   </af:column>
                   <af:column headerText="#{bindings.WpStyleSetupVO1.hints.WashType.label}"
                              id="c62" align="center" sortable="true"
-                             filterable="true" filterFeatures="caseInsensitive">
+                             filterable="true" filterFeatures="caseInsensitive"
+                             sortProperty="WashType">
                     <af:selectOneChoice value="#{row.bindings.WashType.inputValue}"
                                         label="#{row.bindings.WashType.label}"
                                         required="#{bindings.WpStyleSetupVO1.hints.WashType.mandatory}"
@@ -798,7 +817,7 @@
           <af:dialog id="d2"
                      dialogListener="#{ManagedBean.populateStyleDialogueListener}">
             <af:panelHeader text="Populate Style" id="ph2"
-                            inlineStyle="width:1150.0px;">
+                            inlineStyle="width:1250.0px;">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
@@ -851,7 +870,7 @@
                 <af:column sortProperty="LcUnitName" filterable="true"
                            sortable="true"
                            headerText="Lc Unit Name"
-                           id="c24" align="center" width="130"
+                           id="c24" align="center" width="120"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.LcUnitName}" id="ot11"/>
                 </af:column>
@@ -867,7 +886,7 @@
                 <af:column sortProperty="ProductionUnitName" filterable="true"
                            sortable="true"
                            headerText="Production Unit Name"
-                           id="c31" align="center" width="130"
+                           id="c31" align="center" width="120"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.ProductionUnitName}" id="ot8"/>
                 </af:column>
@@ -901,6 +920,20 @@
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.Style}" id="ot10"/>
                 </af:column>
+                <af:column headerText="Item Description"
+                           id="c87" align="center" sortable="true"
+                           filterable="true" filterFeatures="caseInsensitive"
+                           sortProperty="ItemDescription">
+                  <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
+                                label="#{bindings.PocStylesVO1.hints.ItemDescription.label}"
+                                required="#{bindings.PocStylesVO1.hints.ItemDescription.mandatory}"
+                                columns="#{bindings.PocStylesVO1.hints.ItemDescription.displayWidth}"
+                                maximumLength="#{bindings.PocStylesVO1.hints.ItemDescription.precision}"
+                                shortDesc="#{bindings.PocStylesVO1.hints.ItemDescription.tooltip}"
+                                id="it55" readOnly="true">
+                    <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
+                  </af:inputText>
+                </af:column>
                 <af:column sortProperty="Color" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PocStylesVO1.hints.Color.label}"
@@ -918,17 +951,31 @@
                 <af:column sortProperty="OrderQty" filterable="true"
                            sortable="true"
                            headerText="Order Qty"
-                           id="c41" width="60" align="center"
+                           id="c41" width="50" align="center"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.OrderQty}" id="ot4">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PocStylesVO1.hints.OrderQty.format}"/>
                   </af:outputText>
                 </af:column>
+                <af:column headerText="#{bindings.PocStylesVO1.hints.Fabrication.label}"
+                           id="c85" align="center" sortable="true"
+                           filterable="true" filterFeatures="caseInsensitive"
+                           sortProperty="Fabrication" width="50">
+                  <af:inputText value="#{row.bindings.Fabrication.inputValue}"
+                                label="#{bindings.PocStylesVO1.hints.Fabrication.label}"
+                                required="#{bindings.PocStylesVO1.hints.Fabrication.mandatory}"
+                                columns="#{bindings.PocStylesVO1.hints.Fabrication.displayWidth}"
+                                maximumLength="#{bindings.PocStylesVO1.hints.Fabrication.precision}"
+                                shortDesc="#{bindings.PocStylesVO1.hints.Fabrication.tooltip}"
+                                id="it4" readOnly="true">
+                    <f:validator binding="#{row.bindings.Fabrication.validator}"/>
+                  </af:inputText>
+                </af:column>
                 <af:column sortProperty="SamVersion" filterable="true"
                            sortable="true"
                            headerText="Sam Version"
-                           id="c25" width="60" align="center"
+                           id="c25" width="50" align="center"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.SamVersion}" id="ot3">
                     <af:convertNumber groupingUsed="false"

@@ -114,7 +114,8 @@ public class ManagedBean {
                     wpStyleSetupRow.setProductionUnit(pocStylesRow.getProductionUnit());
                     wpStyleSetupRow.setProductionUnitName(pocStylesRow.getProductionUnitName());
                     wpStyleSetupRow.setOrderQty(pocStylesRow.getOrderQty());
-                    
+                    wpStyleSetupRow.setFabrication(pocStylesRow.getFabrication());
+                    wpStyleSetupRow.setItemDescription(pocStylesRow.getItemDescription());
                     Number samVersion = pocStylesRow.getSamVersion();
                     if (samVersion != null){
                         wpStyleSetupRow.setSamVersion(pocStylesRow.getSamVersion());
