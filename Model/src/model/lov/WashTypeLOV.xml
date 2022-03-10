@@ -20,18 +20,42 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[select 'Normal Rinse'   WASH_TYPE   , 1 seq  from dual
-union
-select 'Enz/Bleach' WASH_TYPE , 2 seq  from dual
-union 
-select 'Acid/Towel' WASH_TYPE,  3 seq from dual
-union
-select 'Overdye' WASH_TYPE ,  4 seq from dual
-union
-select 'Gmts Wash' WASH_TYPE ,  5 seq from dual
-
-order by seq]]>
+    <![CDATA[SELECT 
+ WASH_TYPE_ID , 
+ ORG_ID ,   
+ WASH_TYPE 
+ FROM 
+ APPS.WP_WASH_TYPE_V
+ ORDER BY WASH_TYPE_ID]]>
   </SQLQuery>
+  <ViewAttribute
+    Name="WashTypeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="WASH_TYPE_ID"
+    Expression="WASH_TYPE_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORG_ID"
+    Expression="ORG_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="WashType"
     IsUpdateable="false"
@@ -45,20 +69,6 @@ order by seq]]>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Seq"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="SEQ"
-    Expression="SEQ"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ResourceBundle>

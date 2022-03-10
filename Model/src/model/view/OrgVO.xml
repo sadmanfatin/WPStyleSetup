@@ -83,6 +83,11 @@ and  organization_id = :p_org_id]]>
     ViewLink="model.view.OrgVO_vs_WpWashCatagoryVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="WashTypeLOV"
+    ViewLink="model.lov.OrgVO_vs_WashTypeVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
