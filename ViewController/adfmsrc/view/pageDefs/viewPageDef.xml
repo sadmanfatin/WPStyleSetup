@@ -160,6 +160,7 @@
           <Item Value="Remarks"/>
           <Item Value="ProjectionStyle"/>
           <Item Value="ItemDescription"/>
+          <Item Value="WashCatagory"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

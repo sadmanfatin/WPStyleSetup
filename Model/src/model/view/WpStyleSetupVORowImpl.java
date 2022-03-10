@@ -229,16 +229,6 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        UpdatedVersionAvailavle {
-            public Object get(WpStyleSetupVORowImpl obj) {
-                return obj.getUpdatedVersionAvailavle();
-            }
-
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setUpdatedVersionAvailavle((Boolean)value);
-            }
-        }
-        ,
         AvailableSamVersion {
             public Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getAvailableSamVersion();
@@ -286,6 +276,26 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
 
             public void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setItemDescription((String)value);
+            }
+        }
+        ,
+        WashCatagory {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getWashCatagory();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setWashCatagory((String)value);
+            }
+        }
+        ,
+        UpdatedVersionAvailavle {
+            public Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getUpdatedVersionAvailavle();
+            }
+
+            public void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setUpdatedVersionAvailavle((Boolean)value);
             }
         }
         ,
@@ -418,12 +428,13 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
-    public static final int UPDATEDVERSIONAVAILAVLE = AttributesEnum.UpdatedVersionAvailavle.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int FABRICATION = AttributesEnum.Fabrication.index();
     public static final int WASHTYPE = AttributesEnum.WashType.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
+    public static final int WASHCATAGORY = AttributesEnum.WashCatagory.index();
+    public static final int UPDATEDVERSIONAVAILAVLE = AttributesEnum.UpdatedVersionAvailavle.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
     public static final int CURRENTSAMVSAVAILABLESAMVO = AttributesEnum.CurrentSamVsAvailableSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
@@ -864,6 +875,22 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
      */
     public void setItemDescription(String value) {
         setAttributeInternal(ITEMDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute WashCatagory.
+     * @return the WashCatagory
+     */
+    public String getWashCatagory() {
+        return (String) getAttributeInternal(WASHCATAGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute WashCatagory.
+     * @param value value to set the  WashCatagory
+     */
+    public void setWashCatagory(String value) {
+        setAttributeInternal(WASHCATAGORY, value);
     }
 
     /**

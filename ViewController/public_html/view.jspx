@@ -352,6 +352,20 @@
                                      id="si3"/>
                     </af:selectOneChoice>
                   </af:column>
+                  <af:column headerText="Wash Catagory"
+                             id="c88" align="center" sortable="true"
+                             filterable="true" width="80"
+                             sortProperty="WashCatagory">
+                    <af:inputText value="#{row.bindings.WashCatagory.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.WashCatagory.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.WashCatagory.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.WashCatagory.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.WashCatagory.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.WashCatagory.tooltip}"
+                                  id="it59" readOnly="true">
+                      <f:validator binding="#{row.bindings.WashCatagory.validator}"/>
+                    </af:inputText>
+                  </af:column>
                   <af:column sortProperty="CreatedBy" filterable="true"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.CreatedBy.label}"

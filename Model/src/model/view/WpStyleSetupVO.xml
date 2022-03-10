@@ -170,7 +170,8 @@
         WPSTYLESETUPEO.FABRICATION,
          WPSTYLESETUPEO.WASH_TYPE ,
       WPSTYLESETUPEO.REMARKS,
-      STYLES.ITEM_DESCRIPTION
+      STYLES.ITEM_DESCRIPTION ,
+      APPS.WP_WASH_CATAGORY_F(WPSTYLESETUPEO.STYLE_SETUP_ID) WASH_CATAGORY
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
     
     (   
@@ -461,17 +462,6 @@
     AliasName="PROJECTION_STYLE"
     DefaultValue="n"/>
   <ViewAttribute
-    Name="UpdatedVersionAvailavle"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.Boolean"
-    ColumnType="NUMBER"
-    AliasName="VIEW_ATTR"
-    SQLType="BIT">
-    <TransientExpression><![CDATA[AvailableSamVersion>SamVersion]]></TransientExpression>
-  </ViewAttribute>
-  <ViewAttribute
     Name="AvailableSamVersion"
     PrecisionRule="true"
     EntityAttrName="AvailableSamVersion"
@@ -521,6 +511,32 @@
     AliasName="ITEM_DESCRIPTION"
     Expression="ITEM_DESCRIPTION"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="WashCatagory"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_CATAGORY"
+    Expression="WASH_CATAGORY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UpdatedVersionAvailavle"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <TransientExpression><![CDATA[AvailableSamVersion>SamVersion]]></TransientExpression>
+  </ViewAttribute>
   <ViewCriteria
     Name="WpStyleSetupVOCriteria"
     ViewObjectName="model.view.WpStyleSetupVO"
