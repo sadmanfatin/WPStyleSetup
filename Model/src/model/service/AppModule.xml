@@ -49,6 +49,9 @@
   <ViewUsage
     Name="WpStyleWiseProcessSamVO2"
     ViewObjectName="model.view.WpStyleWiseProcessSamVO"/>
+  <ViewUsage
+    Name="WpWashCatagoryVO1"
+    ViewObjectName="model.view.WpWashCatagoryVO"/>
   <ViewLinkUsage
     Name="OrgVO_vs_SamVO_VL1"
     ViewLinkObjectName="model.view.OrgVO_vs_SamVO_VL"
@@ -90,6 +93,12 @@
     ViewLinkObjectName="model.view.WpStyleWiseProcessSamR01Link"
     SrcViewUsageName="model.service.AppModule.WpStyleSetupVO2"
     DstViewUsageName="model.service.AppModule.WpStyleWiseProcessSamVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgVO_vs_WpWashCatagoryVO_vl1"
+    ViewLinkObjectName="model.view.OrgVO_vs_WpWashCatagoryVO_vl"
+    SrcViewUsageName="model.service.AppModule.OrgVO1"
+    DstViewUsageName="model.service.AppModule.WpWashCatagoryVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method
