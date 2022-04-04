@@ -103,12 +103,25 @@
     SrcViewUsageName="model.service.AppModule.OrgVO1"
     DstViewUsageName="model.service.AppModule.WpWashCatagoryVO1"
     Reversed="false"/>
-  <ViewLinkUsage
-    Name="OrgVO_vs_WashTypeVO_vl1"
-    ViewLinkObjectName="model.lov.OrgVO_vs_WashTypeVO_vl"
-    SrcViewUsageName="model.service.AppModule.OrgVO1"
-    DstViewUsageName="model.service.AppModule.WashTypeLOV1"
-    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="setSessionValues">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="orgId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respApplId"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
   <ClientInterface>
     <Method
       Name="setSessionValues">

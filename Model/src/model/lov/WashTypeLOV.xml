@@ -19,6 +19,10 @@
         ResId="model.lov.WashTypeLOV_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="p_org_id"
+    Kind="where"
+    Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[SELECT 
  WASH_TYPE_ID , 
@@ -26,6 +30,7 @@
  WASH_TYPE 
  FROM 
  APPS.WP_WASH_TYPE_V
+WHERE ORG_ID = :p_org_id
  ORDER BY WASH_TYPE_ID]]>
   </SQLQuery>
   <ViewAttribute

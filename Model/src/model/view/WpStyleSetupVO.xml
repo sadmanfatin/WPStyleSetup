@@ -40,8 +40,13 @@
     RowLevelBinds="true"/>
   <ViewAccessor
     Name="WashTypeLOV1"
-    ViewObjectName="model.lov.WashTypeLOV"
-    RowLevelBinds="true"/>
+    ViewObjectName="model.lov.WashTypeLOV">
+    <ParameterMap>
+      <PIMap Variable="p_org_id">
+        <TransientExpression><![CDATA[OrgId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="ProductionUnitLOV1"
     ViewObjectName="model.lov.ProductionUnitLOV"
