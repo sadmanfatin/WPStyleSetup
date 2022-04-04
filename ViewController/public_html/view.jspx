@@ -169,6 +169,8 @@
                              headerText="#{bindings.WpStyleSetupVO1.hints.Season.label}"
                              id="c44" align="center"
                              filterFeatures="caseInsensitive" width="120"
+                             visible="false"
+                           
                              filterable="true">
                     <af:selectOneChoice value="#{row.bindings.Season.inputValue}"
                                         label="#{row.bindings.Season.label}"
@@ -179,6 +181,21 @@
                       <f:selectItems value="#{row.bindings.Season.items}"
                                      id="si5"/>
                     </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.label}" id="c89"
+                             sortProperty="SeasonTrans" sortable="true" filterable="true"
+                                filterFeatures="caseInsensitive" width="120"
+                                align = "center">
+                    <af:inputText value="#{row.bindings.SeasonTrans.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.tooltip}" id="it60"
+                                 contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;"
+                                 readOnly="true">
+                      <f:validator binding="#{row.bindings.SeasonTrans.validator}"/>
+                    </af:inputText>
                   </af:column>
                   <af:column sortProperty="Style" filterable="true"
                              sortable="true"

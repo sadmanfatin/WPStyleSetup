@@ -164,6 +164,7 @@
           <Item Value="ProjectionStyle"/>
           <Item Value="ItemDescription"/>
           <Item Value="WashCatagory"/>
+          <Item Value="SeasonTrans"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

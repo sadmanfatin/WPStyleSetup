@@ -15,376 +15,387 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class WpStyleSetupVORowImpl extends ViewRowImpl {
+
+    public static final int ENTITY_WPSTYLESETUPEO = 0;
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. Do not modify.
      */
     public enum AttributesEnum {
         StyleSetupId {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getStyleSetupId();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setStyleSetupId((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setStyleSetupId((Number) value);
             }
         }
         ,
         SystemId {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getSystemId();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setSystemId((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setSystemId((Number) value);
             }
         }
         ,
         LcUnit {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getLcUnit();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setLcUnit((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setLcUnit((Number) value);
             }
         }
         ,
         LcUnitName {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getLcUnitName();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setLcUnitName((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setLcUnitName((String) value);
             }
         }
         ,
         BuyerId {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getBuyerId();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setBuyerId((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setBuyerId((Number) value);
             }
         }
         ,
         BuyerName {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getBuyerName();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setBuyerName((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setBuyerName((String) value);
             }
         }
         ,
         Season {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getSeason();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setSeason((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setSeason((String) value);
             }
         }
         ,
         Style {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getStyle();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setStyle((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setStyle((String) value);
             }
         }
         ,
         Color {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getColor();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setColor((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setColor((String) value);
             }
         }
         ,
         WashName {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWashName();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setWashName((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setWashName((String) value);
             }
         }
         ,
         OrderQty {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getOrderQty();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setOrderQty((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setOrderQty((Number) value);
             }
         }
         ,
         ProductionUnit {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getProductionUnit();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setProductionUnit((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setProductionUnit((Number) value);
             }
         }
         ,
         ProductionUnitName {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getProductionUnitName();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setProductionUnitName((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setProductionUnitName((String) value);
             }
         }
         ,
         PbFlag {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getPbFlag();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setPbFlag((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setPbFlag((String) value);
             }
         }
         ,
         CreatedBy {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getCreatedBy();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setCreatedBy((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setCreatedBy((Number) value);
             }
         }
         ,
         CreationDate {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getCreationDate();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setCreationDate((Date)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setCreationDate((Date) value);
             }
         }
         ,
         LastUpdatedBy {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getLastUpdatedBy();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setLastUpdatedBy((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setLastUpdatedBy((Number) value);
             }
         }
         ,
         LastUpdatedDate {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getLastUpdatedDate();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setLastUpdatedDate((Date)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setLastUpdatedDate((Date) value);
             }
         }
         ,
         SamVersion {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getSamVersion();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setSamVersion((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setSamVersion((Number) value);
             }
         }
         ,
         OrgId {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getOrgId();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setOrgId((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setOrgId((Number) value);
             }
         }
         ,
         ProjectionStyle {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getProjectionStyle();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setProjectionStyle((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setProjectionStyle((String) value);
             }
         }
         ,
         AvailableSamVersion {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getAvailableSamVersion();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setAvailableSamVersion((Number)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAvailableSamVersion((Number) value);
             }
         }
         ,
         Fabrication {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getFabrication();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setFabrication((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setFabrication((String) value);
             }
         }
         ,
         WashType {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWashType();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setWashType((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setWashType((String) value);
             }
         }
         ,
         Remarks {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getRemarks();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setRemarks((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setRemarks((String) value);
             }
         }
         ,
         ItemDescription {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getItemDescription();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setItemDescription((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setItemDescription((String) value);
             }
         }
         ,
         WashCatagory {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWashCatagory();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setWashCatagory((String)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
         UpdatedVersionAvailavle {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getUpdatedVersionAvailavle();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
-                obj.setUpdatedVersionAvailavle((Boolean)value);
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setUpdatedVersionAvailavle((Boolean) value);
+            }
+        }
+        ,
+        SeasonTrans {
+            protected Object get(WpStyleSetupVORowImpl obj) {
+                return obj.getSeasonTrans();
+            }
+
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
+                obj.setSeasonTrans((String) value);
             }
         }
         ,
         WpStyleWiseProcessSamVO {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWpStyleWiseProcessSamVO();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         CurrentSamVsAvailableSamVO {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getCurrentSamVsAvailableSamVO();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         OrgLOV1 {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getOrgLOV1();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         BuyerLOV1 {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getBuyerLOV1();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         SeasonLOV1 {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getSeasonLOV1();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         FabricationLOV1 {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getFabricationLOV1();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         WashTypeLOV1 {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getWashTypeLOV1();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ,
         ProductionUnitLOV1 {
-            public Object get(WpStyleSetupVORowImpl obj) {
+            protected Object get(WpStyleSetupVORowImpl obj) {
                 return obj.getProductionUnitLOV1();
             }
 
-            public void put(WpStyleSetupVORowImpl obj, Object value) {
+            protected void put(WpStyleSetupVORowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
         }
         ;
         private static AttributesEnum[] vals = null;
+        ;
         private static int firstIndex = 0;
 
-        public abstract Object get(WpStyleSetupVORowImpl object);
-
-        public abstract void put(WpStyleSetupVORowImpl object, Object value);
 
         public int index() {
             return AttributesEnum.firstIndex() + ordinal();
@@ -404,6 +415,11 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
             }
             return vals;
         }
+
+
+        protected abstract Object get(WpStyleSetupVORowImpl object);
+
+        protected abstract void put(WpStyleSetupVORowImpl object, Object value);
     }
 
 
@@ -435,6 +451,7 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
     public static final int WASHCATAGORY = AttributesEnum.WashCatagory.index();
     public static final int UPDATEDVERSIONAVAILAVLE = AttributesEnum.UpdatedVersionAvailavle.index();
+    public static final int SEASONTRANS = AttributesEnum.SeasonTrans.index();
     public static final int WPSTYLEWISEPROCESSSAMVO = AttributesEnum.WpStyleWiseProcessSamVO.index();
     public static final int CURRENTSAMVSAVAILABLESAMVO = AttributesEnum.CurrentSamVsAvailableSamVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
@@ -798,6 +815,22 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute SeasonTrans.
+     * @return the SeasonTrans
+     */
+    public String getSeasonTrans() {
+        return (String) getAttributeInternal(SEASONTRANS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute SeasonTrans.
+     * @param value value to set the  SeasonTrans
+     */
+    public void setSeasonTrans(String value) {
+        setAttributeInternal(SEASONTRANS, value);
+    }
+
+    /**
      * Gets the attribute value for AVAILABLE_SAM_VERSION using the alias name AvailableSamVersion.
      * @return the AVAILABLE_SAM_VERSION
      */
@@ -885,13 +918,6 @@ public class WpStyleSetupVORowImpl extends ViewRowImpl {
         return (String) getAttributeInternal(WASHCATAGORY);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute WashCatagory.
-     * @param value value to set the  WashCatagory
-     */
-    public void setWashCatagory(String value) {
-        setAttributeInternal(WASHCATAGORY, value);
-    }
 
     /**
      * Gets the attribute value for PROJECTION_STYLE using the alias name ProjectionStyle.
