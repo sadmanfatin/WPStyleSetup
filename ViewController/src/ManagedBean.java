@@ -189,13 +189,39 @@ public class ManagedBean {
                 styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow();   
             
                 styleWiseProcessSamVoRow.setWpProcessId(SamVoRow.getWpProcessId());
-                styleWiseProcessSamVoRow.setBatchQty(SamVoRow.getBatchQty());
-                styleWiseProcessSamVoRow.setBatchTime(SamVoRow.getBatchTime());
-                styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
-                styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
-                styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
-                styleWiseProcessSamVoRow.setSectionType(SamVoRow.getSectionType());
-                 styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
+
+
+                       if (! orgId.equals("343")) {  // populate all for all units
+                           styleWiseProcessSamVoRow.setBatchQty(SamVoRow.getBatchQty());
+                           styleWiseProcessSamVoRow.setBatchTime(SamVoRow.getBatchTime());
+                           styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
+                           styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
+                           styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
+                           styleWiseProcessSamVoRow.setSectionType(SamVoRow.getSectionType());
+                            styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
+                       
+                       
+                       }
+
+                       else if (orgId.equals("343") && samVoSectionType.equals("Dry")) { 
+                           // for cwpl only populate sam for dry process
+                           styleWiseProcessSamVoRow.setSam(SamVoRow.getSam());
+                           styleWiseProcessSamVoRow.setOriginalSam(SamVoRow.getSam());
+                       } 
+                       else if (orgId.equals("343") && samVoSectionType.equals("Wet")) {
+                           
+                           // for cwpl only populate batch info in original field  for dry process
+                           styleWiseProcessSamVoRow.setOriginalBatchQty(SamVoRow.getBatchQty());
+                           styleWiseProcessSamVoRow.setOriginalBatchTime(SamVoRow.getBatchTime());
+                          
+                       }
+
+                       styleWiseProcessSamVoRow.setProcessSeq(SamVoRow.getSeqNo());
+                       styleWiseProcessSamVoRow.setProcessName(SamVoRow.getProcessName());
+                       styleWiseProcessSamVoRow.setSectionType(SamVoRow.getSectionType());
+                          
+                      
+                      styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
             
             
                 
@@ -204,30 +230,7 @@ public class ManagedBean {
                         
         }   
         
-        /**    populate default processes for cwpl styles   */
         
-        if (orgId.equals("343") ) {
-            
-            RowSetIterator cwplRowsRs  = cwplDefaultProcessesVo.createRowSetIterator("");
-          
-            System.out.println("cwplRowsRs.getAllRowsInRange().length "  + cwplRowsRs.getAllRowsInRange().length);
-            System.out.println("cwplRowsRs.getFetchedRowCount() "  + cwplRowsRs.getFetchedRowCount());
-            
-            while (cwplRowsRs.hasNext()){
-                
-                cwplDefaultProcessesVoRow = ( CWPLDefaultProcessesVORowImpl) cwplRowsRs.next();
-                styleWiseProcessSamVoRow = (WpStyleWiseProcessSamVORowImpl)styleWiseProcessSamVo.createRow(); 
-                
-                styleWiseProcessSamVoRow.setProcessName(cwplDefaultProcessesVoRow.getProcessName());
-                styleWiseProcessSamVoRow.setWpProcessId(cwplDefaultProcessesVoRow.getWpProcessId());
-                styleWiseProcessSamVoRow.setWpProcessId(cwplDefaultProcessesVoRow.getWpProcessId());
-                styleWiseProcessSamVoRow.setSectionType(cwplDefaultProcessesVoRow.getSectionType());
-                styleWiseProcessSamVo.insertRow(styleWiseProcessSamVoRow);
-                
-            }            
-             
-            cwplRowsRs.closeRowSetIterator();        
-        }
    
         
     }

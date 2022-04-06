@@ -69,6 +69,9 @@
           <Item Value="LastUpdatedDate"/>
           <Item Value="ProcessName"/>
           <Item Value="SectionType"/>
+          <Item Value="OriginalBatchQty"/>
+          <Item Value="OriginalBatchTime"/>
+          <Item Value="OriginalSam"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

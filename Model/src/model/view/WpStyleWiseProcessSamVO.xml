@@ -35,6 +35,9 @@
        WpStyleWiseProcessSamEO.LAST_UPDATED_DATE,
        WpStyleWiseProcessSamEO.SAM_VERSION,
         WpStyleWiseProcessSamEO.SYSTEM_ID,
+      WpStyleWiseProcessSamEO.ORIGINAL_BATCH_TIME, 
+       WpStyleWiseProcessSamEO.ORIGINAL_BATCH_QTY, 
+       WpStyleWiseProcessSamEO.ORIGINAL_SAM, 
        (select wp.process_name from wp_process_info wp where wp.WP_PROCESS_ID = WpStyleWiseProcessSamEO.WP_PROCESS_ID ) PROCESS_NAME,
        
        (select si.section_type  from wp_section_info si, wp_process_info pi 
@@ -132,6 +135,24 @@ order by  WpStyleWiseProcessSamEO.PROCESS_SEQ]]>
     EntityAttrName="SystemId"
     EntityUsage="WpStyleWiseProcessSamEO"
     AliasName="SYSTEM_ID"/>
+  <ViewAttribute
+    Name="OriginalBatchTime"
+    PrecisionRule="true"
+    EntityAttrName="OriginalBatchTime"
+    EntityUsage="WpStyleWiseProcessSamEO"
+    AliasName="ORIGINAL_BATCH_TIME"/>
+  <ViewAttribute
+    Name="OriginalBatchQty"
+    PrecisionRule="true"
+    EntityAttrName="OriginalBatchQty"
+    EntityUsage="WpStyleWiseProcessSamEO"
+    AliasName="ORIGINAL_BATCH_QTY"/>
+  <ViewAttribute
+    Name="OriginalSam"
+    PrecisionRule="true"
+    EntityAttrName="OriginalSam"
+    EntityUsage="WpStyleWiseProcessSamEO"
+    AliasName="ORIGINAL_SAM"/>
   <ViewAttribute
     Name="ProcessName"
     IsPersistent="false"

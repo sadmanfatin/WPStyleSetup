@@ -167,6 +167,36 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
             }
         }
         ,
+        OriginalBatchQty {
+            public Object get(WpStyleWiseProcessSamEOImpl obj) {
+                return obj.getOriginalBatchQty();
+            }
+
+            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
+                obj.setOriginalBatchQty((Number)value);
+            }
+        }
+        ,
+        OriginalBatchTime {
+            public Object get(WpStyleWiseProcessSamEOImpl obj) {
+                return obj.getOriginalBatchTime();
+            }
+
+            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
+                obj.setOriginalBatchTime((Number)value);
+            }
+        }
+        ,
+        OriginalSam {
+            public Object get(WpStyleWiseProcessSamEOImpl obj) {
+                return obj.getOriginalSam();
+            }
+
+            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
+                obj.setOriginalSam((Number)value);
+            }
+        }
+        ,
         WpStyleSetupEO {
             public Object get(WpStyleWiseProcessSamEOImpl obj) {
                 return obj.getWpStyleSetupEO();
@@ -174,16 +204,6 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
 
             public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
                 obj.setWpStyleSetupEO((WpStyleSetupEOImpl)value);
-            }
-        }
-        ,
-        WpStyleSetupEO1 {
-            public Object get(WpStyleWiseProcessSamEOImpl obj) {
-                return obj.getWpStyleSetupEO1();
-            }
-
-            public void put(WpStyleWiseProcessSamEOImpl obj, Object value) {
-                obj.setWpStyleSetupEO1((WpStyleSetupEOImpl)value);
             }
         }
         ;
@@ -216,6 +236,8 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     }
 
 
+    public static final int WPSTYLESETUPEO1 = AttributesEnum.WpStyleSetupEO.index();
+
     public static final int SAMID = AttributesEnum.SamId.index();
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int WPPROCESSID = AttributesEnum.WpProcessId.index();
@@ -230,8 +252,10 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
+    public static final int ORIGINALBATCHQTY = AttributesEnum.OriginalBatchQty.index();
+    public static final int ORIGINALBATCHTIME = AttributesEnum.OriginalBatchTime.index();
+    public static final int ORIGINALSAM = AttributesEnum.OriginalSam.index();
     public static final int WPSTYLESETUPEO = AttributesEnum.WpStyleSetupEO.index();
-    public static final int WPSTYLESETUPEO1 = AttributesEnum.WpStyleSetupEO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -475,6 +499,54 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for OriginalBatchQty, using the alias name OriginalBatchQty.
+     * @return the OriginalBatchQty
+     */
+    public Number getOriginalBatchQty() {
+        return (Number)getAttributeInternal(ORIGINALBATCHQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OriginalBatchQty.
+     * @param value value to set the OriginalBatchQty
+     */
+    public void setOriginalBatchQty(Number value) {
+        setAttributeInternal(ORIGINALBATCHQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for OriginalBatchTime, using the alias name OriginalBatchTime.
+     * @return the OriginalBatchTime
+     */
+    public Number getOriginalBatchTime() {
+        return (Number)getAttributeInternal(ORIGINALBATCHTIME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OriginalBatchTime.
+     * @param value value to set the OriginalBatchTime
+     */
+    public void setOriginalBatchTime(Number value) {
+        setAttributeInternal(ORIGINALBATCHTIME, value);
+    }
+
+    /**
+     * Gets the attribute value for OriginalSam, using the alias name OriginalSam.
+     * @return the OriginalSam
+     */
+    public Number getOriginalSam() {
+        return (Number)getAttributeInternal(ORIGINALSAM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OriginalSam.
+     * @param value value to set the OriginalSam
+     */
+    public void setOriginalSam(Number value) {
+        setAttributeInternal(ORIGINALSAM, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -523,6 +595,15 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
 
 
     /**
+     * @param samId key constituent
+
+     * @return a Key object based on given key constituents.
+     */
+    public static Key createPrimaryKey(Number samId) {
+        return new Key(new Object[]{samId});
+    }
+
+    /**
      * @return the associated entity WpStyleSetupEOImpl.
      */
     public WpStyleSetupEOImpl getWpStyleSetupEO1() {
@@ -536,15 +617,6 @@ public class WpStyleWiseProcessSamEOImpl extends EntityImpl {
         setAttributeInternal(WPSTYLESETUPEO1, value);
     }
 
-
-    /**
-     * @param samId key constituent
-
-     * @return a Key object based on given key constituents.
-     */
-    public static Key createPrimaryKey(Number samId) {
-        return new Key(new Object[]{samId});
-    }
 
     /**
      * Add attribute defaulting logic in this method.
