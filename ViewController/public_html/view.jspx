@@ -746,7 +746,7 @@
                     </af:inputText>
                   </af:column>
                   <af:column headerText="Orig Batch Qty"
-                             id="c89" width="60" align="center"
+                             id="c92" width="60" align="center"
                          visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:outputText value="#{row.OriginalBatchQty}" id="ot33">
                       <af:convertNumber groupingUsed="false"
