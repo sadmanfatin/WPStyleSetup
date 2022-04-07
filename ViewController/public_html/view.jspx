@@ -730,7 +730,7 @@
                   </af:column>
                   <af:column headerText="Orig Batch Qty"
                              id="c89" width="60" align="center"
-                             visible="visible='#{bindings.OrgId.inputValue != &quot;344&quot;}'">
+                         visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:outputText value="#{row.OriginalBatchQty}" id="ot33">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.OriginalBatchQty.format}"/>
@@ -738,7 +738,7 @@
                   </af:column>
                   <af:column headerText="Orig Batch Time"
                              id="c90" width="60" align="center"
-                             visible="visible='#{bindings.OrgId.inputValue != &quot;344&quot;}'">
+                          visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:outputText value="#{row.OriginalBatchTime}" id="ot34">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.OriginalBatchTime.format}"/>
@@ -746,7 +746,7 @@
                   </af:column>
                   <af:column headerText="Orig Sam"
                              id="c91" width="60" align="center"
-                             visible="visible='#{bindings.OrgId.inputValue != &quot;344&quot;}'">
+                           visible='#{bindings.OrgId.inputValue != "344"}'>
                     <af:outputText value="#{row.OriginalSam}" id="ot35">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.OriginalSam.format}"/>
