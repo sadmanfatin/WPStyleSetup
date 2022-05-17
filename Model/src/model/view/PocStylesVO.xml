@@ -451,14 +451,14 @@
         ViewAttribute="BuyerName"
         Operator="="
         Conjunction="AND"
-        Required="Required"
+        Required="Optional"
         GenerateIsNullClauseForBindVars="false"/>
       <ViewCriteriaItem
         Name="Season"
         ViewAttribute="Season"
         Operator="="
         Conjunction="AND"
-        Required="Required"
+        Required="Optional"
         GenerateIsNullClauseForBindVars="false"/>
       <ViewCriteriaItem
         Name="Style"
