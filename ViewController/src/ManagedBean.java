@@ -41,6 +41,7 @@ import oracle.jbo.domain.Number;
 public class ManagedBean {
     private RichTable styleSetupTable;
     private RichTable processSamTable;
+    private RichTable populateStyleTable;
 
     public ManagedBean() {
     }
@@ -499,5 +500,18 @@ public class ManagedBean {
         }
     }
 
-    
+
+    public void populateStylePopupFetchListener(PopupFetchEvent popupFetchEvent) {
+        // Add event code here...
+        appM.getPocStylesVO1().executeQuery();
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPopulateStyleTable());
+    }
+
+    public void setPopulateStyleTable(RichTable populateStyleTable) {
+        this.populateStyleTable = populateStyleTable;
+    }
+
+    public RichTable getPopulateStyleTable() {
+        return populateStyleTable;
+    }
 }

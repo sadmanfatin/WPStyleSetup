@@ -56,7 +56,7 @@
                           selectionListener="#{bindings.WpStyleSetupVO1.collectionModel.makeCurrent}"
                           rowSelection="single" id="t1"
                           partialTriggers="::cb1 ::cb2"
-                          binding="#{ManagedBean.styleSetupTable}">
+                          binding="#{ManagedBean.styleSetupTable}" autoHeightRows="20">
                   <af:column sortProperty="StyleSetupId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.StyleSetupId.label}"
@@ -868,7 +868,8 @@
             </af:panelGroupLayout>
           </f:facet>
         </af:panelStretchLayout>
-        <af:popup id="p1" contentDelivery="lazyUncached">
+        <af:popup id="p1" contentDelivery="lazyUncached"
+                  popupFetchListener="#{ManagedBean.populateStylePopupFetchListener}">
           <af:dialog id="d2"
                      dialogListener="#{ManagedBean.populateStyleDialogueListener}" type="none">
             <af:panelHeader text="Populate Style" id="ph2"
@@ -896,7 +897,7 @@
                         selectedRowKeys="#{bindings.PocStylesVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PocStylesVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t5"
-                        styleClass="AFStretchWidth">
+                        styleClass="AFStretchWidth" autoHeightRows="20" binding="#{ManagedBean.populateStyleTable}">
                 <af:column headerText="Select"
                            id="c42" align="center" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
@@ -1041,7 +1042,8 @@
               </af:table>
             </af:panelHeader>
             <f:facet name="buttonBar">
-              <af:button text="OK" id="b1" actionListener="#{ManagedBean.populateStyleActionListener}"/>
+              <af:button text="OK" id="b1" actionListener="#{ManagedBean.populateStyleActionListener}"
+                         partialSubmit="false"/>
             </f:facet>
           </af:dialog>
         </af:popup>
