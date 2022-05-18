@@ -179,31 +179,19 @@
       APPS.WP_WASH_CATAGORY_F(WPSTYLESETUPEO.STYLE_SETUP_ID) WASH_CATAGORY
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
     
-    (   
-        SELECT PV.SYSTEM_ID,
-               PV.LC_UNIT,
-               PV.BUYER_ID,
-               PV.SEASON,
-               PV.STYLE,
-               PV.COLOR,
-               PV.WASH_NAME,
-               PV.STYLE_DESCRIPTION ITEM_DESCRIPTION,
-               PV.ORDER_QTY
-          FROM POC_SYSTEM_ID_VIEW PV  
+    (  SELECT 
+               SV.SYSTEM_ID,
+               SV.LC_UNIT,
+               SV.BUYER_ID,
+               SV.SEASON,
+               SV.STYLE,
+               SV.COLOR,
+               SV.WASH_NAME,
+               SV.ITEM_DESCRIPTION,
+               SV.ORDER_QTY        
+        FROM APPS.WP_STYLES_V SV
                  
-        UNION ALL
-       
-        SELECT WPS.SYSTEM_ID,
-               WPS.LC_UNIT,
-               WPS.BUYER_ID,
-               WPS.SEASON,
-               WPS.STYLE,
-               WPS.COLOR,
-               WPS.WASH,
-               'Projection Style' ITEM_DESCRIPTION,
-               WPS.ORDERED_QTY
-          FROM WP_PROJECTION_STYLE WPS               
-      ) STYLES  
+     ) STYLES  
      WHERE WPSTYLESETUPEO.SYSTEM_ID = STYLES.SYSTEM_ID]]>
   </SQLQuery>
   <EntityUsage
