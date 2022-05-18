@@ -73,6 +73,15 @@ public class ManagedBean {
         
         
     }
+    
+    public void populateStyleActionListener(ActionEvent e){
+        populateStyle();
+        
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getStyleSetupTable());
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getProcessSamTable());
+    }
+    
+    
 
     private void populateStyle() {
         

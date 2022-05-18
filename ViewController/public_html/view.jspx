@@ -870,7 +870,7 @@
         </af:panelStretchLayout>
         <af:popup id="p1" contentDelivery="lazyUncached">
           <af:dialog id="d2"
-                     dialogListener="#{ManagedBean.populateStyleDialogueListener}">
+                     dialogListener="#{ManagedBean.populateStyleDialogueListener}" type="none">
             <af:panelHeader text="Populate Style" id="ph2"
                             inlineStyle="width:1250.0px;">
               <f:facet name="context"/>
@@ -925,7 +925,7 @@
                 <af:column sortProperty="LcUnitName" filterable="true"
                            sortable="true"
                            headerText="Lc Unit Name"
-                           id="c24" align="center" width="120"
+                           id="c24" align="center" width="100"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.LcUnitName}" id="ot11"/>
                 </af:column>
@@ -941,7 +941,7 @@
                 <af:column sortProperty="ProductionUnitName" filterable="true"
                            sortable="true"
                            headerText="Production Unit Name"
-                           id="c31" align="center" width="120"
+                           id="c31" align="center" width="100"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.ProductionUnitName}" id="ot8"/>
                 </af:column>
@@ -957,7 +957,7 @@
                 <af:column sortProperty="BuyerName" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PocStylesVO1.hints.BuyerName.label}"
-                           id="c29" width="140" align="center"
+                           id="c29" width="120" align="center"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.BuyerName}" id="ot2"/>
                 </af:column>
@@ -1037,8 +1037,12 @@
                                       pattern="#{bindings.PocStylesVO1.hints.SamVersion.format}"/>
                   </af:outputText>
                 </af:column>
+                <f:facet name="footer"/>
               </af:table>
             </af:panelHeader>
+            <f:facet name="buttonBar">
+              <af:button text="OK" id="b1" actionListener="#{ManagedBean.populateStyleActionListener}"/>
+            </f:facet>
           </af:dialog>
         </af:popup>
         <af:popup id="p2" contentDelivery="lazyUncached">
