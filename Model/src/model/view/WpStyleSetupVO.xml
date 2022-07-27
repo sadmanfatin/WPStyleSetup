@@ -4,12 +4,11 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="WpStyleSetupVO"
-  Version="11.1.1.62.29"
+  Version="12.2.1.22.48"
   InheritPersonalization="true"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false"
   RowClass="model.view.WpStyleSetupVORowImpl"
   ComponentClass="model.view.WpStyleSetupVOImpl">
   <DesignTime>
@@ -27,10 +26,12 @@
     RowLevelBinds="true"/>
   <ViewAccessor
     Name="SeasonLOV1"
-    ViewObjectName="model.lov.SeasonLOV">
+    ViewObjectName="model.lov.SeasonLOV"
+    RowLevelBinds="true">
     <ParameterMap>
       <PIMap Variable="p_buyer_id">
-        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+        <TransientExpression
+          Name="BindVariable"><![CDATA[BuyerId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -41,7 +42,14 @@
   <ViewAccessor
     Name="WashTypeLOV1"
     ViewObjectName="model.lov.WashTypeLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="p_org_id">
+        <TransientExpression
+          Name="BindVariable"><![CDATA[OrgId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="ProductionUnitLOV1"
     ViewObjectName="model.lov.ProductionUnitLOV"
@@ -56,6 +64,7 @@
     <AttrArray Name="AttrNames">
       <Item Value="ProductionUnitName"/>
     </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="ProductionUnit"/>
     </AttrArray>
@@ -78,6 +87,7 @@
     <AttrArray Name="AttrNames">
       <Item Value="Fabrication"/>
     </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
       <Item Value="Fabrication"/>
     </AttrArray>
@@ -96,6 +106,7 @@
     <AttrArray Name="AttrNames">
       <Item Value="WashType"/>
     </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
       <Item Value="WashType"/>
     </AttrArray>
@@ -109,11 +120,11 @@
     ListVOName="BuyerLOV1"
     ListRangeSize="-1"
     NullValueFlag="none"
-    NullValueId="LOV_BuyerName_LOVUIHints_NullValueId"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="BuyerName"/>
     </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="BuyerId"/>
     </AttrArray>
@@ -136,6 +147,7 @@
     <AttrArray Name="AttrNames">
       <Item Value="Season"/>
     </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
       <Item Value="Season"/>
     </AttrArray>
@@ -174,31 +186,19 @@
       APPS.WP_WASH_CATAGORY_F(WPSTYLESETUPEO.STYLE_SETUP_ID) WASH_CATAGORY
     FROM WP_STYLE_SETUP   WPSTYLESETUPEO,
     
-    (   
-        SELECT PV.SYSTEM_ID,
-               PV.LC_UNIT,
-               PV.BUYER_ID,
-               PV.SEASON,
-               PV.STYLE,
-               PV.COLOR,
-               PV.WASH_NAME,
-               PV.STYLE_DESCRIPTION ITEM_DESCRIPTION,
-               PV.ORDER_QTY
-          FROM POC_SYSTEM_ID_VIEW PV  
+    (  SELECT 
+               SV.SYSTEM_ID,
+               SV.LC_UNIT,
+               SV.BUYER_ID,
+               SV.SEASON,
+               SV.STYLE,
+               SV.COLOR,
+               SV.WASH_NAME,
+               SV.ITEM_DESCRIPTION,
+               SV.ORDER_QTY        
+        FROM APPS.WP_STYLES_V SV
                  
-        UNION ALL
-       
-        SELECT WPS.SYSTEM_ID,
-               WPS.LC_UNIT,
-               WPS.BUYER_ID,
-               WPS.SEASON,
-               WPS.STYLE,
-               WPS.COLOR,
-               WPS.WASH,
-               'Projection Style' ITEM_DESCRIPTION,
-               WPS.ORDERED_QTY
-          FROM WP_PROJECTION_STYLE WPS               
-      ) STYLES  
+     ) STYLES  
      WHERE WPSTYLESETUPEO.SYSTEM_ID = STYLES.SYSTEM_ID]]>
   </SQLQuery>
   <EntityUsage
@@ -409,6 +409,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -478,6 +480,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -492,6 +496,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -525,6 +531,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="UpdatedVersionAvailavle"
@@ -535,13 +547,29 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="BIT">
-    <TransientExpression><![CDATA[AvailableSamVersion>SamVersion]]></TransientExpression>
+    <TransientExpression
+      Name="ExpressionScript"><![CDATA[AvailableSamVersion>SamVersion]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SeasonTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="WpStyleSetupVORow"/>
   </ViewAttribute>
   <ViewCriteria
     Name="WpStyleSetupVOCriteria"
     ViewObjectName="model.view.WpStyleSetupVO"
     Conjunction="AND">
-    <Properties>
+    <Properties Name="_Props">
       <CustomProperties>
         <Property
           Name="displayOperators"

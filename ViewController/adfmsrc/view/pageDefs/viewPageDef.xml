@@ -14,7 +14,7 @@
                   id="WpStyleWiseProcessSamVO1Query"/>
     <invokeAction Binds="setSessionValues" id="setSessionValue"
                   Refresh="always"/>
-    <iterator Binds="PocStylesVO1" RangeSize="100"
+    <iterator Binds="PocStylesVO1" RangeSize="25"
               DataControl="AppModuleDataControl" id="PocStylesVO1Iterator"/>
     <searchRegion Binds="PocStylesVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
@@ -69,6 +69,9 @@
           <Item Value="LastUpdatedDate"/>
           <Item Value="ProcessName"/>
           <Item Value="SectionType"/>
+          <Item Value="OriginalBatchQty"/>
+          <Item Value="OriginalBatchTime"/>
+          <Item Value="OriginalSam"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -161,6 +164,7 @@
           <Item Value="ProjectionStyle"/>
           <Item Value="ItemDescription"/>
           <Item Value="WashCatagory"/>
+          <Item Value="SeasonTrans"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

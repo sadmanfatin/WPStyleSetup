@@ -157,6 +157,36 @@ public class WpStyleWiseProcessSamVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        OriginalBatchTime {
+            public Object get(WpStyleWiseProcessSamVORowImpl obj) {
+                return obj.getOriginalBatchTime();
+            }
+
+            public void put(WpStyleWiseProcessSamVORowImpl obj, Object value) {
+                obj.setOriginalBatchTime((Number)value);
+            }
+        }
+        ,
+        OriginalBatchQty {
+            public Object get(WpStyleWiseProcessSamVORowImpl obj) {
+                return obj.getOriginalBatchQty();
+            }
+
+            public void put(WpStyleWiseProcessSamVORowImpl obj, Object value) {
+                obj.setOriginalBatchQty((Number)value);
+            }
+        }
+        ,
+        OriginalSam {
+            public Object get(WpStyleWiseProcessSamVORowImpl obj) {
+                return obj.getOriginalSam();
+            }
+
+            public void put(WpStyleWiseProcessSamVORowImpl obj, Object value) {
+                obj.setOriginalSam((Number)value);
+            }
+        }
+        ,
         ProcessName {
             public Object get(WpStyleWiseProcessSamVORowImpl obj) {
                 return obj.getProcessName();
@@ -220,6 +250,9 @@ public class WpStyleWiseProcessSamVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int SAMVERSION = AttributesEnum.SamVersion.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
+    public static final int ORIGINALBATCHTIME = AttributesEnum.OriginalBatchTime.index();
+    public static final int ORIGINALBATCHQTY = AttributesEnum.OriginalBatchQty.index();
+    public static final int ORIGINALSAM = AttributesEnum.OriginalSam.index();
     public static final int PROCESSNAME = AttributesEnum.ProcessName.index();
     public static final int SECTIONTYPE = AttributesEnum.SectionType.index();
 
@@ -459,6 +492,54 @@ public class WpStyleWiseProcessSamVORowImpl extends ViewRowImpl {
      */
     public void setSectionType(String value) {
         setAttributeInternal(SECTIONTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for ORIGINAL_BATCH_TIME using the alias name OriginalBatchTime.
+     * @return the ORIGINAL_BATCH_TIME
+     */
+    public Number getOriginalBatchTime() {
+        return (Number) getAttributeInternal(ORIGINALBATCHTIME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ORIGINAL_BATCH_TIME using the alias name OriginalBatchTime.
+     * @param value value to set the ORIGINAL_BATCH_TIME
+     */
+    public void setOriginalBatchTime(Number value) {
+        setAttributeInternal(ORIGINALBATCHTIME, value);
+    }
+
+    /**
+     * Gets the attribute value for ORIGINAL_BATCH_QTY using the alias name OriginalBatchQty.
+     * @return the ORIGINAL_BATCH_QTY
+     */
+    public Number getOriginalBatchQty() {
+        return (Number) getAttributeInternal(ORIGINALBATCHQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ORIGINAL_BATCH_QTY using the alias name OriginalBatchQty.
+     * @param value value to set the ORIGINAL_BATCH_QTY
+     */
+    public void setOriginalBatchQty(Number value) {
+        setAttributeInternal(ORIGINALBATCHQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for ORIGINAL_SAM using the alias name OriginalSam.
+     * @return the ORIGINAL_SAM
+     */
+    public Number getOriginalSam() {
+        return (Number) getAttributeInternal(ORIGINALSAM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ORIGINAL_SAM using the alias name OriginalSam.
+     * @param value value to set the ORIGINAL_SAM
+     */
+    public void setOriginalSam(Number value) {
+        setAttributeInternal(ORIGINALSAM, value);
     }
 
     /**

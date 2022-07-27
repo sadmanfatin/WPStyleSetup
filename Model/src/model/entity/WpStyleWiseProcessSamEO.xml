@@ -173,6 +173,39 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="OriginalBatchQty"
+    ColumnName="ORIGINAL_BATCH_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_WISE_PROCESS_SAM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OriginalBatchTime"
+    ColumnName="ORIGINAL_BATCH_TIME"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_WISE_PROCESS_SAM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OriginalSam"
+    ColumnName="ORIGINAL_SAM"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_STYLE_WISE_PROCESS_SAM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="WpStyleSetupEO"
     Association="model.entity.WpStyleWiseProcessSamR01Assoc"

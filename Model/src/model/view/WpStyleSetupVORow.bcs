@@ -1,0 +1,12 @@
+//Groovy Scripts for model.view.WpStyleSetupVO
+
+package model.view
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="SeasonTrans")
+def SeasonTrans_ExpressionScript_Expression()
+{
+Season
+}
+

@@ -56,7 +56,7 @@
                           selectionListener="#{bindings.WpStyleSetupVO1.collectionModel.makeCurrent}"
                           rowSelection="single" id="t1"
                           partialTriggers="::cb1 ::cb2"
-                          binding="#{ManagedBean.styleSetupTable}">
+                          binding="#{ManagedBean.styleSetupTable}" autoHeightRows="20">
                   <af:column sortProperty="StyleSetupId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.WpStyleSetupVO1.hints.StyleSetupId.label}"
@@ -169,6 +169,8 @@
                              headerText="#{bindings.WpStyleSetupVO1.hints.Season.label}"
                              id="c44" align="center"
                              filterFeatures="caseInsensitive" width="120"
+                             visible="false"
+                           
                              filterable="true">
                     <af:selectOneChoice value="#{row.bindings.Season.inputValue}"
                                         label="#{row.bindings.Season.label}"
@@ -179,6 +181,21 @@
                       <f:selectItems value="#{row.bindings.Season.items}"
                                      id="si5"/>
                     </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.label}" id="c89"
+                             sortProperty="SeasonTrans" sortable="true" filterable="true"
+                                filterFeatures="caseInsensitive" width="120"
+                                align = "center">
+                    <af:inputText value="#{row.bindings.SeasonTrans.inputValue}"
+                                  label="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.label}"
+                                  required="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.mandatory}"
+                                  columns="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.displayWidth}"
+                                  maximumLength="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.precision}"
+                                  shortDesc="#{bindings.WpStyleSetupVO1.hints.SeasonTrans.tooltip}" id="it60"
+                                 contentStyle="#{row.bindings.UpdatedVersionAvailavle.inputValue ?   'color:rgb(180,0,0)'  :  'color:Black' } ;"
+                                 readOnly="true">
+                      <f:validator binding="#{row.bindings.SeasonTrans.validator}"/>
+                    </af:inputText>
                   </af:column>
                   <af:column sortProperty="Style" filterable="true"
                              sortable="true"
@@ -728,6 +745,30 @@
                                         pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.Sam.format}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Orig Batch Qty"
+                             id="c92" width="60" align="center"
+                         visible='#{bindings.OrgId.inputValue != "344"}'>
+                    <af:outputText value="#{row.OriginalBatchQty}" id="ot33">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.OriginalBatchQty.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="Orig Batch Time"
+                             id="c90" width="60" align="center"
+                          visible='#{bindings.OrgId.inputValue != "344"}'>
+                    <af:outputText value="#{row.OriginalBatchTime}" id="ot34">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.OriginalBatchTime.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="Orig Sam"
+                             id="c91" width="60" align="center"
+                           visible='#{bindings.OrgId.inputValue != "344"}'>
+                    <af:outputText value="#{row.OriginalSam}" id="ot35">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.WpStyleWiseProcessSamVO1.hints.OriginalSam.format}"/>
+                    </af:outputText>
+                  </af:column>
                   <af:column id="c51" align="center"
                              filterFeatures="caseInsensitive" width="60">
                     <af:commandButton actionListener="#{bindings.Delete1.execute}"
@@ -827,9 +868,10 @@
             </af:panelGroupLayout>
           </f:facet>
         </af:panelStretchLayout>
-        <af:popup id="p1" contentDelivery="lazyUncached">
+        <af:popup id="p1" contentDelivery="lazyUncached"
+                  popupFetchListener="#{ManagedBean.populateStylePopupFetchListener}">
           <af:dialog id="d2"
-                     dialogListener="#{ManagedBean.populateStyleDialogueListener}">
+                     dialogListener="#{ManagedBean.populateStyleDialogueListener}" type="none">
             <af:panelHeader text="Populate Style" id="ph2"
                             inlineStyle="width:1250.0px;">
               <f:facet name="context"/>
@@ -855,7 +897,7 @@
                         selectedRowKeys="#{bindings.PocStylesVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PocStylesVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t5"
-                        styleClass="AFStretchWidth">
+                        styleClass="AFStretchWidth" autoHeightRows="20" binding="#{ManagedBean.populateStyleTable}">
                 <af:column headerText="Select"
                            id="c42" align="center" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
@@ -884,7 +926,7 @@
                 <af:column sortProperty="LcUnitName" filterable="true"
                            sortable="true"
                            headerText="Lc Unit Name"
-                           id="c24" align="center" width="120"
+                           id="c24" align="center" width="100"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.LcUnitName}" id="ot11"/>
                 </af:column>
@@ -900,7 +942,7 @@
                 <af:column sortProperty="ProductionUnitName" filterable="true"
                            sortable="true"
                            headerText="Production Unit Name"
-                           id="c31" align="center" width="120"
+                           id="c31" align="center" width="100"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.ProductionUnitName}" id="ot8"/>
                 </af:column>
@@ -916,7 +958,7 @@
                 <af:column sortProperty="BuyerName" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PocStylesVO1.hints.BuyerName.label}"
-                           id="c29" width="140" align="center"
+                           id="c29" width="120" align="center"
                            filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.BuyerName}" id="ot2"/>
                 </af:column>
@@ -996,8 +1038,13 @@
                                       pattern="#{bindings.PocStylesVO1.hints.SamVersion.format}"/>
                   </af:outputText>
                 </af:column>
+                <f:facet name="footer"/>
               </af:table>
             </af:panelHeader>
+            <f:facet name="buttonBar">
+              <af:button text="OK" id="b1" actionListener="#{ManagedBean.populateStyleActionListener}"
+                         partialSubmit="false"/>
+            </f:facet>
           </af:dialog>
         </af:popup>
         <af:popup id="p2" contentDelivery="lazyUncached">
